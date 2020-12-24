@@ -240,12 +240,13 @@
          }
          .logo{
             height:auto;
-            width:4rem;
+            width:3rem;
 
          }
     
      
           ul{
+              z-index:99;
              position:absolute;
              background-color:#FF9F7C;
              color:white;
