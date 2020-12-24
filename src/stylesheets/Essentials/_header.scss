@@ -1,0 +1,322 @@
+@import './variables';
+
+.header{
+    width:100%;
+    max-width:100%;
+  
+}
+
+.menu{
+  
+   position:fixed;
+   display:flex;
+   flex-flow:row nowrap;
+   align-items: flex-start;
+   padding:2rem 5vw;
+   width:100%;
+
+
+    .logo{
+        height:auto;
+        width:4rem;
+    }
+    
+    .title,ul{
+        color:white;
+        font-weight: 200;
+
+    }
+
+    .title{
+        white-space: nowrap;
+        font-size:1.2rem;
+        padding-left:1rem;
+        font-family:$questrial;
+        font-style: normal;
+
+
+
+
+    }
+
+    span{
+        font-size:5rem;
+    }
+
+    ul{
+        font-size:1.2rem;
+        font-family:$avenir;
+
+        list-style: none;
+        display:flex;
+        flex-flow:row nowrap;
+        justify-content: space-between;
+        width: 40vw; 
+        padding:0rem 5rem 0rem 30vw;      
+
+    }
+
+    ul li{
+        text-decoration: none;
+
+
+    }
+
+    .mobile-menu{
+      
+        display:none;
+        color:#FF9075;
+        position:absolute;
+        padding-top:0.5rem;
+        font-size:2rem;
+        cursor:pointer;
+        
+        
+   
+
+    }
+    .cancel-mobile{
+        display:none;
+    }
+
+    .mobile-menu-circle{
+        display:none;
+    }
+}
+
+
+@media only screen and (min-width: $big-screen) {
+
+
+    .menu{
+  
+        
+        padding:3rem 8rem;
+
+         .title{
+             font-size:1.5vw;
+             padding-left:1rem;
+             margin-top:-1rem;
+           
+     
+         }
+         .logo{
+            height:auto;
+            width:6rem;
+
+         }
+    
+     
+         ul{
+             font-size:1.5rem;     
+             width: 35%; 
+             padding:0rem 5rem 0rem 35rem;      
+     
+         }
+    
+     }
+
+
+
+}
+
+
+
+
+
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+
+    
+
+    .menu{
+        width:100%;
+        padding:4vw 5vw;
+
+         .title{
+             font-size:1.5rem;
+             padding-left:1rem;
+           
+     
+         }
+         .logo{
+            height:auto;
+            width:5rem;
+
+         }
+    
+     
+         ul{
+             position:absolute;
+             background-color:#FF9075;
+             color:white;
+             flex-flow:column nowrap;
+             font-family:$questrial;
+             font-size:3rem;  
+             right:10vw;
+             top:0;
+             height:100vh;
+             width:45vw;
+             margin:0;  
+             padding-top:10vw;
+             padding:0rem 0rem 0rem 0rem;   
+             display:none;
+             
+             li{
+                 padding-left:5rem;
+                 padding-bottom:1rem;
+             }
+
+             .first{
+                padding-top:12rem;
+
+             }
+             .mobile-menu-circle{
+              display:block;
+              position:absolute;
+              z-index:-1;
+                            
+
+             }
+
+             .circle-1{
+                 height:15rem;
+                width:15rem;
+                right:2rem;
+                 top:7rem;
+             }
+             .circle-5{
+                 height:10rem;
+                 width:10rem;
+                 right:10rem;
+                 top:27rem;
+             }
+              
+
+         
+
+         }
+
+
+         .mobile-menu{
+             display:block;
+             font-size:3rem;
+             right:15vw;
+
+         }
+
+         .cancel-mobile{
+             display:block;
+             position:absolute;
+             top:0;
+             right:10vw;
+             padding-top:2rem;
+             padding-bottom:5rem;
+             padding-left:2rem;
+
+             font-size:4rem;
+             font-family: $questrial;
+             cursor:pointer;
+         }
+
+         
+    
+     }
+
+
+
+}
+
+@media only screen and (max-width:$phone){
+
+    .menu{
+        width:85%;
+        padding:4vw 5vw;
+
+         .title{
+             font-size:1.2rem;
+             padding-left:1rem;
+           
+     
+         }
+         .logo{
+            height:auto;
+            width:4rem;
+
+         }
+    
+     
+          ul{
+             position:absolute;
+             background-color:#FF9F7C;
+             color:white;
+             flex-flow:column nowrap;
+             font-family:$questrial;
+             font-size:2rem;  
+             right:-5vw;
+             top:0;
+             height:100vh;
+             width:55vw;
+             margin:0;  
+             padding:0rem 0rem 0rem 0rem;   
+             display:none;
+             
+             li{
+                 padding-left:2rem;
+                 padding-bottom:1rem;
+             }
+
+             .first{
+                padding-top:10rem;
+
+             }
+             .mobile-menu-circle{
+              display:block;
+              position:absolute;
+              z-index:-1;
+              right:15vw;
+              
+
+             }
+
+             .circle-1{
+                 height:10rem;
+                 width:10rem;
+                 top:6rem;
+                 right:2rem;
+             }
+             .circle-5{
+                 height:5rem;
+                 width:5rem;
+                 right:7rem;
+                 top:21rem;
+             }
+              
+
+         
+
+         }
+
+
+         .mobile-menu{
+             display:block;
+             font-size:2rem;
+             right:5vw;
+
+         }
+
+         .cancel-mobile{
+             display:block;
+             position:absolute;
+             top:1rem;
+             right:2rem;
+
+             font-size:3rem;
+             font-family: $avenir;
+             cursor:pointer;
+         }
+
+         
+    
+     }
+}
+
