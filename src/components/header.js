@@ -81,7 +81,6 @@ class Header extends React.Component {
                       start:'top top',
                       end: "+=2300", // end after scrolling 200px beyond the start
                       toggleActions: "play reset play reverse",
-                      markers:true,
                     }, 
                   });
 
