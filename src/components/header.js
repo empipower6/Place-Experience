@@ -1,10 +1,11 @@
-import React from "react"
+import React, {createRef} from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 import { gsap } from "gsap/dist/gsap";
 import {Helmet} from "react-helmet";
 
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 
 
@@ -14,8 +15,16 @@ class Header extends React.Component {
     constructor(props) {
       super(props)
       gsap.registerPlugin(ScrollTrigger); 
+      gsap.registerPlugin(ScrollToPlugin);
+      
+      this.activateScrollTo= this.activateScrollTo.bind(this);
 
       this.state={imageSwitcher:this.props.logo};
+
+      this.about = React.createRef();
+      this.services = React.createRef();
+
+
     }
     
 
@@ -56,8 +65,72 @@ class Header extends React.Component {
             gsap.fromTo(".menu ul",{display:'block',opacity:1,x:0},{display:'none',opacity:0,x:200,duration:0.5});
             
         })
+        
+
+        //Making sure the menu has a background when we're on the white background section
+        ScrollTrigger.matchMedia({
+        
+            // desktop
+            "(min-width: 980px)": function() {
+
+                gsap.to(".menu", {
+                    backgroundColor:"#2A4889",
+                    opacity:1,
+                    scrollTrigger: {
+                      trigger: ".about .aboutIntro", 
+                      start:'top top',
+                      end: "+=2300", // end after scrolling 200px beyond the start
+                      toggleActions: "play reset play reverse",
+                      markers:true,
+                    }, 
+                  });
+
+                 
+
+                
+
+
+            },
+            "(min-width: 1640px)": function() {
+
+                gsap.to(".menu", {
+                    backgroundColor:"#2A4889",
+                    opacity:1,
+                    scrollTrigger: {
+                      trigger: ".about .aboutIntro", 
+                      start:'top top',
+                      end: "+=2700", // end after scrolling 200px beyond the start
+                      toggleActions: "play reset play reverse",
+
+                    }, 
+                  });
+
+                
+
+
+            },
+            
+
+        
+        });
+        
+        
+        this.activateScrollTo();
+       
       
-      
+    }
+
+    activateScrollTo(){
+        //About Scroll To
+        this.about.addEventListener('click',()=>{
+            gsap.to(window,{duration: 1,scrollTo:{y: ".about", offsetY: 200}})
+        });
+
+        this.services.addEventListener('click',()=>{
+            gsap.to(window,{duration: 1,scrollTo:{y: ".servicesIntro", offsetY: 0}})
+        });
+     
+     
     }
     
     render(){
@@ -74,38 +147,35 @@ class Header extends React.Component {
 
 
                 <div className="menu">
-                <div className="logo">
-                    <Link to="/">
-                        <Img className ="logoImage" fluid = {this.state.imageSwitcher} alt="Header Menu Logo" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
-                    </Link>
+                    <div className="logo">
+                        <Link to="/">
+                            <Img className ="logoImage" fluid = {this.state.imageSwitcher} alt="Header Menu Logo" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
+                        </Link>
+                    </div>
+                    <div className="title">
+                        <p> | Place Experience</p>
+                    </div>
+                    <i className="fas fa-bars mobile-menu">
+
+                    </i>
+
+                    <ul>
+                        <li className="cancel-mobile"> X </li>
+                        <li className="first" ref={li => this.about = li}>  About </li>
+                        <div className="mobile-menu-circle circle-1">
+                            <Img fluid={this.props.circle} alt="Decorative blue circles for the mobile menu" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/></div>
+                        <li ref={li => this.services = li}>Services</li>
+                        <li>Stories</li>
+                        <li>Team</li>
+                        <li>Insights</li>
+
+                        <div className="mobile-menu-circle circle-5">
+                            <Img fluid={this.props.circle} alt="Decorative blue circles for the mobile menu" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/></div>
+                        
+
+                    </ul>
+
                 </div>
-                <div className="title">
-                    <p> | Place Experience</p>
-                </div>
-                <i class="fas fa-bars mobile-menu">
-
-                </i>
-
-                <ul>
-                    <li className="cancel-mobile"> X </li>
-                    <li className="first">About
-                    <div className="mobile-menu-circle circle-1"><Img fluid={this.props.circle} alt="Decorative blue circles for the mobile menu" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/></div>
-                    </li>
-                    <li>Services</li>
-                    <li>Stories</li>
-                    <li>Team</li>
-                    <li>                    
-                    <div className="mobile-menu-circle circle-5"><Img fluid={this.props.circle} alt="Decorative blue circles for the mobile menu" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/></div>
-                    Insights</li>
-
-                </ul>
-
-    
-    
-    
-    
-    
-    </div>
     
     
     

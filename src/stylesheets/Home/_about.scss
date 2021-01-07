@@ -1,0 +1,466 @@
+@import '../Essentials/variables';
+
+
+.about{
+    text-align:center;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(70,102,172,1) 51%, rgba(255,255,255,1) 100%); 
+    background-color:black;
+    color:white;
+    margin-top:-2rem;
+
+
+       h1{
+           font-family:$avenir;
+       }
+
+       .titleOutline1{
+          position:absolute;
+          left:42%;
+          margin-top:-2rem;
+          height:auto;
+          width:15rem;
+       }
+      
+        .aboutIntro{
+            padding:10rem 28rem;
+            font-family:$avenir;
+            font-size:$base-font-size;
+            text-align:left;
+            font-weight:300;
+            color:#101010;
+
+        }
+
+        .square,.rectangle,.triangle{
+            position:absolute;
+            
+        }
+
+        .square{
+            height:auto;
+            width:10rem;
+            opacity:0.5;
+            left:3%;
+            margin-top:10rem;
+            transform:rotateZ(45deg);
+
+        }
+
+        .rectangle{
+            right:10%;
+            height:auto;
+            width:10rem;
+            opacity:0.5;
+            transform:rotateZ(90deg);
+            margin-top:0rem;
+
+            
+
+        }
+
+        .triangle{
+            left:10%;
+            height:auto;
+            width:10rem;
+            opacity:0.8;
+            transform:rotateZ(45deg);
+            margin-top:15rem;
+
+            
+
+        }
+
+
+        .mapSection{
+
+            display:flex;
+            flex-flow:row nowrap;
+            padding:5rem 0rem 5rem 5rem;
+            justify-content: space-around;
+            align-items:center;
+            
+            .map{
+                
+                height:auto;
+                width:50rem;
+                z-index:0;
+            }
+
+            .mapText{
+                width:30%;
+                font-family:$avenir;
+                line-height:2rem;
+                font-weight:100;
+                font-size:$base-font-size;
+                text-align:left;
+
+                b{
+                    font-weight:800;
+                }
+
+            }
+
+
+        }
+
+        
+
+}
+
+.examples {
+
+    text-align:center;
+    background-color:white;
+
+    .intro{
+
+        font-family:$futura;
+        font-size:$base-font-size;
+        font-weight:400;
+        padding:2rem 25rem;
+
+    }
+
+    .block{
+        display:flex;
+        flex-flow:row nowrap;
+        padding:5rem 15rem;
+
+        .illustration{
+            width:100rem;
+            height:auto;
+        }
+
+        .desc{
+            font-family:$avenir;
+            font-size:$base-font-size;
+            font-weight:200;
+            text-align:left;
+            padding-left:5rem;
+        }
+        b{
+            font-weight:800;
+        }
+    }
+
+    .block-2{
+        padding-left:20rem;      
+        
+        .illustration{
+            width:120rem;
+        }
+    }
+
+    .r{
+        position:absolute;
+        z-index:0;
+        opacity:1;
+        height:auto;
+        width:10rem;
+        right:15rem;
+        margin-top:-10rem;
+        filter: brightness(50%);
+    }
+    .rectangle{
+        position:absolute;
+        height:auto;
+        width:10rem;
+        right:15rem;
+        margin-top:-5rem;
+        transform: rotateZ(230deg);
+
+        
+    }
+    .square{
+        position:absolute;
+        height:auto;
+        width:10rem;
+        left:15rem;
+        transform:rotateZ(45deg);
+        margin-top:-5rem;
+        filter: brightness(50%);
+
+        
+    }
+}
+
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+
+
+
+    .about{
+        padding-top:10rem;
+    
+    
+    
+           .titleOutline1{
+              left:35%;
+              margin-top:-1rem;
+              height:auto;
+              width:15rem;
+           }
+          
+            .aboutIntro{
+                padding:5rem 10rem;
+                font-family:$avenir;
+                font-size:$tablet-font-size;
+                text-align:left;
+                font-weight:300;
+                color:#101010;
+
+            }
+                
+           
+    
+            .square{
+                width:8rem;
+                opacity:0.5;
+                left:5%;
+                margin-top:10rem;
+                transform:rotateZ(-45deg);
+    
+            }
+    
+            .rectangle{
+                width:8rem;
+                opacity:1;
+                transform:rotateZ(0deg);
+                margin-top:0rem;
+    
+                
+    
+            }
+    
+            .triangle{
+                left:5%;
+                width:7rem;
+                opacity:1;
+                transform:rotateZ(180deg);
+                margin-top:20rem;
+    
+                
+    
+            }
+    
+    
+            .mapSection{
+    
+                display:flex;
+                flex-flow:column nowrap;
+                justify-content: center;
+                
+                .map{
+                    
+                    height:auto;
+                    width:30rem;
+                    z-index:0;
+                }
+    
+                .mapText{
+                    width:90%;
+                    line-height:2rem;
+                    font-size:$tablet-font-size;
+                    padding:0;
+    
+                    b{
+                        font-weight:800;
+                    }
+    
+                }
+    
+    
+            }
+    
+            
+    
+    }
+
+    .examples {
+
+ 
+    
+        .intro{
+
+            font-size:$tablet-font-size;
+            padding:2rem 10rem;
+    
+        }
+    
+        .block{
+            display:flex;
+            flex-flow:row nowrap;
+            align-items:center;
+            padding:2rem 2rem;
+    
+            .illustration{
+                width:120rem;
+                height:auto;
+            }
+    
+            .desc{
+                font-size:$tablet-font-size;
+                padding-left:1rem;
+            }
+            b{
+                font-weight:800;
+            }
+        }
+    
+        .block-2{
+    
+            padding-left:0rem;      
+            
+        
+        }
+    
+        .r{
+           display:none;
+        }
+        .rectangle{
+          display:none;
+            
+        }
+        .square{
+           display:none;
+        }
+    }
+    
+    
+
+
+
+
+}
+
+
+@media only screen and (max-width:$phone){
+
+
+
+    .about{
+        padding-top:0rem;
+    
+    
+    
+           .titleOutline1{
+              left:15%;
+              margin-top:-2rem;
+              width:15rem;
+           }
+          
+            .aboutIntro{
+                padding:5rem 3rem;
+                font-size:$phone-font-size;
+
+            }
+                
+           
+    
+            .square{
+                width:5rem;
+                opacity:0.3;
+                left:5%;
+                margin-top:2rem;
+                transform:rotateZ(-30deg);
+    
+            }
+    
+            .rectangle{
+                opacity:0.3;
+                width:6rem;
+                transform:rotateZ(0deg);           
+    
+            }
+    
+            .triangle{
+                display:none;
+    
+            }
+    
+    
+            .mapSection{
+    
+                display:flex;
+                flex-flow:column nowrap;
+                justify-content: center;
+                padding:1rem 3rem;
+                
+                .map{
+                    
+                    width:20rem;
+                    z-index:0;
+                }
+    
+                .mapText{
+                    width:100%;
+                    line-height:2rem;
+                    font-size:$phone-font-size;
+                    padding:0;
+    
+    
+                }
+    
+    
+            }
+    
+            
+    
+    }
+
+    .examples {
+
+ 
+    
+        .intro{
+
+            font-size:$phone-font-size;
+            padding:2rem 3rem;
+    
+        }
+    
+        .block{
+            display:flex;
+            flex-flow:column nowrap;
+            align-items:center;
+            padding:2rem 1rem;
+    
+            .illustration{
+                width:20rem;
+                height:auto;
+            }
+    
+            .desc{
+                font-size:$phone-font-size;
+                padding-left:0rem;
+                text-align:center;
+            }
+            b{
+                font-weight:800;
+            }
+        }
+    
+        .block-2{
+    
+            padding-left:0rem;      
+            
+        
+        }
+    
+        .r{
+           display:none;
+        }
+        .rectangle{
+          display:none;
+            
+        }
+        .square{
+           display:none;
+        }
+    }
+    
+    
+
+
+
+
+}

@@ -1,3 +1,13 @@
+if(process.env.NODE_ENV == 'development'){
+
+      require("dotenv").config({
+        path: `.env`,
+      })
+}
+
+
+
+
 module.exports = {
   siteMetadata: {
     title: "Place Experience",
@@ -21,5 +31,12 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+    resolve: `gatsby-source-contentful`,
+    options: {
+      spaceId: `3s9rlh9hyulv`,
+      accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
+    },
+  },
   ],
 };
