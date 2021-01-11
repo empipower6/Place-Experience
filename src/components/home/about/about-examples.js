@@ -1,10 +1,9 @@
 import React, { useEffect,useRef } from 'react'
 import Img from "gatsby-image"
-import { BLOCKS } from '@contentful/rich-text-types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { gsap } from "gsap/dist/gsap";
 
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+import { gsap } from "gsap/dist/gsap";
 
 
 const AboutExamples = ({illustrations, descriptions, r, square ,rectangle}) =>{
@@ -15,17 +14,14 @@ const AboutExamples = ({illustrations, descriptions, r, square ,rectangle}) =>{
 
 
   const options = {
-        renderNode: {
-          [BLOCKS.PARAGRAPH]: (node, next) => `<p>${next(node.content).replace(/\n/g, '<br/>')}</p>`,  },
-  }
+    renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, 
+    text])
+   }
 
 
   useEffect(()=>{
 
-      document.querySelector('.examples .block-1 .desc').innerHTML += documentToHtmlString(JSON.parse(descriptions.designThinking.raw),options);
-      document.querySelector('.examples .block-2 .desc').innerHTML += documentToHtmlString(JSON.parse(descriptions.analytics.raw),options);
-      document.querySelector('.examples .block-3 .desc').innerHTML += documentToHtmlString(JSON.parse(descriptions.allInOne.raw),options);
-
+    
       gsap.to(squ.current, {
         y: -100,
         scrollTrigger: {
@@ -61,7 +57,7 @@ const AboutExamples = ({illustrations, descriptions, r, square ,rectangle}) =>{
 
                     
                 </div>
-                <div className="desc"></div>
+                <div className="desc">{documentToReactComponents(JSON.parse(descriptions.designThinking.raw),options)}</div>
             </div>
 
             <div className="r" ref={rShape}>
@@ -74,7 +70,7 @@ const AboutExamples = ({illustrations, descriptions, r, square ,rectangle}) =>{
                 <Img  fluid = {illustrations.image[1].fluid} alt="Analytics Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
 
                 </div>
-                <div className="desc"></div>
+                <div className="desc">{documentToReactComponents(JSON.parse(descriptions.analytics.raw),options)}</div>
             </div>
 
             <div className="square" ref={squ}>
@@ -86,7 +82,7 @@ const AboutExamples = ({illustrations, descriptions, r, square ,rectangle}) =>{
                 <div className="illustration">
                   <Img  fluid = {illustrations.image[2].fluid} alt="All In One Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />             
                 </div>
-                <div className="desc"></div>
+                <div className="desc">{documentToReactComponents(JSON.parse(descriptions.allInOne.raw),options)}</div>
             </div>
 
            

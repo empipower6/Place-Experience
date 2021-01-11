@@ -10,15 +10,16 @@
 
 
        h1{
-           font-family:$avenir;
+        font-size:3vw;
+        font-family:$avenir;
        }
 
        .titleOutline1{
           position:absolute;
-          left:42%;
-          margin-top:-2rem;
+          left:38%;
+          margin-top:-3rem;
           height:auto;
-          width:15rem;
+          width:20rem;
        }
       
         .aboutIntro{
@@ -108,7 +109,7 @@
 }
 
 .examples {
-
+    margin-top:-2rem;
     text-align:center;
     background-color:white;
 
@@ -165,9 +166,9 @@
         position:absolute;
         height:auto;
         width:10rem;
-        right:15rem;
-        margin-top:-5rem;
-        transform: rotateZ(230deg);
+        left:5rem;
+        margin-top:0rem;
+        transform: rotateZ(180deg);
 
         
     }
@@ -184,6 +185,22 @@
     }
 }
 
+@media only screen and (min-width: $big-screen) {
+
+    .about {
+        h1{
+            padding-top:10rem;
+        }
+
+        .titleOutline1{
+            left:43%;
+            margin-top:6.5vw;
+            height:auto;
+            width:15rem;
+         }
+    }
+}
+
 @media only screen and (max-width:$tablet) and (min-width:$phone){
 
 
@@ -192,10 +209,12 @@
         padding-top:10rem;
     
     
-    
+            h1{
+                font-size:5vw;
+            }
            .titleOutline1{
               left:35%;
-              margin-top:-1rem;
+              margin-top:0rem;
               height:auto;
               width:15rem;
            }
@@ -340,7 +359,9 @@
     .about{
         padding-top:0rem;
     
-    
+            h1{
+                font-size:7vw;
+            }
     
            .titleOutline1{
               left:15%;
@@ -368,6 +389,7 @@
             .rectangle{
                 opacity:0.3;
                 width:6rem;
+                padding-top:5vw;
                 transform:rotateZ(0deg);           
     
             }
@@ -387,7 +409,7 @@
                 
                 .map{
                     
-                    width:20rem;
+                    width:22rem;
                     z-index:0;
                 }
     

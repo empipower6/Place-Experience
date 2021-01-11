@@ -2,7 +2,7 @@ import React,{ useEffect, useRef } from 'react'
 import Img from "gatsby-image"
 import { gsap } from "gsap/dist/gsap";
 
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 
 
 const AboutIntro = ({sectionName, introText, map, mapText,outline,square,triangle,rectangle}) =>{
@@ -11,12 +11,11 @@ const AboutIntro = ({sectionName, introText, map, mapText,outline,square,triangl
      const squ = useRef();
      const rect = useRef();
 
+    
       
       useEffect(()=>{
 
-         document.querySelector('.about .introText').innerHTML += introText;
-         document.querySelector('.about .mapSection .mapText').innerHTML += mapText;
-
+     
          gsap.to(squ.current, {
           y: -100,
           scrollTrigger: {
@@ -58,7 +57,7 @@ const AboutIntro = ({sectionName, introText, map, mapText,outline,square,triangl
           </div>
 
           <div className="mapSection">
-              <p className="mapText"></p>
+              <p className="mapText">{mapText}</p>
             
               <div className="map">
                   <Img  fluid = {map} alt="Map Image" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
@@ -75,7 +74,7 @@ const AboutIntro = ({sectionName, introText, map, mapText,outline,square,triangl
               
               <div className="aboutIntro">
 
-                <p className="introText"></p>
+                <p className="introText">{introText}</p>
 
               </div>
 

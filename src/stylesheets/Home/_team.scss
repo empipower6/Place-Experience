@@ -1,0 +1,24 @@
+.team-section{
+    height:50rem;
+    color:white;
+    text-align:center;
+
+
+    h1{
+        font-size:3vw;
+        font-family:$avenir;
+        padding-top:5vw;
+        font-weight:800;
+    }
+}
+
+
+
+@media only screen and (min-width: $big-screen) {
+}
+
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+}
+
+@media only screen and (max-width:$phone){
+}

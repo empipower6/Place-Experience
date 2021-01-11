@@ -13,12 +13,12 @@ module.exports = {
     title: "Place Experience",
   },
   plugins: [
-    {
-      resolve: "gatsby-source-wordpress-experimental",
-      options: {
-        url: "https://mis-resources.com/graphql",
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-wordpress-experimental",
+    //   options: {
+    //     url: "https://mis-resources.com/graphql",
+    //   },
+    // },
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",

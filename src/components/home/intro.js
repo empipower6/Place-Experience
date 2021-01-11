@@ -1,4 +1,4 @@
-import React,{ useEffect } from "react"
+import React from "react"
 import Img from "gatsby-image"
 
 
@@ -6,12 +6,6 @@ import Img from "gatsby-image"
 
 const Intro = ({triangle,square,r,rectangle}) => {
   
-  useEffect(() => {
-
-  
-    
-    
-  }, [])
 
 
   return (

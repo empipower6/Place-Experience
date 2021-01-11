@@ -1,0 +1,492 @@
+@import '../Essentials/variables';
+
+
+.story{
+   padding:10rem 5rem;   
+   color:white;
+
+   h1{
+       font-family:$futura;
+       font-weight:500;
+
+   }
+
+   .story-title{
+
+    font-family:$avenir;
+    font-weight:500;
+    font-size:2.5vw;
+
+   }
+   .story-title-explanation{
+    font-family:$questrial;
+    font-weight:100;
+    font-size:$base-font-size;
+    padding-bottom:4rem;
+
+   }
+
+   .outcomes,.challenge,.solution{
+
+    font-family:$avenir;
+    font-weight:100;
+    font-size:$base-font-size;
+   
+   }
+
+   b{
+       font-weight:1000;
+   }
+}
+
+.stories-section{
+
+    background-color: #FFFDFD;
+    text-align:center;
+    padding:5rem 5rem;
+
+
+        .stories-section-title{
+
+            font-family:$avenir;
+            font-size:3vw;
+            color:#373737;
+            padding-bottom:5rem;
+
+        }
+        .stories-title-outline{
+            width:15vw;
+            height:auto;
+            margin-left:37vw;
+            margin-top:-15vw;
+            position:absolute;
+        }
+        .stories-section-desc{
+
+            font-family:$questrial;
+            font-size:$base-font-size;
+            color:#373737;
+            padding-bottom:5rem;
+
+
+        }
+
+        .stories-triangle
+        {
+            width:10rem;
+            height:auto;
+            position:absolute;
+            left:0;
+            margin-left:2rem;
+        }
+
+        .stories-rectangle
+        {
+            width:8rem;
+            height:auto;
+            position:absolute;
+            left:85vw;
+            margin-top:15rem;
+            transform:rotate(45deg);
+            filter:brightness(70%);
+
+        }
+        
+
+        .stories-square
+        {
+            width:10rem;
+            height:auto;
+            position:absolute;
+            left:0;
+            margin-top:60rem;
+            transform:rotate(80deg);
+            filter:brightness(80%);
+        }
+       
+
+
+        .stories-flex{
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:space-around;
+            color:#373737;
+            text-decoration:none;
+
+
+           
+
+            .story-box{
+                width:45%;
+                text-align:center;
+                padding-bottom:5rem;
+                z-index:1;
+                position:relative;
+
+                &:hover .story-image{
+                    transform:scale(1.1);
+                }
+
+            }
+
+            .story-box-title{
+
+                font-family:$avenir;
+                font-weight:100;
+                font-size:2vw;
+                color:#373737;
+            }
+
+            .story-image{
+                text-align:center;
+                width: 20rem;
+                height:20rem;
+                transition:all 0.5s;
+
+
+                
+            }
+
+            .story-stroke{
+                width:22rem;
+                height:auto;
+                position:absolute;
+                left:0;
+                z-index:0;
+
+                
+            
+            }
+
+            .circle-right{
+                
+                margin-left:9rem;
+
+            }
+
+            .circle-left{
+                margin-left:4rem;
+
+            }
+        }
+}
+@media only screen and (min-width: $big-screen) {
+    .story{
+        padding:15rem 5rem;   
+     
+    }
+
+    .stories-section{
+
+
+            .stories-title-outline{
+                width:17rem;
+                margin-left:46rem;
+                margin-top:-16rem;
+                
+            }
+
+            .stories-triangle
+            {
+                width:13rem;
+                
+                margin-top:5vw;
+                margin-left:5vw;
+            }
+    
+            .stories-rectangle
+            {
+                width:13rem;
+                
+                left:85vw;
+                
+    
+            }
+            
+    
+            .stories-square
+            {
+                width:13rem;
+             
+                left:0;
+                margin-top:60rem;
+             
+            }
+
+            .stories-flex{
+              
+    
+                .story-image{
+                    width: 25rem;
+                    height:25rem;
+    
+    
+                    
+                }
+    
+                .story-stroke{
+                    width:27rem;
+                    
+    
+                    
+                
+                }
+    
+                .circle-right{
+                    
+                    margin-left:14rem;
+    
+                }
+    
+                .circle-left{
+                    margin-left:6rem;
+    
+                }
+            }
+
+           
+        }
+}
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+
+
+    .story{
+        padding:10rem 5rem;   
+     
+       
+     
+        .story-title{
+     
+         font-size:4vw;
+     
+        }
+
+        .story-title-explanation{
+           
+            font-size:$tablet-font-size;
+        
+           }
+     
+        .outcomes,.challenge,.solution{
+     
+         font-size:$tablet-font-size;
+        
+        }
+     }
+
+     .stories-section{
+
+        .stories-title-outline{
+            width:12rem;
+            margin-left:13rem;
+            margin-top:-12rem;
+        }
+
+        .stories-triangle
+        {
+            width:8rem;
+           
+            margin-left:5vw;
+            margin-top:5rem;
+        }
+
+        .stories-rectangle
+        {
+            width:7rem;
+            
+            left:80vw;
+            margin-top:40vw;
+            
+
+        }
+        
+
+        .stories-square
+        {
+            width:8rem;
+          
+            left:2vw;
+            margin-top:110vw;
+         
+        }
+    
+            .stories-section-title{
+    
+               
+                font-size:5vw;
+    
+            }
+            .stories-section-desc{
+    
+                
+                font-size:$tablet-font-size;
+    
+    
+            }
+    
+    
+            .stories-flex{
+              
+    
+                .story-box{
+                    width:40%;
+    
+                }
+    
+                .story-box-title{
+    
+                    font-size:$tablet-font-size;
+                }
+    
+                .story-image{
+                    width: 15rem;
+                    height:15rem;         
+                
+                }
+
+                .story-stroke{
+                    width:16rem;
+                  
+                    
+                
+                }
+    
+                .circle-right{
+                    
+                    margin-left:1rem;
+                    margin-top:1rem;
+    
+                }
+    
+                .circle-left{
+                    margin-left:-3rem;
+    
+                }
+            }
+    }
+
+
+}
+
+
+@media only screen and (max-width:$phone){
+
+
+    .story{
+        padding:7rem 1rem;   
+     
+       
+     
+        .story-title{
+     
+         font-size:7vw;
+     
+        }
+        .story-title-explanation{
+           
+            font-size:$phone-font-size;
+            padding-bottom:2rem;
+        
+           }
+     
+        .outcomes,.challenge,.solution{
+     
+         font-size:$phone-font-size;
+        
+        }
+     }
+
+     .stories-section{
+
+        .stories-triangle
+        {
+            width:5rem;
+           
+            margin-left:0rem;
+            margin-top:5rem;
+        }
+
+        .stories-rectangle
+        {
+            width:5rem;
+            
+            left:16rem;
+            margin-top:20rem;
+            
+
+        }
+        
+
+        .stories-square
+        {
+            width:6rem;
+          
+            left:0;
+            margin-top:60rem;
+            transform:rotate(80deg);
+            filter:brightness(80%);
+        }
+
+        .stories-title-outline{
+            width:10rem;
+            margin-left:2rem;
+            margin-top:-11rem;
+        }
+    
+        .stories-section-title{
+
+           
+            font-size:7vw;
+
+        }
+        .stories-section-desc{
+
+            
+            font-size:$phone-font-size;
+
+
+        }
+
+
+        .stories-flex{
+
+            flex-flow:column wrap;
+          
+
+            .story-box{
+                width:100%;
+
+            }
+
+            .story-box-title{
+
+                font-size:$phone-font-size;
+            }
+
+            .story-image{
+                width: 15rem;
+                height:15rem;         
+            
+            }
+            .story-stroke{
+                width:16rem;
+              
+                
+            
+            }
+
+            .circle-right{
+                
+                margin-left:0rem;
+                margin-top:1rem;
+
+            }
+
+            .circle-left{
+                margin-left:-3rem;
+
+            }
+        }
+}
+
+}

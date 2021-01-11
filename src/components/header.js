@@ -1,4 +1,4 @@
-import React, {createRef} from "react"
+import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 import { gsap } from "gsap/dist/gsap";
@@ -23,6 +23,7 @@ class Header extends React.Component {
 
       this.about = React.createRef();
       this.services = React.createRef();
+      this.stories = React.createRef();
 
 
     }
@@ -66,10 +67,16 @@ class Header extends React.Component {
             
         })
         
+        if(window.location.pathname== "/"){
+        
+        let serviceStart= document.querySelector('.examples .block-3 .desc').offsetTop+120;
+        let teamStart= document.querySelector('.team-section').offsetTop+20;
+
+
 
         //Making sure the menu has a background when we're on the white background section
         ScrollTrigger.matchMedia({
-        
+         
             // desktop
             "(min-width: 980px)": function() {
 
@@ -79,32 +86,21 @@ class Header extends React.Component {
                     scrollTrigger: {
                       trigger: ".about .aboutIntro", 
                       start:'top top',
-                      end: "+=2300", // end after scrolling 200px beyond the start
+                      end: ()=>serviceStart, // end after scrolling 200px beyond the start
                       toggleActions: "play reset play reverse",
                     }, 
                   });
-
-                 
-
-                
-
-
-            },
-            "(min-width: 1640px)": function() {
 
                 gsap.to(".menu", {
-                    backgroundColor:"#2A4889",
-                    opacity:1,
-                    scrollTrigger: {
-                      trigger: ".about .aboutIntro", 
-                      start:'top top',
-                      end: "+=2700", // end after scrolling 200px beyond the start
-                      toggleActions: "play reset play reverse",
-
-                    }, 
-                  });
-
-                
+                backgroundColor:"#2A4889",
+                opacity:1,
+                scrollTrigger: {
+                    trigger: ".stories-section", 
+                    start:'top top',
+                    end: ()=>teamStart, // end after scrolling 200px beyond the start
+                    toggleActions: "play reset play reverse",
+                }, 
+                });
 
 
             },
@@ -112,7 +108,7 @@ class Header extends React.Component {
 
         
         });
-        
+    }
         
         this.activateScrollTo();
        
@@ -126,9 +122,12 @@ class Header extends React.Component {
         });
 
         this.services.addEventListener('click',()=>{
-            gsap.to(window,{duration: 1,scrollTo:{y: ".servicesIntro", offsetY: 0}})
+            gsap.to(window,{duration: 1,scrollTo:{y: ".services", offsetY: 0}})
         });
-     
+        
+        this.stories.addEventListener('click',()=>{
+            gsap.to(window,{duration: 1,scrollTo:{y: ".stories-section", offsetY: 0}})
+        });
      
     }
     
@@ -164,7 +163,7 @@ class Header extends React.Component {
                         <div className="mobile-menu-circle circle-1">
                             <Img fluid={this.props.circle} alt="Decorative blue circles for the mobile menu" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/></div>
                         <li ref={li => this.services = li}>Services</li>
-                        <li>Stories</li>
+                        <li ref={li => this.stories = li}>Stories</li>
                         <li>Team</li>
                         <li>Insights</li>
 

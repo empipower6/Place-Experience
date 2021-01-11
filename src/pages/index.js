@@ -1,6 +1,4 @@
 import React, { useEffect } from "react"
-import { BLOCKS } from '@contentful/rich-text-types';
-
 import Layout from '../components/layout'
 import { Helmet } from "react-helmet"
 
@@ -9,30 +7,23 @@ import Intro from '../components/home/intro'
 import AboutIntro from '../components/home/about/about-intro'
 import AboutExamples from '../components/home/about/about-examples'
 
-import ServicesIntro from '../components/home/services/servicesIntro'
+import Services from '../components/home/services/services'
+
+import Stories from '../components/home/stories/stories'
+
+import Team from '../components/home/team/team'
+
 
 
 import { useStaticQuery, graphql } from 'gatsby'
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 
 // markup
 const IndexPage = () => {
   let data = useStaticQuery(graphql`
-    query image{
-        circle: file(relativePath: {eq: "blue-circle.png"}) {
-         childImageSharp {
-           fluid{
-            ...GatsbyImageSharpFluid
-           }
-         }
-       }
-       logo: file(relativePath: {eq: "logoSquare.png"}) {
-        childImageSharp {
-          fluid{
-           ...GatsbyImageSharpFluid
-          }
-        }
-      }
+  query{
+       
    
 
     about: allContentfulIntroSection {
@@ -125,6 +116,89 @@ const IndexPage = () => {
       }
     }
   } 
+
+  servicesTexts : allContentfulOurServices {
+    nodes {
+      title
+      introText {
+        raw
+      }
+      introOfFirstSection
+
+      section1Text1 {
+        raw
+      }
+
+      section1Text2 {
+        raw
+      }
+      section1Text3 {
+        raw
+      }
+      section1Text4 {
+        raw
+      }
+      section1Text5 {
+        raw
+      }
+      introOfSecondSection
+
+      section2Text1 {
+        raw
+      }
+      section2Text2 {
+        raw
+      }
+      
+    }
+  }
+
+    servicesImages : allContentfulOurServices {
+      nodes {
+        servicesImages {
+          fluid{
+            aspectRatio
+              base64
+              sizes
+              src
+              srcSet
+          }
+        }
+      }
+    }
+
+    stories: allContentfulStory {
+      edges {
+        node {
+          slug
+          title
+          storyImage {
+            fluid{
+                aspectRatio
+                base64
+                sizes
+                src
+                srcSet
+            }
+          }
+        }
+      }
+    }
+    storiesAssets: allContentfulStoriesSectionMedia {
+      nodes {
+        storyAssets {
+          
+          fluid {
+            aspectRatio
+              base64
+              sizes
+              src
+              srcSet
+          }
+
+        }
+      }
+    }
    
        
     }`
@@ -132,13 +206,15 @@ const IndexPage = () => {
 
 )
 
+//to make sure the rich text has the line-breaks
 const options = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, next) => `<p>${next(node.content).replace(/\n/g, '<br/>')}</p>`,  },
-}
+  renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, 
+  text])
+ }
+
 
 useEffect(()=>{
-
+      // console.log(data.stories)
 
 },[]);
 
@@ -149,7 +225,7 @@ useEffect(()=>{
     <Helmet title="Place Experience">
       
     </Helmet>
-    <Layout logo={data.logo.childImageSharp.fluid} circle={data.circle.childImageSharp.fluid}>
+    <Layout>
     
        <Intro triangle={data.about.edges[0].node.introPictures[2].fluid} 
               square={data.about.edges[0].node.introPictures[3].fluid} 
@@ -157,10 +233,10 @@ useEffect(()=>{
               rectangle={data.about.edges[0].node.introPictures[0].fluid}/>
        
        <AboutIntro sectionName={data.aboutTitle.nodes[0].aboutUsTitle} 
-                   introText={documentToHtmlString(JSON.parse(data.aboutIntro.nodes[0].text.raw),options)} 
+                   introText={documentToReactComponents(JSON.parse(data.aboutIntro.nodes[0].text.raw),options)} 
                    map={data.mapImage.nodes[0].worldMa.fluid} 
                    outline={data.aboutUsOutline.nodes[0].titleOutline1.fluid} 
-                   mapText={documentToHtmlString(JSON.parse(data.aboutIntro.nodes[0].textNextToMap.raw))} 
+                   mapText={documentToReactComponents(JSON.parse(data.aboutIntro.nodes[0].textNextToMap.raw))} 
                    triangle={data.about.edges[0].node.introPictures[2].fluid}
                    square={data.about.edges[0].node.introPictures[3].fluid} 
                    rectangle={data.about.edges[0].node.introPictures[0].fluid} />
@@ -172,7 +248,19 @@ useEffect(()=>{
                       rectangle={data.about.edges[0].node.introPictures[0].fluid}/>
 
       
-        <ServicesIntro />
+        <Services texts={data.servicesTexts.nodes[0]}
+                  images={data.servicesImages.nodes[0].servicesImages}
+                  triangle={data.about.edges[0].node.introPictures[2].fluid} 
+                   />
+
+        <Stories info={data.stories} 
+                  media={data.storiesAssets.nodes[0].storyAssets}
+                  triangle={data.about.edges[0].node.introPictures[2].fluid}
+                  rectangle={data.about.edges[0].node.introPictures[0].fluid}
+                  square={data.about.edges[0].node.introPictures[3].fluid} />
+
+        <Team />
+
     </Layout>  
     </>
   )

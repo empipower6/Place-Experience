@@ -1,14 +1,20 @@
 @import 'Home/intro';
 @import 'Home/about';
 @import 'Home/services';
+@import 'Home/team';
+
 
 
 
 @import 'Essentials/header';
 @import 'Essentials/variables';
 
+@import 'Templates/story';
+
 
 body{
     margin:0;
+    background-color:#2A4889;
+
 
 }
