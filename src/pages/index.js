@@ -187,7 +187,6 @@ const IndexPage = () => {
     storiesAssets: allContentfulStoriesSectionMedia {
       nodes {
         storyAssets {
-          
           fluid {
             aspectRatio
               base64

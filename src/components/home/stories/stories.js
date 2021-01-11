@@ -13,6 +13,7 @@ const Stories = (props)=>{
 
   
     useEffect(()=>{
+      console.log(props.media);
 
         gsap.to(squ.current, {
             y: -100,
@@ -47,7 +48,7 @@ const Stories = (props)=>{
             </div>
             <h1 className="stories-section-title"> Stories </h1>
             <div className="stories-title-outline">
-                <Img fluid={props.media[2].fluid} alt="Stories Outline" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
+                <Img fluid={props.media[1].fluid} alt="Stories Outline" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
             </div>
             <p className="stories-section-desc"> We do not just deliver; we create everlasting capabilities. </p>
             
@@ -64,7 +65,7 @@ const Stories = (props)=>{
                     <div className="story-box" key={index}>
                          <Link to={`/${item.node.slug}`} style={{ textDecoration: 'none',display:"flex",flexFlow:"column nowrap",alignItems:"center" }}>
                          <div className={`story-stroke ${index%2===0?"circle-left":"circle-right"}`}>
-                           <Img fluid={props.media[1].fluid} alt="Stroke Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
+                           <Img fluid={props.media[0].fluid} alt="Stroke Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
                          </div>
                         <div className="story-image">
                              <Img fluid={item.node.storyImage.fluid} alt={`Image of ${item.node.title}`} 
