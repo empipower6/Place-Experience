@@ -8,6 +8,8 @@
 
 @import 'Essentials/header';
 @import 'Essentials/variables';
+@import 'Essentials/footer';
+
 
 @import 'Templates/story';
 
@@ -15,6 +17,11 @@
 body{
     margin:0;
     background-color:#2A4889;
+    overflow-x:hidden;
 
+}
+
+html{
+    scrollbar-color: #474747 white;
 
 }

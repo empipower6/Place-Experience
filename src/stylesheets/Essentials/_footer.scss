@@ -1,0 +1,182 @@
+@import '../Essentials/variables';
+
+
+.footer-flex{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:space-between;
+    align-items: flex-start;
+
+    background-color:#0B2865;
+    padding:3rem 5rem 3rem 10rem;
+    color:white;
+
+    .flex-div{
+        width:32%;
+
+    }
+
+    .footer-logo{
+        width:10vw;
+        height:auto;
+        display:block;
+        margin:auto;
+        padding-top:2vw;
+        
+    }
+
+    .address{
+        font-family:$avenir;
+        font-size:1.3vw;
+        font-weight:100;
+        text-align:left;
+        width:100%;
+
+        h1{
+            font-weight:300;
+
+        }
+
+
+    }
+
+    .socials{
+
+        font-family:$futura;
+        font-size:1.3vw;
+        text-align:center;
+        
+        h1{
+            color:white;
+            font-weight:100;
+
+
+        }
+
+        .links{
+            
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content:space-around;
+            padding:2rem 5rem;
+
+            .fab{
+                font-size:2vw;
+            }
+
+        }
+
+    }
+}
+
+@media only screen and (max-width:$phone){
+
+    .footer-flex{
+
+        flex-flow:column nowrap;
+        justify-content:space-between;
+        align-items: flex-start;
+    
+        padding:3rem 1rem;
+    
+        .flex-div{
+            width:100%;
+    
+        }
+    
+        .footer-logo{
+            width:30vw;
+            
+            padding-top:2vw;
+            
+        }
+    
+        .address{
+            font-size:3vw;
+            text-align:center;
+            padding-bottom:10vw;
+
+    
+    
+        }
+    
+        .socials{
+    
+            font-size:3vw;
+            padding-bottom:10vw;
+
+          
+    
+            .links{
+                
+                display:flex;
+                flex-flow:row nowrap;
+                justify-content:space-around;
+                padding:0rem 5rem;
+    
+                .fab{
+                    font-size:5vw;
+                }
+    
+            }
+    
+        }
+    }
+}
+
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+
+
+    .footer-flex{
+
+        flex-flow:column nowrap;
+        justify-content:space-between;
+        align-items: flex-start;
+    
+        padding:3rem 1rem;
+    
+        .flex-div{
+            width:100%;
+    
+        }
+    
+        .footer-logo{
+            width:25vw;
+            
+            padding-top:2vw;
+            
+        }
+    
+        .address{
+            font-size:2.5vw;
+            text-align:center;
+            padding-bottom:10vw;
+
+    
+    
+        }
+    
+        .socials{
+    
+            font-size:2.5vw;
+            padding-bottom:10vw;
+
+          
+    
+            .links{
+                
+                display:flex;
+                flex-flow:row nowrap;
+                justify-content:space-around;
+                padding:0rem 12rem;
+    
+                .fab{
+                    font-size:5vw;
+                }
+    
+            }
+    
+        }
+    }
+}
+

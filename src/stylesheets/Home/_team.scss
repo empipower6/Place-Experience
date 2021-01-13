@@ -1,5 +1,4 @@
 .team-section{
-    height:50rem;
     color:white;
     text-align:center;
 
@@ -7,18 +6,212 @@
     h1{
         font-size:3vw;
         font-family:$avenir;
-        padding-top:5vw;
+        padding-top:10vw;
         font-weight:800;
+        
+    }
+
+    .team-outline{
+        width:23rem;
+        height:auto;
+        position:absolute;
+        left:37.5%;
+        margin-top:-13vw;
+    }
+
+    
+
+    .team-flex{
+        
+        display:flex;
+        flex-flow:row nowrap;
+        justify-content:space-around;
+        padding:10rem 5rem;
+ 
+
+        .team-member{
+            width:32%;
+            display:flex;
+            flex-flow:column nowrap;
+            align-items:center;
+            justify-content: flex-start;
+
+
+            .team-member-picture{
+                width:15rem;
+                height:20rem;
+                text-align:center;
+                margin-bottom:-10vw;        
+
+
+            }
+
+            .member-name{
+                font-family:$futura;
+                font-size:2vw;
+                font-weight:500;
+            }
+
+            .member-mail{
+                font-family:$futura;
+                font-size:$base-font-size;
+                font-weight:300;
+
+            }
+
+            .vl {
+                border-left: 0.2vw solid white;
+                height: 10vw;
+              }
+            .member-position{
+                font-family:$avenir;
+                font-size:$base-font-size;
+                font-weight:100;
+
+
+            }
+        }
+
     }
 }
 
 
 
 @media only screen and (min-width: $big-screen) {
+
+    .team-section{
+      
+        h1{
+            padding-top:10vw;
+            
+        }
+    
+        .team-outline{
+            width:30rem;
+           
+            left:38vw;
+            margin-top:-13vw;
+        }
+    }
 }
 
 @media only screen and (max-width:$tablet) and (min-width:$phone){
+
+    .team-section{
+      
+        h1{
+            font-size:5vw;
+            padding-top:15vw;
+            
+        }
+    
+        .team-outline{
+           
+            left:26%;
+            margin-top:-22vw;
+        }
+    
+        
+    
+        .team-flex{
+            
+            flex-flow:row wrap;
+           
+     
+    
+            .team-member{
+                width:49%;
+                padding-bottom:5rem;
+                
+    
+    
+                .team-member-picture{
+                  
+                    margin-bottom:-12vw;        
+    
+    
+                }
+    
+                .member-name{
+                    font-size:4vw;
+                }
+    
+                .member-mail{
+                    font-size:2.5vw;
+    
+                }
+    
+                .vl {
+                    border-left: 0.5vw solid white;
+                  }
+                .member-position{
+                    font-size:$tablet-font-size;
+    
+    
+                }
+            }
+    
+        }
+    }
 }
 
 @media only screen and (max-width:$phone){
+
+    .team-section{
+      
+        h1{
+            font-size:7vw;
+            padding-top:20vw;
+            
+        }
+    
+        .team-outline{
+            width:15rem;
+           
+            left:21vw;
+            margin-top:-30vw;
+        }
+    
+        
+    
+        .team-flex{
+            
+            flex-flow:column wrap;
+           
+     
+    
+            .team-member{
+                width:100%;
+                padding-bottom:5rem;
+                
+    
+    
+                .team-member-picture{
+                  
+                    margin-bottom:-12vw;        
+    
+    
+                }
+    
+                .member-name{
+                    font-size:7vw;
+                }
+    
+                .member-mail{
+                    font-size:4vw;
+    
+                }
+    
+                .vl {
+                    border-left: 1vw solid white;
+                  }
+                .member-position{
+                    font-size:$phone-font-size;
+    
+    
+                }
+            }
+    
+        }
+    }
 }

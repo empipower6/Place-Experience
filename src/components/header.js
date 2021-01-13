@@ -24,6 +24,7 @@ class Header extends React.Component {
       this.about = React.createRef();
       this.services = React.createRef();
       this.stories = React.createRef();
+      this.team = React.createRef();
 
 
     }
@@ -128,6 +129,10 @@ class Header extends React.Component {
         this.stories.addEventListener('click',()=>{
             gsap.to(window,{duration: 1,scrollTo:{y: ".stories-section", offsetY: 0}})
         });
+
+        this.team.addEventListener('click',()=>{
+            gsap.to(window,{duration: 1,scrollTo:{y: ".team-section", offsetY: 0}})
+        });
      
     }
     
@@ -164,7 +169,7 @@ class Header extends React.Component {
                             <Img fluid={this.props.circle} alt="Decorative blue circles for the mobile menu" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/></div>
                         <li ref={li => this.services = li}>Services</li>
                         <li ref={li => this.stories = li}>Stories</li>
-                        <li>Team</li>
+                        <li ref={li => this.team = li}>Team</li>
                         <li>Insights</li>
 
                         <div className="mobile-menu-circle circle-5">

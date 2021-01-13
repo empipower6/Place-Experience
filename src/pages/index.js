@@ -198,7 +198,41 @@ const IndexPage = () => {
         }
       }
     }
-   
+    
+    teamMembers :  allContentfulTeamMember {
+      edges {
+        node {
+          emailAddress
+          name
+          photo {
+            fluid {
+              aspectRatio
+                base64
+                sizes
+                src
+                srcSet
+            }
+          }
+          position
+        }
+      }
+    }
+
+    teamAssets : allContentfulTeamSection {
+      edges {
+        node {
+          images {
+            fluid{
+              aspectRatio
+                base64
+                sizes
+                src
+                srcSet
+            }
+          }
+        }
+      }
+    }
        
     }`
 
@@ -258,7 +292,7 @@ useEffect(()=>{
                   rectangle={data.about.edges[0].node.introPictures[0].fluid}
                   square={data.about.edges[0].node.introPictures[3].fluid} />
 
-        <Team />
+        <Team members={data.teamMembers} assets={data.teamAssets}/>
 
     </Layout>  
     </>
