@@ -1,10 +1,38 @@
 import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
+import { useStaticQuery, graphql } from 'gatsby'
+
 
 import Img from "gatsby-image"
 
 const Services = ({texts , images , triangle})=>{
+
+    let data = useStaticQuery(graphql`
+    query servicesimages{
+        first: file(relativePath: {eq: "services1.png"}) {
+         childImageSharp {
+           fluid{
+            ...GatsbyImageSharpFluid
+           }
+         }
+       }
+       second: file(relativePath: {eq: "services2.png"}) {
+        childImageSharp {
+          fluid{
+           ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      third: file(relativePath: {eq: "services3.png"}) {
+        childImageSharp {
+          fluid{
+           ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      }
+    `)
 
 
 
@@ -19,15 +47,53 @@ const Services = ({texts , images , triangle})=>{
     return(
         <>
         <div className="services">
+
+                                                    
+          
             <div className="services-title-outline">
                 <Img fluid={images[0].fluid} alt="Our Services Outline" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
             </div>
             <h1 className="services-title">{texts.title}</h1>
 
+
+
+
+
             <div className="intro-text"> {documentToReactComponents(JSON.parse(texts.introText.raw),options)}</div>
             
-            <div className="section1-intro">{texts.introOfFirstSection}</div>
+
+
+            <div className="service-flex">
+               <div className="service-flex-box">
+                        <h1> Design </h1>
+                        <div className="service-box-image">
+                            <Img fluid={data.third.childImageSharp.fluid} alt="Our Services Outline" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
+                        </div>
+               </div>
+               <div className="service-flex-box">
+                        <h1> Implement </h1>
+                        <div className="service-box-image">
+                            <Img fluid={data.first.childImageSharp.fluid} alt="Our Services Outline" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
+                        </div>
+               </div>
+               <div className="service-flex-box">
+                        <h1> Manage</h1>
+                        <div className="service-box-image">
+                            <Img fluid={data.second.childImageSharp.fluid} alt="Our Services Outline" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
+                        </div>
+               </div>
+               <div className="service-flex-box">
+                        <h1> Transform </h1>
+                        <div className="service-box-image">
+                            <Img fluid={data.third.childImageSharp.fluid} alt="Our Services Outline" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
+                        </div>
+               </div>
+
+               
+           </div>
             
+           <div className="section1-intro">{texts.introOfFirstSection}</div>
+
 
             <div className="flex1">
                 <div className="section1-text1">{documentToReactComponents(JSON.parse(texts.section1Text1.raw),options)}</div>

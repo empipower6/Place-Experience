@@ -5,9 +5,6 @@ if(process.env.NODE_ENV == 'development'){
       })
 }
 
-
-
-
 module.exports = {
   siteMetadata: {
     title: "Place Experience",
