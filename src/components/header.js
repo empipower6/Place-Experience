@@ -170,7 +170,7 @@ class Header extends React.Component {
                         <li ref={li => this.services = li}>Services</li>
                         <li ref={li => this.stories = li}>Stories</li>
                         <li ref={li => this.team = li}>Team</li>
-                        <li>Insights</li>
+                        <li><Link to="/insights" style={{textDecoration:"none",color:"white"}}>Insights</Link></li>
 
                         <div className="mobile-menu-circle circle-5">
                             <Img fluid={this.props.circle} alt="Decorative blue circles for the mobile menu" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/></div>

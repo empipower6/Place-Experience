@@ -233,6 +233,8 @@ const IndexPage = () => {
         }
       }
     }
+
+    
        
     }`
 
@@ -247,7 +249,6 @@ const options = {
 
 
 useEffect(()=>{
-      // console.log(data.stories)
 
 },[]);
 
