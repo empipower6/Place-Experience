@@ -22,6 +22,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-anchor-links",
     "gatsby-plugin-fontawesome-css",
+    "gatsby-source-filesystem",
     // {
     //   resolve: "gatsby-source-filesystem",
     //   options: {
