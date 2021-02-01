@@ -1,5 +1,4 @@
 import React,{ useEffect } from 'react'
-import Layout from '../layout'
 import Img from "gatsby-image"
 
 
@@ -11,7 +10,6 @@ const Article = (props)=>{
 
     return(
         <>
-        <Layout>
 
             <div className="article-page">
 
@@ -27,7 +25,6 @@ const Article = (props)=>{
 
             </div>
 
-        </Layout>
         </>
     )
 }

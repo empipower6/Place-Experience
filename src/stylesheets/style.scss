@@ -1,32 +1,59 @@
 @import 'Home/intro';
 @import 'Home/about';
 @import 'Home/services';
-@import 'Home/team';
 
 
+// @import 'Templates/story';
+// @import 'Templates/article';
 
+// @import 'Insights/insights';
 
-@import 'Essentials/header';
-@import 'Essentials/variables';
-@import 'Essentials/footer';
-
-
-@import 'Templates/story';
-@import 'Templates/article';
-
-@import 'Insights/insights';
-
-
-
+*{
+    margin:0;
+    padding:0;
+}
 
 body{
-    margin:0;
-    background-color:#2A4889;
     overflow-x:hidden;
+}
+
+.orange-logo{
+    
+    background-color:#E6B77F;
+    width:5vw;
+    padding:1vw;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top:0;
 
 }
 
-html{
-    scrollbar-color: #474747 white;
+@media only screen and (min-width: $big-screen) {
+
+    
+}
+
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+
+    .orange-logo{
+    
+       
+        width:10vw;
+        padding:2vw 1vw;
+        
+    }
+
+}
+
+@media only screen and (max-width:$phone){
+
+
+    .orange-logo{
+    
+       
+        width:12vw;
+        padding:5vw 1vw;
+        
+    }
 
 }

@@ -1,352 +1,197 @@
 @import '../Essentials/variables';
 
+.about-section{
+    display:flex;
+    flex-flow:row nowrap;
+    font-family:$montserrat;
+    padding:0vw 5vw 0vw 10vw;
+    margin-top:-2vw;
 
-.about{
-    text-align:center;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(70,102,172,1) 51%, rgba(255,255,255,1) 100%); 
-    background-color:black;
-    color:white;
-    margin-top:-2rem;
 
+    .about-section-left{
+        padding-right:2vw;
 
-       h1{
-        font-size:3vw;
-        font-family:$avenir;
-       }
-
-       .titleOutline1{
-          position:absolute;
-          left:38%;
-          margin-top:-3rem;
-          height:auto;
-          width:20rem;
-       }
-      
-        .aboutIntro{
-            padding:10rem 28rem;
-            font-family:$avenir;
-            font-size:$base-font-size;
-            text-align:left;
-            font-weight:300;
-            color:#101010;
-
+        .about-section-title{
+            font-family:$bodoni;
+            font-size:3vw;
         }
-
-        .square,.rectangle,.triangle{
-            position:absolute;
-            
-        }
-
-        .square{
-            height:auto;
-            width:10rem;
-            opacity:0.5;
-            left:3%;
-            margin-top:10rem;
-            transform:rotateZ(45deg);
-
-        }
-
-        .rectangle{
-            right:10%;
-            height:auto;
-            width:10rem;
-            opacity:0.5;
-            transform:rotateZ(90deg);
-            margin-top:0rem;
-
-            
-
-        }
-
-        .triangle{
-            left:10%;
-            height:auto;
-            width:10rem;
-            opacity:0.8;
-            transform:rotateZ(45deg);
-            margin-top:15rem;
-
-            
-
-        }
-
-
-        .mapSection{
-
-            display:flex;
-            flex-flow:row nowrap;
-            padding:5rem 0rem 5rem 5rem;
-            justify-content: space-around;
-            align-items:center;
-            
-            .map{
-                
-                height:auto;
-                width:50rem;
-                z-index:0;
-            }
-
-            .mapText{
-                width:30%;
-                font-family:$avenir;
-                line-height:2rem;
-                font-weight:100;
-                font-size:$base-font-size;
-                text-align:left;
-
-                b{
-                    font-weight:800;
-                }
-
-            }
-
-
-        }
-
-        
-
-}
-
-.examples {
-    margin-top:-2rem;
-    text-align:center;
-    background-color:white;
-
-    .intro{
-
-        font-family:$futura;
-        font-size:$base-font-size;
-        font-weight:400;
-        padding:2rem 25rem;
-
-    }
-
-    .block{
-        display:flex;
-        flex-flow:row nowrap;
-        padding:5rem 15rem;
-
-        .illustration{
-            width:100rem;
-            height:auto;
-        }
-
-        .desc{
-            font-family:$avenir;
-            font-size:$base-font-size;
+        .about-section-intro{
+            padding:2vw 2vw 3vw 0vw;
             font-weight:200;
-            text-align:left;
-            padding-left:5rem;
+            font-size:1.3vw;
         }
-        b{
-            font-weight:800;
+        .about-section-separator{
+              width:20%;
+              height:0.5vw;
+              background-color:#E6B77F;
+              border:none;
+          }
+        .about-section-subQuestion{
+            color:#E6B77F;
+            font-weight:900;
+            padding:3vw 0vw 0vw 0vw;
+            font-size:2.3vw;
+
+        }
+        .about-section-subAnswer{
+            color:#E6B77F;
+            font-weight:200;
+            font-size:2.3vw;
+            padding-bottom:2.3vw;
+        }
+        .about-section-subIntro{
+
+            padding:0vw 7vw 3.5vw 0vw;
+            font-weight:200;
+            font-size:1.3vw;
+
+        }
+        .about-section-subQuote{
+            color:#E6B77F;
+            font-weight:900;
+            padding:0vw 0vw 3vw 0vw;
+            font-size:2.3vw;
+
         }
     }
+    .about-section-right{
 
-    .block-2{
-        padding-left:20rem;      
-        
-        .illustration{
-            width:120rem;
+        padding-left:15vw;
+
+        .about-section-squares{
+            position:absolute;
+            width:35vw;
+            height:auto;
+            top:40rem;
+            right:5vw;
+            z-index:-1;
+
+            
         }
-    }
+        .about-section-designIcon,.about-section-analyticsIcon,.about-section-allIcon{
 
-    .r{
-        position:absolute;
-        z-index:0;
-        opacity:1;
-        height:auto;
-        width:10rem;
-        right:15rem;
-        margin-top:-10rem;
-        filter: brightness(50%);
-    }
-    .rectangle{
-        position:absolute;
-        height:auto;
-        width:10rem;
-        left:5rem;
-        margin-top:0rem;
-        transform: rotateZ(180deg);
+            width:6vw;
+            height:auto;
+            padding-bottom:1vw;
+        }
 
-        
-    }
-    .square{
-        position:absolute;
-        height:auto;
-        width:10rem;
-        left:15rem;
-        transform:rotateZ(45deg);
-        margin-top:-5rem;
-        filter: brightness(50%);
+        .about-section-designIcon{
+            padding-top:7vw;
+        }
 
-        
+        .about-section-design, .about-section-analytics,.about-section-all{
+            h1{
+                font-weight:200;
+                padding-top:0vw;
+                font-size: 2vw;
+
+            }
+            p{
+                font-weight:200;
+                font-size:1.3vw;
+                padding-right:15vw;
+                padding-bottom:4vw;
+            }
+        }
     }
 }
+
 
 @media only screen and (min-width: $big-screen) {
 
-    .about {
-        h1{
-            padding-top:10rem;
-        }
-
-        .titleOutline1{
-            left:43%;
-            margin-top:6.5vw;
-            height:auto;
-            width:15rem;
-         }
-    }
 }
 
 @media only screen and (max-width:$tablet) and (min-width:$phone){
 
 
 
-    .about{
-        padding-top:10rem;
+    .about-section{
+        display:flex;
+        flex-flow:column nowrap;
+       
+        padding:0vw 10vw 0vw 15vw;
+        padding-top:10vw;
     
     
-            h1{
+        .about-section-left{
+            padding-right:0vw;
+    
+            .about-section-title{
                 font-size:5vw;
             }
-           .titleOutline1{
-              left:35%;
-              margin-top:0rem;
-              height:auto;
-              width:15rem;
-           }
-          
-            .aboutIntro{
-                padding:5rem 10rem;
-                font-family:$avenir;
-                font-size:$tablet-font-size;
-                text-align:left;
-                font-weight:300;
-                color:#101010;
-
+            .about-section-intro{
+                padding:5vw 0vw 5vw 0vw;
+                font-size:3vw;
             }
+            .about-section-separator{
+                  width:40%;
+                  height:1vw;
+                 
+              }
+            .about-section-subQuestion{
+               
+                padding:5vw 0vw 0vw 0vw;
+                font-size:4vw;
+    
+            }
+            .about-section-subAnswer{
                 
-           
+                font-size:4vw;
+                padding-bottom:5vw;
+            }
+            .about-section-subIntro{
     
-            .square{
-                width:8rem;
-                opacity:0.5;
-                left:5%;
-                margin-top:10rem;
-                transform:rotateZ(-45deg);
+                padding:0vw 7vw 3.5vw 0vw;
+                font-size:3vw;
     
             }
-    
-            .rectangle{
-                width:8rem;
-                opacity:1;
-                transform:rotateZ(0deg);
-                margin-top:0rem;
-    
+            .about-section-subQuote{
                 
+                padding:0vw 0vw 3vw 0vw;
+                font-size:4vw;
     
             }
-    
-            .triangle{
-                left:5%;
-                width:7rem;
-                opacity:1;
-                transform:rotateZ(180deg);
-                margin-top:20rem;
-    
-                
-    
-            }
-    
-    
-            .mapSection{
-    
-                display:flex;
-                flex-flow:column nowrap;
-                justify-content: center;
-                
-                .map{
-                    
-                    height:auto;
-                    width:30rem;
-                    z-index:0;
-                }
-    
-                .mapText{
-                    width:90%;
-                    line-height:2rem;
-                    font-size:$tablet-font-size;
-                    padding:0;
-    
-                    b{
-                        font-weight:800;
-                    }
-    
-                }
-    
-    
-            }
-    
-            
-    
-    }
-
-    .examples {
-
- 
-    
-        .intro{
-
-            font-size:$tablet-font-size;
-            padding:2rem 10rem;
-    
         }
+        .about-section-right{
     
-        .block{
-            display:flex;
-            flex-flow:row nowrap;
-            align-items:center;
-            padding:2rem 2rem;
+            padding-left:0vw;
     
-            .illustration{
-                width:120rem;
+            .about-section-squares{
+                position:absolute;
+                width:35vw;
                 height:auto;
+                top:40rem;
+                right:5vw;
+                z-index:-1;
+    
+                
+            }
+            .about-section-designIcon,.about-section-analyticsIcon,.about-section-allIcon{
+    
+                width:12vw;
+                height:auto;
+                padding-bottom:1vw;
+                
             }
     
-            .desc{
-                font-size:$tablet-font-size;
-                padding-left:1rem;
+            .about-section-designIcon{
+                padding-top:7vw;
             }
-            b{
-                font-weight:800;
+    
+            .about-section-design, .about-section-analytics,.about-section-all{
+                h1{
+                    font-size: 4vw;
+    
+                }
+                p{
+                    text-align:justify;
+                    font-size:3vw;
+                    padding-right:0vw;
+                    padding-bottom:10vw;
+                }
             }
-        }
-    
-        .block-2{
-    
-            padding-left:0rem;      
-            
-        
-        }
-    
-        .r{
-           display:none;
-        }
-        .rectangle{
-          display:none;
-            
-        }
-        .square{
-           display:none;
         }
     }
-    
-    
-
-
 
 
 }
@@ -355,134 +200,92 @@
 @media only screen and (max-width:$phone){
 
 
-
-    .about{
-        padding-top:0rem;
+    .about-section{
+        display:flex;
+        flex-flow:column nowrap;
+       
+        padding:0vw 10vw 0vw 15vw;
+        padding-top:10vw;
     
-            h1{
+    
+        .about-section-left{
+            padding-right:0vw;
+    
+            .about-section-title{
                 font-size:7vw;
             }
-    
-           .titleOutline1{
-              left:15%;
-              margin-top:-2rem;
-              width:15rem;
-           }
-          
-            .aboutIntro{
-                padding:5rem 3rem;
-                font-size:$phone-font-size;
-
+            .about-section-intro{
+                padding:5vw 0vw 5vw 0vw;
+                font-size:4.5vw;
             }
+            .about-section-separator{
+                  width:40%;
+                  height:1.5vw;
+                 
+              }
+            .about-section-subQuestion{
+               
+                padding:5vw 0vw 0vw 0vw;
+                font-size:5vw;
+    
+            }
+            .about-section-subAnswer{
                 
-           
+                font-size:5vw;
+                padding-bottom:5vw;
+            }
+            .about-section-subIntro{
     
-            .square{
-                width:5rem;
-                opacity:0.3;
-                left:5%;
-                margin-top:2rem;
-                transform:rotateZ(-30deg);
+                padding:0vw 7vw 3.5vw 0vw;
+                font-size:4.5vw;
     
             }
-    
-            .rectangle{
-                opacity:0.3;
-                width:6rem;
-                padding-top:5vw;
-                transform:rotateZ(0deg);           
-    
-            }
-    
-            .triangle{
-                display:none;
-    
-            }
-    
-    
-            .mapSection{
-    
-                display:flex;
-                flex-flow:column nowrap;
-                justify-content: center;
-                padding:1rem 3rem;
+            .about-section-subQuote{
                 
-                .map{
-                    
-                    width:22rem;
-                    z-index:0;
-                }
-    
-                .mapText{
-                    width:100%;
-                    line-height:2rem;
-                    font-size:$phone-font-size;
-                    padding:0;
-    
-    
-                }
-    
+                padding:0vw 0vw 3vw 0vw;
+                font-size:5vw;
     
             }
-    
-            
-    
-    }
-
-    .examples {
-
- 
-    
-        .intro{
-
-            font-size:$phone-font-size;
-            padding:2rem 3rem;
-    
         }
+        .about-section-right{
     
-        .block{
-            display:flex;
-            flex-flow:column nowrap;
-            align-items:center;
-            padding:2rem 1rem;
+            padding-left:0vw;
     
-            .illustration{
-                width:20rem;
+            .about-section-squares{
+                position:absolute;
+                width:35vw;
                 height:auto;
+                top:40rem;
+                right:5vw;
+                z-index:-1;
+    
+                
+            }
+            .about-section-designIcon,.about-section-analyticsIcon,.about-section-allIcon{
+    
+                width:15vw;
+                height:auto;
+                padding-bottom:1vw;
+                
             }
     
-            .desc{
-                font-size:$phone-font-size;
-                padding-left:0rem;
-                text-align:center;
+            .about-section-designIcon{
+                padding-top:7vw;
             }
-            b{
-                font-weight:800;
+    
+            .about-section-design, .about-section-analytics,.about-section-all{
+                h1{
+                    font-size: 5vw;
+    
+                }
+                p{
+                    text-align:justify;
+                    font-size:4.5vw;
+                    padding-right:0vw;
+                    padding-bottom:10vw;
+                }
             }
-        }
-    
-        .block-2{
-    
-            padding-left:0rem;      
-            
-        
-        }
-    
-        .r{
-           display:none;
-        }
-        .rectangle{
-          display:none;
-            
-        }
-        .square{
-           display:none;
         }
     }
-    
-    
-
-
-
 
 }

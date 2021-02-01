@@ -1,290 +1,306 @@
 @import '../Essentials/variables';
 
-
-.intro-section{
-    display:flex;
-    flex-flow:row nowrap;
-    justify-content:space-between;
-    background: rgb(0,0,0);
-    background: linear-gradient(360deg, rgba(0,0,0,1) 0%, rgba(44,72,133,1) 100%);     
-    height:40rem;
-    padding:15rem 5rem 0rem 5rem;
-
-    h1{
-        font-family:$avenir;
-        font-size:$base-font-size;
-        font-style:italic;
-        color:white;
-        font-weight:200;
-        padding-top:5rem;
-        
-
-        .underline{
-            font-style:normal;
-            font-weight:500;
-
-        }
-    }
-    
-    .intro-1{
-        padding-left:0;
-    }
-    .intro-2{
-        padding-left:2rem;
-    }
-    .intro-3{
-        padding-left:5rem;
-    }
-
-    .intro-images{
-        width:50%;
-        height:70%;
-        display:flex;
-        flex-flow:row wrap;
-        justify-content:space-around;
-        div{
-            position:absolute;
-            height:12rem;
-            width:12rem;
-
-        }
-
-        .intro-image-3{
-            top:15rem;
-            right:35rem;
-        }
-        .intro-image-1{
-            top:15rem;
-            right:15rem;
-        }
-
-        .intro-image-2{
-            top:35rem;
-            right:40rem;
-            width:4rem ;
-            height:4rem ;
-
-        }
-        .intro-image-4{
-            top:30rem;
-            right:15rem;
-
-        }
-
-        .rotate {
-            animation: rotation 100s infinite linear;
-         }
-
-         .transform-1{
-            animation: transform 15s infinite linear;
-         }
-
-
-        @keyframes rotation {
-            0% {
-                transform: rotate(0deg);
-
-            }
-            20% {
-                transform: rotate(72deg);
-            }
-            40% {
-                transform: rotate(144deg);
-            }
-            60% {
-                transform: rotate(216deg);
-            }
-            80% {
-                transform: rotate(288deg);
-            }
-    
-            100% {
-                transform: rotate(360deg);
-            }
-           
-            }
-    }
+.cover{
+    padding:0;
+    margin:0;
+    height:100vh;
+    width:100%;
+    max-height:100%;
 }
 
-  @media only screen and (min-width: $big-screen) {
+.container {
+   
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height:100vh;
+    width:100%;
 
-            .intro-section{
-                  
-                
-                padding:15rem 5rem 0rem 10rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .inactive-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: hidden;
+    height:100vh;
+    width:100%;
 
-                .intro-images{
-                
-                    .intro-image-3{
-                        right:50rem;
-                    }
-                    .intro-image-1{
-                       
-                        right:25rem;
-                    }
+    scrollbar-width: none;
+  }
 
-                    .intro-image-2{
-                        right:50rem;
-                        top:40rem;
-                        
+  .container::-webkit-scrollbar{
+     display: none;
+  }
+  
+  .child {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+     .child-desc{
+         color:white;
+         font-family:$montserrat;
+         font-weight:900;
+         font-size:3vw;
+         position:absolute;
+         top:22vw;
+         left:10vw;
+     }
+  }
 
-                    }
-                    .intro-image-4{
-                        top:35rem;
-                        right:20rem;
 
-                    }
-                   
+ 
 
-                }
+  .stop-scroll{
+      position:fixed;
+      top:0;
+      width:100%;
+      overflow-y: scroll;
+      
+
+  }
+
   
 
-            }
+  .container,.inactive-container{
+
+    .fixed-header{
+        position:absolute;
+        top:7vw;
+        left:10vw;
+        z-index:99;
+        color:white;
+
+
+        .fixed-header-logo{
+            width:5vw;
+            height:auto;
+        }
+
+        .fixed-header-title{
+            font-family:$montserrat;
+            font-weight:100;
+            font-size:1.6vw;
+            padding-top:1vw;
+        }
+
+    }
+
+    .container-swipe-lines{
+        display:flex;
+        position:absolute;
+        z-index:99;
+        top:55vw;
+        left:46%;
+
+        .swipe{
+            width:2vw;
+            border-bottom:0.3vw solid #ffffff;
+            opacity:0.5;
+            margin-right:1vw;
+        }
+
+        .active-swipe{
+            opacity:1;
+        }
+    }
+
+  }
+  
+  .logo-menu{
+      position:fixed;
+      top:0;
+      left:0;
+      bottom:0;
+      width:40%;
+      display:none;
+      z-index:99;
+      
+      background-color:#EABB7F;
+
+      ul{
+          color:white;
+          font-family:$bodoni;
+          font-weight:700;
+          font-size:2vw;
+          padding:7vw 0vw 0vw 10vw;
+          list-style-type: none;
+          
+          .anchors{
+              color:white;
+              text-decoration: none;
+          }
+          .cancel-mobile{
+              font-family:$montserrat;
+              font-weight:100;
+              font-size:5.5vw;
+              cursor:pointer;
+              height:50%;
+              transition:0.1s;
+
+              &:hover{
+                  opacity:0.5;
+              }
+          }
+          .mobile-title{
+              font-family:$montserrat;
+              font-weight:100;
+              font-size:2vw;
+              padding-bottom:3vw;
+          }
+          .logo-menu-item{
+              padding-bottom:2vw;
+              cursor:pointer;
+              transition:0.1s;
+
+              &:hover{
+                  opacity:0.5;
+              }
+
+          }
+      }
+  }
+
+
+
+
+@media only screen and (min-width: $big-screen) {
+
     
 }
 
 @media only screen and (max-width:$tablet) and (min-width:$phone){
 
+    .container,.inactive-container{
 
-
-
-    .intro-section{
-    padding-top:10rem;
-    justify-content:center;
-    text-align:center;
-    align-items:flex-start;
+        .fixed-header{
+            
     
-       .intro-text{
-           padding-top:2rem;
-       }
-       h1{
-        font-size:$tablet-font-size;
-        
- 
-    }
+            .fixed-header-logo{
+                width:10vw;
+            }
     
-    .intro-1{
-        padding-left:0rem;
-    }
-    .intro-2{
-        padding-left:0rem;
-    }
-    .intro-3{
-        padding-left:0rem;
+            .fixed-header-title{
+                font-size:3vw;
+                padding-top:1vw;
+            }
+    
+        }
+
     }
 
-    .intro-images{
-        position:absolute;
+
+  .logo-menu{
+    
+
+    ul{
       
-        div{
-            position:absolute;
-            height:10rem;
-            width:10rem;
+        font-size:3vw;
+        padding:15vw 0vw 0vw 10vw;
+
+        .cancel-mobile{
+           
+            font-size:7vw;
+           
+
+            &:hover{
+                opacity:1;
+            }
+        }
+        .mobile-title{
+            
+            font-size:3vw;
+            padding-bottom:4vw;
+        }
+        .logo-menu-item{
+            padding-bottom:3vw;
+            
+
+            &:hover{
+                opacity:1;
+            }
 
         }
-
-        .intro-image-3{
-            top:25rem;
-            right:20rem;
-        }
-        .intro-image-1{
-            top:0rem;
-            right:20rem;
-            transform:rotate(75deg);
-        }
-
-        .intro-image-2{
-            top:25rem;
-            right:-5rem;
-            transform:rotate(75deg);
-
-        
-
-        }
-        .intro-image-4{
-            top:0rem;
-            right:-5rem;
-
-        }
-
-       
-
-
-        
     }
 }
-    .rotate{
-        animation :none !important;
-    }
+
+
+
 }
 
 
 @media only screen and (max-width:$phone){
 
-    .intro-section{
-    padding-top:5rem;
-    justify-content:center;
-    text-align:center;
-    align-items:flex-start;
-    
-       .intro-text{
-           padding-top:2rem;
-       }
-       h1{
-        font-size:$phone-font-size;
+
+    .child {
         
+         .child-desc{
+             
+             font-size:6vw;
+             top:140vw;
+             left:10vw;
+         }
+      }
+
+    .container,.inactive-container{
+
+        .fixed-header{
+            top:7vw;
+            left:10vw;
+            
     
+    
+            .fixed-header-logo{
+                width:15vw;
+            }
+    
+            .fixed-header-title{
+                font-size:5vw;
+                padding-top:1vw;
+                font-weight:400;
+            }
+    
+        }
+
+    }
+
+
+    .logo-menu{
+        width:50vw;
+    
+
+        ul{
+          
+            font-size:5vw;
+            padding:10vw 0vw 0vw 10vw;
+    
+            .cancel-mobile{
+               
+                font-size:10vw;
+                padding-bottom:10vw;
+               
+    
+                &:hover{
+                    opacity:1;
+                }
+            }
+            .mobile-title{
+                
+                font-size:5vw;
+                padding-bottom:5vw;
+            }
+            .logo-menu-item{
+                padding-bottom:4vw;
+                
+    
+                &:hover{
+                    opacity:1;
+                }
+    
+            }
+        }
     }
     
-    .intro-1{
-        padding-left:0rem;
-    }
-    .intro-2{
-        padding-left:0rem;
-    }
-    .intro-3{
-        padding-left:0rem;
-    }
 
-    .intro-images{
-        position:absolute;
-      
-        div{
-            position:absolute;
-            height:5rem;
-            width:5rem;
 
-        }
 
-        .intro-image-3{
-            top:18rem;
-            right:10rem;
-        }
-        .intro-image-1{
-            top:3rem;
-            right:10rem;
-            transform:rotate(75deg);
-        }
 
-        .intro-image-2{
-            top:25rem;
-            right:-4rem;
-            transform:rotate(75deg);
 
-        
-
-        }
-        .intro-image-4{
-            top:5rem;
-            right:-5rem;
-
-        }
-
-        
-    }
-}
-
-    .rotate{
-        animation :none !important;
-    }
 }

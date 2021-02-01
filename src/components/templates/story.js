@@ -1,5 +1,4 @@
 import React from "react"
-import Layout from '../layout'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 
@@ -16,7 +15,6 @@ const Story = (props)=>{
   
   return(
     <>
-    <Layout>
       
      <div className="story">
 
@@ -32,7 +30,6 @@ const Story = (props)=>{
         <div className="outcomes">{documentToReactComponents(JSON.parse(data.outcome.raw ),options) } </div>
 
       </div>
-    </Layout>
     </>
   )
 }
