@@ -1,5 +1,5 @@
 import React,{ useEffect,useRef,useState } from 'react'
-import Logo from '../../Essentials/logo'
+import Logo from '../../essentials/logo'
 import BackgroundImage from 'gatsby-background-image'
 
 

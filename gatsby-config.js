@@ -23,14 +23,6 @@ module.exports = {
     "gatsby-plugin-anchor-links",
     "gatsby-plugin-fontawesome-css",
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
-    },
-    {
     resolve: `gatsby-source-contentful`,
     options: {
       spaceId: `3s9rlh9hyulv`,

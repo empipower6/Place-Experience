@@ -1,13 +1,13 @@
 import React, { useEffect } from "react"
 import { Helmet } from "react-helmet"
 
-import Intro from '../components/Home/Intro/intro'
+import Intro from '../components/home/intro/intro'
 
-import About from '../components/Home/About/about'
+import About from '../components/home/about/about'
 
-import Services from '../components/Home/Services/services'
+import Services from '../components/home/services/services'
 
-import Logo from '../components/Essentials/logo'
+import Logo from '../components/essentials/logo'
 
 import '../stylesheets/style.scss'
 
