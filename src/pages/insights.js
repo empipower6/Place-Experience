@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import Articles from '../components/insights/articles'
 
-import Logo from '../components/Essentials/logo'
 
 
 const Insights = ()=>{
