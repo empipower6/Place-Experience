@@ -22,15 +22,14 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-anchor-links",
     "gatsby-plugin-fontawesome-css",
-    "gatsby-source-filesystem",
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     name: "images",
-    //     path: "./src/images/",
-    //   },
-    //   __key: "images",
-    // },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
+      },
+      __key: "images",
+    },
     {
     resolve: `gatsby-source-contentful`,
     options: {
