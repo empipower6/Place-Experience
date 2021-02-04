@@ -1,39 +1,43 @@
 @import '../Essentials/variables';
 
-.cover{
-    padding:0;
-    margin:0;
-    height:100vh;
-    width:100%;
-    max-height:100%;
-}
 
-.container {
-   
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height:100vh;
-    width:100%;
 
+ 
+
+.intro-flex{
+    display:flex;
+    flex-flow:row nowrap;
+    overflow:scroll;
+    scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-  }
-  .inactive-container {
-    scroll-snap-type: y mandatory;
-    overflow-y: hidden;
-    height:100vh;
-    width:100%;
+
+
+}
+
+.inactive-flex {
+    overflow: hidden;
+    display:flex;
+    flex-flow:row nowrap;
+    width:100vw;
+    
 
     scrollbar-width: none;
+
+   
   }
 
-  .container::-webkit-scrollbar{
-     display: none;
-  }
+.intro-flex::-webkit-scrollbar{
+    display: none;
+ }
   
   .child {
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    width:100vw;
+    padding-top:0;
+
+
      .child-desc{
          color:white;
          font-family:$montserrat;
@@ -45,28 +49,35 @@
      }
   }
 
-
- 
+  .cover{
+    padding:0;
+    margin:0;
+    height:100vh;
+    width:100vw;
+    max-height:100%;
+  }
 
   .stop-scroll{
       position:fixed;
       top:0;
       width:100%;
-      overflow-y: scroll;
+      overflow: hidden;
       
 
   }
 
   
 
-  .container,.inactive-container{
+  .container{
+
+   
 
     .fixed-header{
         position:absolute;
         top:7vw;
         left:10vw;
-        z-index:99;
         color:white;
+        z-index:1;
 
 
         .fixed-header-logo{
@@ -83,82 +94,32 @@
 
     }
 
-    .container-swipe-lines{
-        display:flex;
-        position:absolute;
-        z-index:99;
-        top:55vw;
-        left:46%;
 
-        .swipe{
-            width:2vw;
-            border-bottom:0.3vw solid #ffffff;
-            opacity:0.5;
-            margin-right:1vw;
-        }
+  }
 
-        .active-swipe{
-            opacity:1;
-        }
+
+  
+  
+.container-swipe-lines{
+    display:flex;
+    position:absolute;
+    top:55vw;
+    left:46%;
+
+    .swipe{
+        width:2vw;
+        border-bottom:0.3vw solid #ffffff;
+        opacity:0.5;
+        margin-right:1vw;
+            z-index:1;
+
     }
 
-  }
+    .active-swipe{
+        opacity:1;
+    }
+}
   
-  .logo-menu{
-      position:fixed;
-      top:0;
-      left:0;
-      bottom:0;
-      width:40%;
-      display:none;
-      z-index:99;
-      
-      background-color:#EABB7F;
-
-      ul{
-          color:white;
-          font-family:$bodoni;
-          font-weight:700;
-          font-size:2vw;
-          padding:7vw 0vw 0vw 10vw;
-          list-style-type: none;
-          
-          .anchors{
-              color:white;
-              text-decoration: none;
-          }
-          .cancel-mobile{
-              font-family:$montserrat;
-              font-weight:100;
-              font-size:5.5vw;
-              cursor:pointer;
-              height:50%;
-              transition:0.1s;
-
-              &:hover{
-                  opacity:0.5;
-              }
-          }
-          .mobile-title{
-              font-family:$montserrat;
-              font-weight:100;
-              font-size:2vw;
-              padding-bottom:3vw;
-          }
-          .logo-menu-item{
-              padding-bottom:2vw;
-              cursor:pointer;
-              transition:0.1s;
-
-              &:hover{
-                  opacity:0.5;
-              }
-
-          }
-      }
-  }
-
-
 
 
 @media only screen and (min-width: $big-screen) {
@@ -188,6 +149,7 @@
 
 
   .logo-menu{
+      width:50%;
     
 
     ul{
@@ -222,6 +184,9 @@
 }
 
 
+  
+
+
 
 }
 
@@ -242,8 +207,10 @@
     .container,.inactive-container{
 
         .fixed-header{
+
             top:7vw;
             left:10vw;
+
             
     
     
@@ -261,9 +228,10 @@
 
     }
 
-
     .logo-menu{
         width:50vw;
+        z-index:99;
+        
     
 
         ul{
@@ -297,6 +265,28 @@
             }
         }
     }
+
+
+  .container-swipe-lines{
+    display:flex;
+    position:absolute;
+    bottom:10vw;
+    left:40%;
+
+    .swipe{
+        width:8vw;
+        border-bottom:1.5vw solid #ffffff;
+        opacity:0.5;
+        margin-right:1vw;
+
+    }
+
+    .active-swipe{
+        opacity:1;
+    }
+}
+   
+
     
 
 

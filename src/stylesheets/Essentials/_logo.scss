@@ -1,0 +1,160 @@
+.logo-menu{
+    
+    width:30%;
+    display:none;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    
+
+    background-color:#EABB7F;
+    
+
+    ul{
+        color:white;
+        font-family:$bodoni;
+        font-weight:700;
+        font-size:2vw;
+        padding:7vw 0vw 0vw 5vw;
+        list-style-type: none;
+        
+        .anchors{
+            color:white;
+            text-decoration: none;
+        }
+        .cancel-mobile{
+            font-family:$montserrat;
+            font-weight:100;
+            font-size:5.5vw;
+            cursor:pointer;
+            height:50%;
+            transition:0.1s;
+
+            &:hover{
+                opacity:0.5;
+            }
+        }
+        .mobile-title{
+            font-family:$montserrat;
+            font-weight:100;
+            font-size:2vw;
+            padding-bottom:3vw;
+        }
+        .logo-menu-item{
+            padding-bottom:2vw;
+            cursor:pointer;
+            transition:0.1s;
+
+            &:hover{
+                opacity:0.5;
+            }
+
+        }
+    }
+}
+
+
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+
+   
+
+
+  .logo-menu{
+      width:50%;
+    
+
+    ul{
+      
+        font-size:3vw;
+        padding:15vw 0vw 0vw 10vw;
+
+        .cancel-mobile{
+           
+            font-size:7vw;
+           
+
+            &:hover{
+                opacity:1;
+            }
+        }
+        .mobile-title{
+            
+            font-size:3vw;
+            padding-bottom:4vw;
+        }
+        .logo-menu-item{
+            padding-bottom:3vw;
+            
+
+            &:hover{
+                opacity:1;
+            }
+
+        }
+    }
+}
+
+
+  
+
+
+
+}
+
+
+@media only screen and (max-width:$phone){
+
+
+  
+
+    .logo-menu{
+        width:50vw;
+        z-index:99;
+        
+    
+
+        ul{
+          
+            font-size:5vw;
+            padding:10vw 0vw 0vw 10vw;
+    
+            .cancel-mobile{
+               
+                font-size:10vw;
+                padding-bottom:10vw;
+               
+    
+                &:hover{
+                    opacity:1;
+                }
+            }
+            .mobile-title{
+                
+                font-size:5vw;
+                padding-bottom:5vw;
+            }
+            .logo-menu-item{
+                padding-bottom:4vw;
+                
+    
+                &:hover{
+                    opacity:1;
+                }
+    
+            }
+        }
+    }
+
+
+ 
+
+   
+
+    
+
+
+
+
+
+}

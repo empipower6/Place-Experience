@@ -2,6 +2,9 @@
 @import 'Home/about';
 @import 'Home/services';
 
+@import 'Essentials/logo';
+
+
 
 // @import 'Templates/story';
 // @import 'Templates/article';
@@ -25,8 +28,13 @@ body{
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top:0;
+    z-index:1;
 
 }
+
+
+
+
 
 @media only screen and (min-width: $big-screen) {
 

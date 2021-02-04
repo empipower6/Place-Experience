@@ -10,7 +10,6 @@
     .parallax-cover{
         position:absolute;
         width:100vw;
-        height:auto;
         z-index:-1;
         bottom:5vw;
     }
@@ -43,12 +42,21 @@
               background-color:#E6B77F;
               border:none;
         }
+
+        .services-section-quote{
+
+            color:#E6B77F;
+            font-weight:700;
+            font-size:2.3vw;
+            padding-top:2vw;
+        }
     }
 
     .services-section-right{
         padding-top:4vw;
         width:50%;
         padding-left:20vw;
+
        
         .icon-flex{
             display:flex;
@@ -73,7 +81,7 @@
             position:absolute;
             width:18vw;
             height:18vw;
-            top:73%;
+            top:60%;
             left:37%;
             z-index:-1;
             

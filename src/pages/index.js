@@ -1,13 +1,14 @@
-import React, { useEffect } from "react"
+import React, { useEffect,useRef } from "react"
 import { Helmet } from "react-helmet"
 
-import Intro from '../components/home/intro/intro'
+import Intro from '../components/Home/IntroSection/intro'
 
-import About from '../components/home/about/about'
+import About from '../components/Home/AboutSection/about'
 
-import Services from '../components/home/services/services'
+import Services from '../components/Home/ServicesSection/services'
 
-import Logo from '../components/essentials/logo'
+import Logo from '../components/Essentials/logo'
+
 
 import '../stylesheets/style.scss'
 
@@ -17,6 +18,9 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 // markup
 const IndexPage = () => {
+
+  const orangeMenuRef = useRef(null);
+
   let data = useStaticQuery(graphql`
   query{
 
@@ -50,6 +54,7 @@ const IndexPage = () => {
         subAnswer
         subQuestion
         subQuote
+        subQuoteAnswer
         subIntro {
           raw
         }
@@ -62,6 +67,7 @@ const IndexPage = () => {
           introText {
             raw
           }
+          servicesQuote
           serviceTitle1
           serviceTitle2
           serviceTitle3
@@ -127,21 +133,24 @@ useEffect(()=>{
       
     </Helmet>
     
-       <Intro logo={imageFinder(data.media,"Logo")} customer={imageFinder(data.media,"First Cover")} 
-        experience={imageFinder(data.media,"Second Cover")} growth={imageFinder(data.media,"Third Cover")}/> 
+      <Intro logo={imageFinder(data.media,"Logo")} customer={imageFinder(data.media,"First Cover")} 
+        experience={imageFinder(data.media,"Second Cover")} growth={imageFinder(data.media,"Third Cover")}
+        orangeRef={orangeMenuRef} /> 
        
-       <div className="orange-logo">
-         <Logo image={imageFinder(data.media,"Logo")} />
-       </div>
+      <div className="orange-logo" ref={orangeMenuRef}>     
 
-       <About squares={imageFinder(data.media,"Squares")} designIcon={imageFinder(data.media,"icon-design")} 
+            <Logo image={imageFinder(data.media,"Logo")}  />
+      
+      </div>
+
+      <About squares={imageFinder(data.media,"Squares")} designIcon={imageFinder(data.media,"icon-design")} 
                analyticsIcon={imageFinder(data.media,"icon-analytics")} allIcon={imageFinder(data.media,"icon-allinone")} 
                 texts={data.aboutUsData.nodes[0]}/>
 
-       {/* <Services texts={data.servicesData.edges[0].node} cover={imageFinder(data.media,"cover-services")}
+      <Services texts={data.servicesData.edges[0].node} cover={imageFinder(data.media,"cover-services")}
                  designIcon={imageFinder(data.media,"icon-services-design")} manageIcon={imageFinder(data.media,"icon-manage")}
                  transformIcon={imageFinder(data.media,"icon-transform")} cubes={imageFinder(data.media,"cubes")}
-                 implementIcon={imageFinder(data.media,"icon-implement")} /> */}
+                 implementIcon={imageFinder(data.media,"icon-implement")} />
 
     </>
   )

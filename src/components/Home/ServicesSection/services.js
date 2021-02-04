@@ -25,7 +25,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
        
         gsap.to(parallaxCover.current, {
-            y: 300,
+            y: 50+'vh',
             scrollTrigger: {
               trigger: '.parallax-container',          
               scrub: true,
@@ -110,6 +110,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
                 <h1 className="services-section-title"> SERVICES. </h1>
                 <div className="services-section-intro">{documentToReactComponents(JSON.parse(texts.introText.raw),options)}</div>
                 <hr className="services-section-separator"></hr>
+                <h1 className="services-section-quote">{texts.servicesQuote}</h1>
                 
 
             </div>
@@ -204,9 +205,9 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
         </div>
         <div className="services-swipe-lines">
 
-          <div className={slider == 0 ?"swipe active-swipe":"swipe"}> </div>
-          <div className={slider == 1 ?"swipe active-swipe":"swipe"}></div>
-          <div className={slider == 2 ?"swipe active-swipe":"swipe"}></div>
+          <div className={slider === 0 ?"swipe active-swipe":"swipe"}> </div>
+          <div className={slider === 1 ?"swipe active-swipe":"swipe"}></div>
+          <div className={slider === 2 ?"swipe active-swipe":"swipe"}></div>
 
         </div> 
 
