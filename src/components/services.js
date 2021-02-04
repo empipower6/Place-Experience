@@ -107,7 +107,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
             <div className="services-section-left">
 
-                <h1 className="services-section-title"> SERVICES. </h1>
+                <h1 className="services-section-title"> SERVICES </h1>
                 <div className="services-section-intro">{documentToReactComponents(JSON.parse(texts.introText.raw),options)}</div>
                 <hr className="services-section-separator"></hr>
                 <h1 className="services-section-quote">{texts.servicesQuote}</h1>

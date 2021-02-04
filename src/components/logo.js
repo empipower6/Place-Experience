@@ -2,7 +2,6 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { gsap, Power4} from "gsap/dist/gsap";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-import { faLaptopHouse } from '@fortawesome/free-solid-svg-icons';
 
 
 class Logo extends React.Component{
