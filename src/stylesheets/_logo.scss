@@ -1,26 +1,36 @@
+@import './variables';
+
 .logo-menu{
     
-    width:30%;
+    width:100%;
     display:none;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-between;
     position:fixed;
     top:0;
-    bottom:0;
     left:0;
+    bottom:0;
+    display:none;
+
     
 
     background-color:#EABB7F;
-    
+
+  .left{
+    width:40%;
+
 
     ul{
-        color:white;
+        color:#474747;
         font-family:$bodoni;
-        font-weight:700;
-        font-size:2vw;
-        padding:7vw 0vw 0vw 5vw;
+        font-weight:200;
+        font-size:3vw;
+        padding:2vw 0vw 0vw 5vw;
         list-style-type: none;
         
         .anchors{
-            color:white;
+            color:#474747;
             text-decoration: none;
         }
         .cancel-mobile{
@@ -30,6 +40,7 @@
             cursor:pointer;
             height:50%;
             transition:0.1s;
+            color:white;
 
             &:hover{
                 opacity:0.5;
@@ -44,12 +55,29 @@
         .logo-menu-item{
             padding-bottom:2vw;
             cursor:pointer;
-            transition:0.1s;
+            transition:0.3s;
+            
 
             &:hover{
-                opacity:0.5;
+                color:white;
             }
 
+        }
+    }
+}
+    .right{
+        display:flex;
+        width:30%;
+
+        .logo-text{
+            width:10vw;
+            height:auto;
+        }
+
+        .menu-socials{
+
+            display:flex;
+            flex-flow:row nowrap;
         }
     }
 }

@@ -15,27 +15,27 @@ const Intro = ({logo,customer,experience,growth,orangeRef})=>{
 
 
 
-    const snapScrollControl = ()=>{
+    // const snapScrollControl = ()=>{
 
         
-      window.addEventListener('scroll',()=>{
+    //   window.addEventListener('scroll',()=>{
 
           
-        if(window.pageYOffset > 0){
-         introRef.current.classList.add('inactive-flex');
-         introRef.current.classList.remove('intro-flex');
+    //     if(window.pageYOffset > 0){
+    //      introRef.current.classList.add('inactive-flex');
+    //      introRef.current.classList.remove('intro-flex');
        
 
     
-        }
-        else if(window.pageYOffset === 0){
-          introRef.current.classList.add('intro-flex');
-          introRef.current.classList.remove('inactive-flex');
-        }
+    //     }
+    //     else if(window.pageYOffset === 0){
+    //       introRef.current.classList.add('intro-flex');
+    //       introRef.current.classList.remove('inactive-flex');
+    //     }
     
-      });
+    //   });
       
-    }
+    // }
 
     useEffect(()=>{
       menuOpen ? orangeRef.current.style.display="none": orangeRef.current.style.display="block";
@@ -50,7 +50,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef})=>{
       //Snap Scroll is to make sure the snapping starts when the window.y is equal to 0.
       //Otherwise, what happens is when you're scrolling back into the snap container, the
       //snap can start even when it's in half height as long as the mouse is in the container.
-      snapScrollControl();
+      // snapScrollControl();
 
       
 
@@ -69,21 +69,18 @@ const Intro = ({logo,customer,experience,growth,orangeRef})=>{
              
              if(entry.target.classList[1]=== "first-child"){
 
-              document.body.classList.add('stop-scroll');
               setState(0);
 
              }
 
              else if(entry.target.classList[1]=== "second-child"){
 
-              document.body.classList.add('stop-scroll');
               setState(1);
 
 
              }
              else if(entry.target.classList[1]=== "third-child"){
 
-              document.body.classList.remove('stop-scroll');
               setState(2);
 
              
@@ -142,13 +139,13 @@ const Intro = ({logo,customer,experience,growth,orangeRef})=>{
          </div>      
  
        </div> 
-       <div className="container-swipe-lines">
+       {/* <div className="container-swipe-lines">
 
           <div className={cover=== 0?"swipe active-swipe":"swipe"}></div>
           <div className={cover=== 1?"swipe active-swipe":"swipe"}></div>
           <div className={cover=== 2?"swipe active-swipe":"swipe"}></div>
 
-        </div> 
+        </div>  */}
 
       
        

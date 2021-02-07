@@ -7,6 +7,8 @@ import About from '../components/about'
 
 import Services from '../components/services'
 
+import Stories from '../components/stories'
+
 import Logo from '../components/logo'
 
 
@@ -111,6 +113,23 @@ const IndexPage = () => {
         }
       }
     }
+
+    storiesData:allContentfulStory {
+      edges {
+        node {
+          slug
+          title
+          storyImage {
+            fluid{
+                aspectRatio
+                base64
+                src
+                srcSet
+            }
+          }
+        }
+      }
+    }
        
    
 
@@ -120,6 +139,7 @@ const IndexPage = () => {
 
 
 useEffect(()=>{
+
 
 
 
@@ -139,18 +159,23 @@ useEffect(()=>{
        
       <div className="orange-logo" ref={orangeMenuRef}>     
 
-            <Logo image={imageFinder(data.media,"Logo")}  />
+            <Logo image={imageFinder(data.media,"Logo")} logoText={imageFinder(data.media,"LogoFooter")}
+                  phoneIcon ={imageFinder(data.media,"phone-icon")} />
       
       </div>
 
       <About squares={imageFinder(data.media,"Squares")} designIcon={imageFinder(data.media,"icon-design")} 
                analyticsIcon={imageFinder(data.media,"icon-analytics")} allIcon={imageFinder(data.media,"icon-allinone")} 
-                texts={data.aboutUsData.nodes[0]}/>
+                pies={imageFinder(data.media,("Pie"))} texts={data.aboutUsData.nodes[0]}/>
 
-      <Services texts={data.servicesData.edges[0].node} cover={imageFinder(data.media,"cover-services")}
+      <Services texts={data.servicesData.edges[0].node} cover={imageFinder(data.media,"Services Cover")}
                  designIcon={imageFinder(data.media,"icon-services-design")} manageIcon={imageFinder(data.media,"icon-manage")}
                  transformIcon={imageFinder(data.media,"icon-transform")} cubes={imageFinder(data.media,"cubes")}
                  implementIcon={imageFinder(data.media,"icon-implement")} />
+
+      <Stories rect={imageFinder(data.media,"rectangle")} rshape={imageFinder(data.media,"rShape")} 
+               triangle={imageFinder(data.media,"triangle")} square={imageFinder(data.media,"singleSquare")} 
+               storiesData={data.storiesData.edges} storiesCover ={imageFinder(data.media,"Stories Cover")} />
 
     </>
   )

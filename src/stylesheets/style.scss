@@ -1,8 +1,13 @@
-@import 'Home/intro';
-@import 'Home/about';
-@import 'Home/services';
+@import 'intro';
+@import 'about';
+@import 'services';
+@import 'stories';
 
-@import 'Essentials/logo';
+@import 'Templates/story';
+
+
+
+@import '/logo';
 
 
 
@@ -32,6 +37,24 @@ body{
 
 }
 
+.parallax-container{
+    position:relative;
+    height:30vw;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    
+    .parallax-cover{
+       position:absolute;
+       left:0;
+        height:250%;
+        width:100vw;
+        bottom:-20vw;
+       
+    
+        
+    }
+}
 
 
 

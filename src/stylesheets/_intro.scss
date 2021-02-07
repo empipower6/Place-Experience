@@ -1,14 +1,13 @@
-@import '../Essentials/variables';
+@import './variables';
 
 
 
  
 
 .intro-flex{
-    display:flex;
-    flex-flow:row nowrap;
-    overflow:scroll;
-    scroll-snap-type: x mandatory;
+    // display:flex;
+    // flex-flow:row nowrap;
+    // scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
 
@@ -32,8 +31,8 @@
  }
   
   .child {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    // scroll-snap-align: start;
+    // scroll-snap-stop: always;
     width:100vw;
     padding-top:0;
 
@@ -70,7 +69,6 @@
 
   .container{
 
-   
 
     .fixed-header{
         position:absolute;

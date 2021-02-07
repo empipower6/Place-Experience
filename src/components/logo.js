@@ -14,7 +14,6 @@ class Logo extends React.Component{
         this.timeline = React.createRef();
         this.openMenu= this.openMenu.bind(this);
         this.closeMenu= this.closeMenu.bind(this);
-        this.checkIfOutside= this.checkIfOutside.bind(this);
 
     }
 
@@ -22,11 +21,13 @@ class Logo extends React.Component{
 
         // if(!this.timeline.current){
 
-        // let children = this.mobileMenu.current.children[0].childNodes;
+        let children = this.mobileMenu.current.children[0].childNodes;
+        console.log(children);
 
         // this.timeline.current = gsap.timeline({repeat: 0});
     
         // this.timeline.current.fromTo(this.mobileMenu.current,{display:'none',opacity:0},{display:'block',opacity:1,duration:0.3});
+
         // children.forEach((element,key) => {
         //     console.log(element);
         //     this.timeline.current.to(element,{opacity:1,ease: Power4.easeOut,duration:0.5},"-=0.3");
@@ -36,18 +37,14 @@ class Logo extends React.Component{
         // else{
         //     this.timeline.current.play();
         // }
-        gsap.to(this.mobileMenu.current, {display:'block',opacity:1,duration:0.5});
+        gsap.fromTo(this.mobileMenu.current,{display:'none',y:100+'vh'},{display:'block',y:0,duration:1,ease:"power3.out"});
 
 
         //For the Intro Section's logo not overlapping with the normal logo menu
         if(this.props.menuChecker){
             this.props.menuChecker(true);
         }
-        window.addEventListener('click',(e)=>{
-    
-        this.checkIfOutside(e);
-    
-        });
+      
 
     }
 
@@ -66,7 +63,7 @@ class Logo extends React.Component{
     // }
     
     // this.timeline.current.reverse();
-    gsap.to(this.mobileMenu.current, {display:'none',opacity:0,duration:0.5});
+    gsap.fromTo(this.mobileMenu.current,{display:'block',y:0},{display:'block',y:100+'vh',duration:1,ease:"power3.out"});
     
     //For the Intro Section's logo not overlapping with the normal logo menu
     if(this.props.menuChecker){
@@ -75,33 +72,14 @@ class Logo extends React.Component{
     }
 
 
-
-    document.body.classList.remove('stop-scroll');
-    window.removeEventListener('click',(e)=>{
-
-        this.checkIfOutside(e);
- 
-     });
-
-    }
-
-    checkIfOutside(e){
-     
-    if(e.target && !this.mobileMenu.current.contains(e.target)){
-
-        if(e.target !== this.imageRef.current.imageRef.current){
+   }
+   
 
 
-            this.closeMenu();
-
-
-        }
-    }
-
-    }
 
     componentDidMount(){
 
+        console.log(this.props.logoText);
         
             
     }
@@ -114,17 +92,31 @@ class Logo extends React.Component{
                     <Img ref={this.imageRef} fluid={this.props.image} alt="Main Logo" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
             </div>
             <div className="logo-menu" ref={this.mobileMenu}>
-                <ul>
-                    <li  className="cancel-mobile"onClick={()=>{this.closeMenu()}} > X </li>
-                    <li className="mobile-title"> PLACE EXPERIENCE</li>
-                    <AnchorLink to="/#section-about" className="anchors"><li key={2} className="logo-menu-item"  onClick={()=>{this.closeMenu()}}> ABOUT US </li></AnchorLink>
-                    <AnchorLink to="/#services" className="anchors"><li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> SERVICES </li></AnchorLink>
-                    <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> STORIES </li>
-                    <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> TEAM </li>
-                    <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> INSIGHTS </li>
-                    <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> MEET US </li>
+                <div className="left">
+                    <ul>
+                        <li  className="cancel-mobile" onClick={()=>{this.closeMenu()}} > X </li>
+                        <li className="mobile-title"> </li>
+                        <AnchorLink to="/#section-about" className="anchors"><li key={2} className="logo-menu-item"  onClick={()=>{this.closeMenu()}}> ABOUT US </li></AnchorLink>
+                        <AnchorLink to="/#services" className="anchors"><li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> SERVICES </li></AnchorLink>
+                        <AnchorLink to="/#stories-section" className="anchors"><li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> STORIES </li></AnchorLink>
+                        <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> TEAM </li>
+                        <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> INSIGHTS </li>
+                        <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> MEET US </li>
 
-                </ul>
+                    </ul>
+                </div>
+                {/* <div className="right">
+                    <div className="logo-text">
+                        <Img fluid={this.props.logoText} alt="Logo with Text" imgStyle={{objectFit:'cover'}} />
+                    </div>
+                    <div className="menu-socials">
+                        <div className="call-icon">
+                            <Img fluid={this.props.phoneIcon} alt="Phone Icon with Text" imgStyle={{objectFit:'cover'}} />
+                        </div>
+                        <h1>SCHEDULE A CALL</h1>
+                    </div>
+
+                </div> */}
             </div>
             </>
         );
