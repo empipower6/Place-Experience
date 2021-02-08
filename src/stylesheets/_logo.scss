@@ -12,6 +12,7 @@
     left:0;
     bottom:0;
     display:none;
+    height:100vh;
 
     
 
@@ -19,14 +20,16 @@
 
   .left{
     width:40%;
+    position:absolute;
+    top:10%;
 
 
     ul{
         color:#474747;
         font-family:$bodoni;
         font-weight:200;
-        font-size:3vw;
-        padding:2vw 0vw 0vw 5vw;
+        font-size:2.5vw;
+        padding:1vw 0vw 0vw 5vw;
         list-style-type: none;
         
         .anchors{
