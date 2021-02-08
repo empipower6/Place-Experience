@@ -37,15 +37,22 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
     const newStories = chunk(storiesData, 3);
 
     const slideToStories = (direction)=>{
+       
+      let inc = direction? 1 :-1;
+      let timeline = new gsap.timeline({repeat:0,paused:true});
+      timeline.to(storyBlocks.current[whichSection],{opacity:0,ease:"power2",duration:0.2})
+      .to(storiesContainer.current,{duration:0.1,scrollTo:storyBlocks.current[whichSection+inc], ease: "power2"})
+      .fromTo(storyBlocks.current[whichSection+inc],{opacity:0},{opacity:1,ease: "power2",duration:0.2})
+      .to(storyBlocks.current[whichSection],{opacity:1,ease:"power2",duration:0.2});
+
 
         if(direction && whichSection+1<4){
             
-            gsap.to(storiesContainer.current,{duration:1,scrollTo:storyBlocks.current[whichSection],ease: "power2"});
-
+            timeline.play();
         }
-        else if(!direction && whichSection-1>0){
+        else if(!direction && whichSection-1>-1){
 
-            gsap.to(storiesContainer.current,{duration:1,scrollTo:storyBlocks.current[whichSection-2],ease: "power2"});
+            timeline.play();
 
         }
     }
@@ -205,7 +212,7 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
                {
                  
                   newStories.map((story,index)=>(
-                    <div className={`section-${index+1} section`} ref={el => storyBlocks.current[index]=el}>
+                    <div className={`section-${index} section`} ref={el => storyBlocks.current[index]=el}>
                      {story.map((box,boxIndex)=>(
                      <Link to={`/${box.node.slug}`}> 
                       <div className="stories-section-box" key={(index+1)*(boxIndex+1)}>

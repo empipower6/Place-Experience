@@ -122,14 +122,20 @@
         -ms-overflow-style: none; /* IE 11 */
         position:relative;
         padding-top:2vw;
-
+        
+        .fourth-slide{
+            width:100%;
+            min-width:100%;
+        }
         
         
         .slide{
             display:flex;
             flex-flow:row nowrap;
-            justify-content: space-around;
+            justify-content: flex-start;
+           
             
+          
             
 
             .box{

@@ -24,9 +24,11 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
     const firstSlide = useRef(null);
     const secondSlide = useRef(null);
     const thirdSlide = useRef(null);
+    const fourthSlide = useRef(null);
+
     
 
-    slides.push(firstSlide,secondSlide,thirdSlide);
+    slides.push(firstSlide,secondSlide,thirdSlide,fourthSlide);
     
 
     const [slider , setSlider] =useState(0);
@@ -44,14 +46,22 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
   
     const slide = (direction)=>{
 
-      console.log(direction);
-      
-      if(direction && slider < 2){
-        gsap.to(sliderContainer.current,{duration:1,scrollTo:slides[slider+1].current, ease: "power2"})
+      let number = direction ? 1 : -1;
 
+      let timeline = new gsap.timeline({repeat:0,paused:true});
+        timeline.to(slides[slider].current,{opacity:0,ease:"power2",duration:0.2})
+        .to(sliderContainer.current,{duration:0.1,scrollTo:slides[slider+number].current, ease: "power2"})
+        .fromTo(slides[slider+number].current,{opacity:0},{opacity:1,ease: "power2",duration:0.2})
+        .to(slides[slider].current,{opacity:1,ease:"power2",duration:0.2});
+
+      
+      if(direction && slider < 3){
+
+        
+        timeline.play();
       }
       else if(!direction && slider > 0){
-        gsap.to(sliderContainer.current,{duration:1,scrollTo:slides[slider-1].current, ease: "power2"})
+        timeline.play();
       }
 
     }
@@ -122,6 +132,12 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
              
              }
+             else if(entry.target.classList[1]=== "fourth-slide"){
+
+              setSlider(3);
+
+             
+             }
           }
         })
 
@@ -130,6 +146,8 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
       slideObserver.observe(firstSlide.current);
       slideObserver.observe(secondSlide.current);
       slideObserver.observe(thirdSlide.current);
+      slideObserver.observe(fourthSlide.current);
+
 
       
 
@@ -250,11 +268,20 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
             </div>
 
              
-          </div>       
+          </div>  
+          <div className="slide fourth-slide" ref={fourthSlide} >
+            <div className="box">
+              <h1> {texts.serviceTitle10}</h1>
+              <div> {documentToReactComponents(JSON.parse(texts.service10.raw),options)}</div>
+            </div>
+            
+
+             
+          </div>        
           
         </div>
 
-        <div class={slider == 2 ? "disable-arrow":"right-arrow"}  onClick={()=>{slide(true)}}>
+        <div class={slider == 3 ? "disable-arrow":"right-arrow"}  onClick={()=>{slide(true)}}>
         <FontAwesomeIcon icon={faChevronRight} color="#E6B77F" />
         </div>
 

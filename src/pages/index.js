@@ -110,6 +110,10 @@ const IndexPage = () => {
           service9 {
             raw
           }
+          service10 {
+            raw
+          }
+         
         }
       }
     }
