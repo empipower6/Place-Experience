@@ -124,9 +124,9 @@ const Story = (props)=>{
             </div>
          </div>
         </div>
-       <div className="story-images">
+       {/* <div className="story-images">
            {
-             props.pageContext.content.allOtherImages ? props.pageContext.content.allOtherImages.map((image,index)=>(
+             props.pageContext.content.storymedia ? props.pageContext.content.allOtherImages.map((image,index)=>(
               <div className={`story-image-${index} story-image`}>
 
               <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
@@ -137,16 +137,60 @@ const Story = (props)=>{
              )):""
 
            }
-       </div>
+       </div> */}
 
         <div className="story-text">
+
+        <div className="challenge-images">
+           {
+             props.pageContext.content.challengeMedias ? props.pageContext.content.challengeMedias.map((image,index)=>(
+              <div className={`story-image-challenge-${index} story-image-challenge`}>
+
+              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+
+            </div>
+
+
+             )):""
+
+           }
+       </div>
             
           <h1 className="story-text-title"> THE CHALLENGE</h1>
           <div className="story-text-desc"> {documentToReactComponents(JSON.parse(data.challenge.raw ),options) } </div>
           <hr className="story-separator" />
+
+          <div className="solution-images">
+           {
+             props.pageContext.content.solutionMedias ? props.pageContext.content.solutionMedias.map((image,index)=>(
+              <div className={`story-image-solution-${index} story-image-solution`}>
+
+              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+
+            </div>
+
+
+             )):""
+
+           }
+       </div>
           <h1 className="story-text-title"> OUR SOLUTION</h1>
           <div className="story-text-desc"> {documentToReactComponents(JSON.parse(data.solution.raw ),options) } </div>
           <hr className="story-separator" />
+          <div className="outcome-images">
+           {
+             props.pageContext.content.outcomeMedias  ? props.pageContext.content.outcomeMedias.map((image,index)=>(
+              <div className={`story-image-outcome-${index} story-image-outcome`}>
+
+              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+
+            </div>
+
+
+             )):""
+
+           }
+       </div>
           <h1 className="story-text-title"> OUTCOMES</h1>
           <div className="story-text-desc">{documentToReactComponents(JSON.parse(data.outcome.raw ),options) } </div>
 
