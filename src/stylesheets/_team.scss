@@ -1,217 +1,111 @@
 .team-section{
-    color:white;
-    text-align:center;
+    padding:5vw 5vw 5vw 10vw;
+    font-family:$montserrat;
+    .team-title{
 
-
-    h1{
+        font-family:$bodoni;
         font-size:3vw;
-        font-family:$avenir;
-        padding-top:10vw;
-        font-weight:800;
-        
+
     }
-
-    .team-outline{
-        width:23rem;
-        height:auto;
-        position:absolute;
-        left:37.5%;
-        margin-top:-13vw;
-    }
-
-    
-
-    .team-flex{
-        
+    .team-pictures{
         display:flex;
         flex-flow:row nowrap;
-        justify-content:space-around;
-        padding:10rem 5rem;
- 
+        justify-content:space-between;
+        align-items:flex-start;
+        position:relative;
 
-        .team-member{
-            width:32%;
+        .background{
+            background-color: #E6B77F;
+            position:absolute;
+            top:3vw;left:0;right:0;
+            height:25vw;
+        }
+        
+      
+
+
+
+        .member{
+
+            width:28%;
+            
             display:flex;
             flex-flow:column nowrap;
-            align-items:center;
-            justify-content: flex-start;
+        
+            padding:3vw 0vw;
 
 
-            .team-member-picture{
-                width:15rem;
-                height:20rem;
-                text-align:center;
-                margin-bottom:-10vw;        
+            .member-pic{
+                width:100%;
+                display:flex;
+                
+                height:25vw;
+                object-fit:cover;
+               
+
+            }
+
+            .gunter{
+                justify-content:center;
+    
+            }
+            .ismail{
+                justify-content:flex-end;
+    
+            }
+    
+            .alper{
+                justify-content:flex-start;
+            }
+            .member-name{
+                color:#E6B77F;
+                font-size:2vw;
+                text-align:left;
+                padding-top:1vw;
+                text-align:left;
+                font-weight:800;
+
+
+
+            }
+            .member-position{
+                font-size:1.4vw;
+                font-weight:200;
+                padding-bottom:1vw;
+                text-align:left;
+
 
 
             }
 
-            .member-name{
-                font-family:$futura;
-                font-size:2vw;
-                font-weight:500;
+            .member-separator{
+
+            width:40%;
+            height:0.2vw;
+            background-color:#E6B77F;
+            border:none;
+            text-align:left;
+
+                
             }
 
             .member-mail{
-                font-family:$futura;
-                font-size:$base-font-size;
-                font-weight:300;
-
-            }
-
-            .vl {
-                border-left: 0.2vw solid white;
-                height: 10vw;
-              }
-            .member-position{
-                font-family:$avenir;
-                font-size:$base-font-size;
-                font-weight:100;
+                padding-top:1vw;
+                font-size:1.1vw;
+                font-weight:200;
+                cursor:pointer;
+                color:#474747;
+                text-decoration:none;
+                text-align:left;
 
 
             }
         }
-
     }
 }
 
-
-
-@media only screen and (min-width: $big-screen) {
-
-    .team-section{
-      
-        h1{
-            padding-top:10vw;
-            
-        }
-    
-        .team-outline{
-            width:30rem;
-           
-            left:38vw;
-            margin-top:-13vw;
-        }
-    }
-}
-
-@media only screen and (max-width:$tablet) and (min-width:$phone){
-
-    .team-section{
-      
-        h1{
-            font-size:5vw;
-            padding-top:15vw;
-            
-        }
-    
-        .team-outline{
-           
-            left:26%;
-            margin-top:-22vw;
-        }
-    
-        
-    
-        .team-flex{
-            
-            flex-flow:row wrap;
-           
-     
-    
-            .team-member{
-                width:49%;
-                padding-bottom:5rem;
-                
-    
-    
-                .team-member-picture{
-                  
-                    margin-bottom:-12vw;        
-    
-    
-                }
-    
-                .member-name{
-                    font-size:4vw;
-                }
-    
-                .member-mail{
-                    font-size:2.5vw;
-    
-                }
-    
-                .vl {
-                    border-left: 0.5vw solid white;
-                  }
-                .member-position{
-                    font-size:$tablet-font-size;
-    
-    
-                }
-            }
-    
-        }
-    }
-}
 
 @media only screen and (max-width:$phone){
 
-    .team-section{
-      
-        h1{
-            font-size:7vw;
-            padding-top:20vw;
-            
-        }
-    
-        .team-outline{
-            width:15rem;
-           
-            left:21vw;
-            margin-top:-30vw;
-        }
-    
-        
-    
-        .team-flex{
-            
-            flex-flow:column wrap;
-           
-     
-    
-            .team-member{
-                width:100%;
-                padding-bottom:5rem;
-                
-    
-    
-                .team-member-picture{
-                  
-                    margin-bottom:-12vw;        
-    
-    
-                }
-    
-                .member-name{
-                    font-size:7vw;
-                }
-    
-                .member-mail{
-                    font-size:4vw;
-    
-                }
-    
-                .vl {
-                    border-left: 1vw solid white;
-                  }
-                .member-position{
-                    font-size:$phone-font-size;
-    
-    
-                }
-            }
-    
-        }
-    }
+   
 }

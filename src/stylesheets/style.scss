@@ -2,6 +2,8 @@
 @import 'about';
 @import 'services';
 @import 'stories';
+@import 'team';
+
 
 @import 'Templates/story';
 
@@ -39,7 +41,7 @@ body{
 
 .parallax-container{
     position:relative;
-    height:30vw;
+    height:35vw;
     overflow:hidden;
     display:flex;
     align-items:center;
@@ -47,10 +49,9 @@ body{
     .parallax-cover{
        position:absolute;
        left:0;
-        height:250%;
+        height:150%;
         width:100vw;
-        bottom:-20vw;
-       
+       top:-45vh;
     
         
     }

@@ -1,4 +1,5 @@
 import React, { useEffect,useRef } from "react"
+
 import { Helmet } from "react-helmet"
 
 import Intro from '../components/intro'
@@ -8,6 +9,8 @@ import About from '../components/about'
 import Services from '../components/services'
 
 import Stories from '../components/stories'
+
+import Team from '../components/team'
 
 import Logo from '../components/logo'
 
@@ -181,6 +184,10 @@ useEffect(()=>{
                triangle={imageFinder(data.media,"triangle")} square={imageFinder(data.media,"singleSquare")} 
                storiesData={data.storiesData.edges} storiesCover ={imageFinder(data.media,"Stories Cover")} />
 
+     <Team ismail={imageFinder(data.media,"Ismail")} gunter={imageFinder(data.media,"gunter")}
+            alper={imageFinder(data.media,"alper")}   />
+    
+    
     </>
   )
 }

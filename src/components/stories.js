@@ -25,7 +25,7 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
     const [whichSection , setSection ]=useState(0);
 
 
-    const parallaxCover =useRef(null);
+    const parallaxStoryCover =useRef(null);
 
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
@@ -40,10 +40,10 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
        
       let inc = direction? 1 :-1;
       let timeline = new gsap.timeline({repeat:0,paused:true});
-      timeline.to(storyBlocks.current[whichSection],{opacity:0,ease:"power2",duration:0.2})
-      .to(storiesContainer.current,{duration:0.1,scrollTo:storyBlocks.current[whichSection+inc], ease: "power2"})
-      .fromTo(storyBlocks.current[whichSection+inc],{opacity:0},{opacity:1,ease: "power2",duration:0.2})
-      .to(storyBlocks.current[whichSection],{opacity:1,ease:"power2",duration:0.2});
+      timeline.to(storyBlocks.current[whichSection],{opacity:0,ease:"power2",duration:0.1})
+      .to(storiesContainer.current,{duration:0.01,scrollTo:storyBlocks.current[whichSection+inc], ease: "power2"})
+      .fromTo(storyBlocks.current[whichSection+inc],{opacity:0},{opacity:1,ease: "power2",duration:0.1},"-=0.5")
+      .to(storyBlocks.current[whichSection],{opacity:1,ease:"power2",duration:0.01});
 
 
         if(direction && whichSection+1<4){
@@ -114,14 +114,14 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
               toggleActions: "play complete reverse play",
               scrub: true,
              
-            }, 
+            },
           }); 
 
         
-        gsap.to(parallaxCover.current, {
-            yPercent:30,
-            scrollTrigger: {
-              trigger: parallaxCover.current,          
+        gsap.to(parallaxStoryCover.current, {
+          y:40+'vh',
+          scrollTrigger: {
+              trigger: '.stories-parallax',          
               top:'top bottom',
               bottom:'bottom bottom',
               toggleActions: "play complete reverse play",
@@ -170,8 +170,8 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
 
     return(
         <>
-        <div className="parallax-container">
-            <div className="parallax-cover" ref={parallaxCover}>
+        <div className="parallax-container stories-parallax">
+            <div className="parallax-cover" ref={parallaxStoryCover}>
                 <Img fluid={storiesCover} alt="Stories Section Cover" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
             </div>
         </div>

@@ -27,39 +27,7 @@ const Story = (props)=>{
           }
         }
       }
-      icon1:allContentfulAsset(filter: {title: {eq: "storiesIcon1"}}) {
-        nodes {
-          title
-          fluid {
-            aspectRatio
-            base64
-            src
-            srcSet
-          }
-        }
-      }
-      icon2:allContentfulAsset(filter: {title: {eq: "storiesIcon2"}}) {
-        nodes {
-          title
-          fluid {
-            aspectRatio
-            base64
-            src
-            srcSet
-          }
-        }
-      }
-      icon3:allContentfulAsset(filter: {title: {eq: "storiesIcon3"}}) {
-        nodes {
-          title
-          fluid {
-            aspectRatio
-            base64
-            src
-            srcSet
-          }
-        }
-      }
+      
       logo:allContentfulAsset(filter: {title: {eq: "Logo"}}) {
         nodes {
           title
@@ -106,7 +74,7 @@ const Story = (props)=>{
             <h1 className="story-title">{data.title}</h1>
             <p className="story-title-explanation">{data.titleExplanation}</p>
          </div>
-         <div className="story-intro-right">
+         {/* <div className="story-intro-right">
             <div className="story-icon">
 
                 <Img fluid={storyData.icon1.nodes[0].fluid} alt="Story Icon Image"  imgStyle={{objectFit:'cover'}} />
@@ -122,7 +90,7 @@ const Story = (props)=>{
               <Img fluid={storyData.icon3.nodes[0].fluid} alt="Story Icon Image"  imgStyle={{objectFit:'cover'}} />
 
             </div>
-         </div>
+         </div> */}
         </div>
        {/* <div className="story-images">
            {
@@ -144,9 +112,9 @@ const Story = (props)=>{
         <div className="challenge-images">
            {
              props.pageContext.content.challengeMedias ? props.pageContext.content.challengeMedias.map((image,index)=>(
-              <div className={`story-image-challenge-${index} story-image-challenge`}>
+              <div className={`story-image-${index} story-image`}>
 
-              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'center'}} />
 
             </div>
 
@@ -163,9 +131,9 @@ const Story = (props)=>{
           <div className="solution-images">
            {
              props.pageContext.content.solutionMedias ? props.pageContext.content.solutionMedias.map((image,index)=>(
-              <div className={`story-image-solution-${index} story-image-solution`}>
+              <div className={`story-image-${index} story-image`}>
 
-              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'center'}} />
 
             </div>
 
@@ -180,9 +148,9 @@ const Story = (props)=>{
           <div className="outcome-images">
            {
              props.pageContext.content.outcomeMedias  ? props.pageContext.content.outcomeMedias.map((image,index)=>(
-              <div className={`story-image-outcome-${index} story-image-outcome`}>
+              <div className={`story-image-${index} story-image`}>
 
-              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+              <Img fluid={image.fluid} alt={`${data.title} image ${index}`}  imgStyle={{objectFit:'contain',objectPosition:'center'}} />
 
             </div>
 

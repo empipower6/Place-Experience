@@ -75,23 +75,25 @@
         }
     }
 
-    .story-images{
-        display:flex;
-        flex-flow:row wrap;
-        justify-content:flex-start;
-        align-items:center;
-        padding:1vw 8vw;
-
-
-        .story-image{
-            width:33.3%;
-            height:auto;
-            z-index:-1;
-        }
-    }
+   
 
     .story-text{
-        padding:2vw 30vw 2vw 8vw;
+        padding:2vw 8vw 2vw 8vw;
+
+        .solution-images,.outcome-images,.challenge-images{
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:flex-start;
+            align-items:center;
+            padding:1vw 0vw;
+    
+            .story-image{
+                width:33.3%;
+               
+                
+                
+            }
+        }
 
    
         .story-separator{
@@ -113,7 +115,7 @@
         .story-text-desc{
             font-weight:300;
             font-size:1.3vw;
-            padding:2vw 0vw;
+            padding:2vw 22vw 2vw 0vw;
 
         }
   }

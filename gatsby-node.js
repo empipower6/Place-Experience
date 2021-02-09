@@ -5,7 +5,7 @@ exports.createPages = async function({actions,graphql}){
     const {data} = await graphql(`
 
      query {
-        allContentfulStory {
+        allContentfulStory(sort: {fields: createdAt}) {
           edges {
             node {
               slug

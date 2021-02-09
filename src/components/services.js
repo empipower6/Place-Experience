@@ -10,11 +10,10 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft,faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { Timeline } from 'gsap/gsap-core';
 
 const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,cubes})=>{
 
-    const parallaxCover = useRef(null);
+    const parallaxServiceCover = useRef(null);
     const parallaxCubes = useRef(null);
     const sliderContainer = useRef(null);
 
@@ -49,10 +48,10 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
       let number = direction ? 1 : -1;
 
       let timeline = new gsap.timeline({repeat:0,paused:true});
-        timeline.to(slides[slider].current,{opacity:0,ease:"power2",duration:0.2})
-        .to(sliderContainer.current,{duration:0.1,scrollTo:slides[slider+number].current, ease: "power2"})
-        .fromTo(slides[slider+number].current,{opacity:0},{opacity:1,ease: "power2",duration:0.2})
-        .to(slides[slider].current,{opacity:1,ease:"power2",duration:0.2});
+        timeline.to(slides[slider].current,{opacity:0,ease:"power2",duration:0.1})
+        .to(sliderContainer.current,{duration:0.01,scrollTo:slides[slider+number].current, ease: "power2"})
+        .fromTo(slides[slider+number].current,{opacity:0},{opacity:1,ease: "power2",duration:0.1},"-=0.5")
+        .to(slides[slider].current,{opacity:1,ease:"power2",duration:0.1});
 
       
       if(direction && slider < 3){
@@ -68,10 +67,10 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
     useEffect(()=>{
 
        
-        gsap.to(parallaxCover.current, {
-            yPercent:30,
+        gsap.to(parallaxServiceCover.current, {
+            y:40+'vh',
             scrollTrigger: {
-              trigger: parallaxCover.current,          
+              trigger: '.services-parallax',          
               top:'top bottom',
               bottom:'bottom bottom',
               toggleActions: "play complete reverse play",
@@ -85,7 +84,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
             rotation:10,
             scrollTrigger:{
               trigger:parallaxCubes.current,
-              scrub:true,
+              scrub:true
             },
         });
 
@@ -157,8 +156,8 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
     return(
         <>
-        <div className="parallax-container">
-            <div className="parallax-cover" ref={parallaxCover}>
+        <div className="parallax-container services-parallax">
+            <div className="parallax-cover" ref={parallaxServiceCover}>
                 <Img fluid={cover} alt="Our Services Picture" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
             </div>
         </div>
@@ -284,6 +283,16 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
         <div class={slider == 3 ? "disable-arrow":"right-arrow"}  onClick={()=>{slide(true)}}>
         <FontAwesomeIcon icon={faChevronRight} color="#E6B77F" />
         </div>
+
+        <div className="container-swipe-lines">
+
+          <div className={slider=== 0?"swipe active-swipe":"swipe"}></div>
+          <div className={slider=== 1?"swipe active-swipe":"swipe"}></div>
+          <div className={slider=== 2?"swipe active-swipe":"swipe"}></div>
+          <div className={slider=== 3?"swipe active-swipe":"swipe"}></div>
+
+
+        </div> 
 
         </div>
       
