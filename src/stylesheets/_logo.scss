@@ -2,49 +2,57 @@
 
 .logo-menu{
     
-    width:100%;
+    width:0%;
     display:none;
     display:flex;
     flex-flow:row nowrap;
     justify-content: space-between;
     position:fixed;
-    top:0;
-    left:0;
-    bottom:0;
+    top:0vw;
+    left:0vw;
     display:none;
-    height:100vh;
-
+    height:6vw;
+    z-index:10;
+   
     
 
     background-color:#EABB7F;
 
   .left{
-    width:40%;
     position:absolute;
     top:10%;
+    bottom:20%;
 
 
     ul{
-        color:#474747;
+        color:white;
         font-family:$bodoni;
         font-weight:200;
-        font-size:2.5vw;
+        font-size:2vw;
         padding:1vw 0vw 0vw 5vw;
         list-style-type: none;
+
+        .animated-item{
+            opacity: 0;
+        }
         
         .anchors{
-            color:#474747;
+            color:white;
             text-decoration: none;
+           
+            
         }
         .cancel-mobile{
             font-family:$montserrat;
             font-weight:100;
-            font-size:5.5vw;
+            font-size:4.5vw;
             cursor:pointer;
             height:50%;
             transition:0.1s;
             color:white;
-
+            position:relative;
+            top:0vw;
+            opacity:0;
             &:hover{
                 opacity:0.5;
             }
@@ -52,35 +60,94 @@
         .mobile-title{
             font-family:$montserrat;
             font-weight:100;
-            font-size:2vw;
+            font-size:1.5vw;
             padding-bottom:3vw;
+            position:relative;
+            top:0vw;
+            opacity:0;
         }
         .logo-menu-item{
             padding-bottom:2vw;
             cursor:pointer;
             transition:0.3s;
-            
 
             &:hover{
-                color:white;
+                color:#474747;
             }
-
         }
+        li{
+            position:relative;
+           
+
+           
+        }
+
     }
 }
     .right{
         display:flex;
-        width:30%;
+        flex-flow:column nowrap;
+        align-items:flex-end;
+        position:absolute;
+        right:0;
+        padding:1vw 5vw 0vw 0vw;
+        top:12%;
+        bottom:20%;
 
+        
         .logo-text{
             width:10vw;
             height:auto;
+            bottom:0;
+            position:absolute;
+            opacity:0;
+           
         }
 
         .menu-socials{
 
             display:flex;
             flex-flow:row nowrap;
+            justify-content: center;
+            align-items: flex-end;
+
+            .call-icon{
+                width:2vw;
+                height:auto;
+                padding-right:1vw;
+                cursor:pointer;
+                opacity:0;
+                z-index:1;
+                position:relative;
+            }
+            .menu-socials-inner{
+                cursor:pointer;
+
+            h1{
+                font-family:$bodoni;
+                color:black;
+                font-size:1.5vw;
+                padding-right:2vw;
+                line-height:1.5vw;
+                padding-bottom:0.3vw;
+                opacity:0;
+                
+            }
+
+            hr{
+                height:0.2vw;
+                width:50%;
+                background-color:white;
+                border:none;
+                opacity:0;
+            }
+
+            }
+            .linkedin{
+                width:3vw;
+                height:auto;
+
+            }
         }
     }
 }

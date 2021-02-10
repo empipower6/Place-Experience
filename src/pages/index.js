@@ -137,7 +137,20 @@ const IndexPage = () => {
         }
       }
     }
-       
+
+    teamSummaries : allContentfulTeamSection {
+      nodes {
+        alperSummary {
+          raw
+        }
+        gunterSummary {
+          raw
+        }
+        ismailSummary {
+          raw
+        }
+      }
+    }       
    
 
 
@@ -168,7 +181,7 @@ useEffect(()=>{
       <div className="orange-logo" ref={orangeMenuRef}>     
 
             <Logo image={imageFinder(data.media,"Logo")} logoText={imageFinder(data.media,"LogoFooter")}
-                  phoneIcon ={imageFinder(data.media,"phone-icon")} />
+                  phoneIcon ={imageFinder(data.media,"phone-icon")} linkedin={imageFinder(data.media,"linkedinWhite")}/>
       
       </div>
 
@@ -179,14 +192,16 @@ useEffect(()=>{
       <Services texts={data.servicesData.edges[0].node} cover={imageFinder(data.media,"Services Cover")}
                  designIcon={imageFinder(data.media,"icon-services-design")} manageIcon={imageFinder(data.media,"icon-manage")}
                  transformIcon={imageFinder(data.media,"icon-transform")} cubes={imageFinder(data.media,"cubes")}
-                 implementIcon={imageFinder(data.media,"icon-implement")} />
+                 implementIcon={imageFinder(data.media,"icon-implement")} arrow={imageFinder(data.media,"orangeArrow")}/>
 
       <Stories rect={imageFinder(data.media,"rectangle")} rshape={imageFinder(data.media,"rShape")} 
                triangle={imageFinder(data.media,"triangle")} square={imageFinder(data.media,"singleSquare")} 
-               storiesData={data.storiesData.edges} storiesCover ={imageFinder(data.media,"Stories Cover")} />
+               storiesData={data.storiesData.edges} storiesCover ={imageFinder(data.media,"Stories Cover")}
+               arrow={imageFinder(data.media,"orangeArrow")} />
 
      <Team ismail={imageFinder(data.media,"Ismail")} gunter={imageFinder(data.media,"gunter")}
-            alper={imageFinder(data.media,"alper")}   />
+            alper={imageFinder(data.media,"alper")} linkedin={imageFinder(data.media,"linkedinBlue")} 
+            summaries={data.teamSummaries.nodes[0]} linkedinWhite={imageFinder(data.media,"linkedinWhite")}/>
     
     
     </>
@@ -200,7 +215,6 @@ export default IndexPage
 
 const imageFinder = (data,name)=>{
 
-  
   let image;
   let media = data.nodes;
   

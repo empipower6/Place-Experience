@@ -43,7 +43,8 @@
                 
                 height:25vw;
                 object-fit:cover;
-                justify-content: flex-start;               
+                justify-content: flex-start;    
+                cursor:pointer;           
 
             }
 
@@ -80,6 +81,7 @@
                 
             }
 
+          
             .member-mail{
                 padding-top:1vw;
                 font-size:1.1vw;
@@ -91,7 +93,116 @@
 
 
             }
+            .linkedin{
+               width:2vw;
+               height:auto; 
+               padding-top:0.5vw;               
+
+            }
+        
         }
+
+      .summary{
+        width:0%;
+        display:none;
+        display:flex;
+        flex-flow:row nowrap;
+        position:fixed;
+        top:0vw;
+        left:0vw;
+        background-color:#9CD1E2;
+        display:none;
+        height:20%;
+        z-index:10;
+        display:none;
+
+          .left{
+             
+             padding:5vw 0vw 0vw 5vw;
+             width:70%;
+
+
+            .cancel-mobile{
+                font-family:$montserrat;
+                font-weight:100;
+                font-size:4.5vw;
+                cursor:pointer;
+                color:white;
+                &:hover{
+                    opacity:0.5;
+                }
+
+            }
+            .mobile-title{
+                color:white;
+
+                font-family:$montserrat;
+            font-weight:100;
+            font-size:1.5vw;
+            padding-bottom:3vw;
+
+            }
+            .summary-actual{
+                display:flex;
+                flex-flow:row nowrap;
+
+                .summary-image{
+                    width:20vw;
+                    height:auto;
+                    opacity:0;
+
+                }
+                .summary-text{
+                    font-family:$montserrat;
+                    padding-left:2vw;
+                    
+
+                    h1{
+                    
+                     color:white;
+                     font-weight:900;
+                     font-size:2.5vw;
+                     opacity:0;
+
+                    }
+                    h2{
+                     color:white;
+                     font-weight:300;
+                     font-size:1.8vw;
+                     opacity:0;
+
+
+                    }
+                    div{
+                    font-weight:200;
+                    font-size:1.4vw;
+                    padding-top:1vw;
+                    opacity:0;
+
+
+                    }
+
+                }
+            } 
+
+           
+
+          }
+          .right{
+            padding:6vw 0vw 0vw 0vw;
+            position:absolute;
+            right:0;
+            top:0;
+            width:5%;
+
+              .linkedin{
+                  width:3vw;
+                  height:auto;
+                  opacity:0;
+
+              }
+          }
+      }
     }
 }
 

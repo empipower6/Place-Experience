@@ -29,7 +29,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right})=>{
     const [cover , setCover]= useState(0);
     const [time,setTimeState]=useState(0);
     const [menuOpen , setMenu]= useState(false);
-    const [clicker,setClicker]=useState(0);
+    const [clicker,setClicker]=useState(false);
 
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(ScrollToPlugin);
@@ -41,7 +41,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right})=>{
 
     const introSwipe=(direction) =>{
 
-
+      if(!clicker){
       let current= introSlides[cover];
         if(direction){
           let next = cover==2 ? introSlides[0] : introSlides[cover+1]
@@ -55,6 +55,12 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right})=>{
 
 
         }
+      }
+      else{
+        setTimeout(()=>{
+          return setClicker(false),3000});
+      }
+
 
     }
 
@@ -164,7 +170,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right})=>{
        
 
       <div class="intro-flex"  ref={introRef}> 
-        <div class="left-arrow" onClick={()=>{introSwipe(false);setTimeState(true);setClicker(clicker+1);}}>
+        <div class="left-arrow" onClick={()=>{introSwipe(false);setTimeState(true);setClicker(true);}}>
           {/* <FontAwesomeIcon icon={faChevronLeft} color="white" /> */}
           <Img fluid={left} alt="Left Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
       
@@ -186,7 +192,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right})=>{
             </BackgroundImage>
           </div>
 
-        <div class="right-arrow" onClick={()=>{introSwipe(true);setTimeState(true);}}>
+        <div class="right-arrow" onClick={()=>{introSwipe(true);setTimeState(true);setClicker(true);}}>
        
        {/* <FontAwesomeIcon icon={faChevronRight} color="white" /> */}
        <Img fluid={right} alt="Right Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
