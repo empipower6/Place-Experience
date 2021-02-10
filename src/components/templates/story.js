@@ -129,14 +129,16 @@ const Story = (props)=>{
           <hr className="story-separator" />
 
           <div className="solution-images">
-           
+           {
+             props.pageContext.content.solutionMedias ? (
             <div className={`story-image-1 story-image`}>
 
               <Img fluid={props.pageContext.content.solutionMedias.fluid} alt={`${props.pageContext.content.solutionMedias.title} image`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'center'}} />
 
             </div>
+             ):''
 
-
+}
 
            
        </div>
