@@ -86,12 +86,28 @@
             justify-content:flex-start;
             align-items:center;
             padding:1vw 0vw;
+            .story-image{
+                z-index:-1;
+            }
     
+            
+        }
+        .solution-images{
+            .story-image{
+                width:100%;
+                height:auto;
+            }
+        }
+        .challenge-images{
             .story-image{
                 width:33.3%;
-               
-                
-                
+                height:auto;
+            }
+        }
+        .outcome-images{
+            .story-image{
+                width:50%;
+                height:auto;
             }
         }
 

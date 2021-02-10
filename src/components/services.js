@@ -48,10 +48,10 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
       let number = direction ? 1 : -1;
 
       let timeline = new gsap.timeline({repeat:0,paused:true});
-        timeline.to(slides[slider].current,{opacity:0,ease:"power2",duration:0.1})
-        .to(sliderContainer.current,{duration:0.01,scrollTo:slides[slider+number].current, ease: "power2"})
-        .fromTo(slides[slider+number].current,{opacity:0},{opacity:1,ease: "power2",duration:0.1},"-=0.5")
-        .to(slides[slider].current,{opacity:1,ease:"power2",duration:0.1});
+        // timeline.to(slides[slider].current,{opacity:0,ease:"power2",duration:0.1})
+        timeline.to(sliderContainer.current,{duration:0.5,scrollTo:slides[slider+number].current, ease: "power2"})
+        // .fromTo(slides[slider+number].current,{opacity:0},{opacity:1,ease: "power2",duration:0.1},"-=0.5")
+        // .to(slides[slider].current,{opacity:1,ease:"power2",duration:0.1});
 
       
       if(direction && slider < 3){

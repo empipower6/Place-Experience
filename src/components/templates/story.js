@@ -46,7 +46,7 @@ const Story = (props)=>{
 
   useEffect(()=>{
 
-    console.log(props);
+    console.log(props.pageContext.content);
   },[])
 
   
@@ -129,18 +129,16 @@ const Story = (props)=>{
           <hr className="story-separator" />
 
           <div className="solution-images">
-           {
-             props.pageContext.content.solutionMedias ? props.pageContext.content.solutionMedias.map((image,index)=>(
-              <div className={`story-image-${index} story-image`}>
+           
+            <div className={`story-image-1 story-image`}>
 
-              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'center'}} />
+              <Img fluid={props.pageContext.content.solutionMedias.fluid} alt={`${props.pageContext.content.solutionMedias.title} image`} style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'center'}} />
 
             </div>
 
 
-             )):""
 
-           }
+           
        </div>
           <h1 className="story-text-title"> OUR SOLUTION</h1>
           <div className="story-text-desc"> {documentToReactComponents(JSON.parse(data.solution.raw ),options) } </div>

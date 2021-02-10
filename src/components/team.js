@@ -11,7 +11,7 @@ const Team =({alper,ismail,gunter})=>{
     return(
 
         <>
-        <div className="team-section">
+        <div className="team-section" id="team-section">
            <h1 className="team-title"> MEET THE TEAM </h1>
            <div className="team-pictures">
                <div className="background"></div>

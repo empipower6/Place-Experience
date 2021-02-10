@@ -114,7 +114,7 @@
         display:block;
     }
     .left-arrow{
-        padding-right:2vw;
+        padding-right:1.5vw;
     }
 
     .disable-left-arrow{
@@ -170,7 +170,7 @@
                 display:flex;
                 justify-content: center;
                 cursor:pointer;
-                margin-right:3vw;
+                margin-right:3.5vw;
 
                 &:hover {
                     background-color:white;
@@ -256,6 +256,7 @@
 
 
 @media only screen and (min-width: $big-screen) {
+
 
 }
 

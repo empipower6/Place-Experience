@@ -99,7 +99,7 @@ class Logo extends React.Component{
                         <AnchorLink to="/#section-about" className="anchors"><li key={2} className="logo-menu-item"  onClick={()=>{this.closeMenu()}}> ABOUT US </li></AnchorLink>
                         <AnchorLink to="/#services" className="anchors"><li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> SERVICES </li></AnchorLink>
                         <AnchorLink to="/#stories-section" className="anchors"><li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> STORIES </li></AnchorLink>
-                        <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> TEAM </li>
+                        <AnchorLink to="/#team-section" className="anchors"><li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> TEAM </li></AnchorLink>
                         <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> INSIGHTS </li>
                         <li className="logo-menu-item" onClick={()=>{this.closeMenu()}}> MEET US </li>
 
