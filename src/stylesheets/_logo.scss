@@ -16,7 +16,7 @@
         display:flex;
         justify-content: space-between;
         flex-flow:row nowrap;
-        padding:5vw 0vw 10vw 0vw;
+        padding:6vw 0vw 6vw 0vw;
 
 
     .left{
@@ -62,7 +62,7 @@
             opacity:0;
         }
         .logo-menu-item{
-            padding-bottom:2vw;
+            padding-bottom:2.5vw;
             cursor:pointer;
             transition:0.3s;
 
@@ -87,13 +87,14 @@
         align-items:flex-end;
         right:5%;
         padding-top:1vw;
+       
 
         
         .logo-text{
             width:10vw;
             height:auto;
             position:absolute;
-            bottom:0;
+            bottom:6%;
             opacity:0;
            
         }
