@@ -11,7 +11,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft,faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,cubes})=>{
+const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,cubes,arrow})=>{
 
     const parallaxServiceCover = useRef(null);
     const parallaxCubes = useRef(null);
@@ -46,14 +46,10 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
     const slide = (direction)=>{
 
       let number = direction ? 1 : -1;
-
       let timeline = new gsap.timeline({repeat:0,paused:true});
-        // timeline.to(slides[slider].current,{opacity:0,ease:"power2",duration:0.1})
-        timeline.to(sliderContainer.current,{duration:0.5,scrollTo:slides[slider+number].current, ease: "power2"})
-        // .fromTo(slides[slider+number].current,{opacity:0},{opacity:1,ease: "power2",duration:0.1},"-=0.5")
-        // .to(slides[slider].current,{opacity:1,ease:"power2",duration:0.1});
-
-      
+      timeline.to(slides[slider].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.5})
+      .to(slides[slider+number].current,{autoAlpha:1,display:'flex',zIndex:1,duration:0.5},'-=0.5');
+    
       if(direction && slider < 3){
 
         
@@ -88,6 +84,9 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
             },
         });
 
+        gsap.to(slides[slider].current,{autoAlpha:1,display:'flex',zIndex:1,duration:0.5});
+
+
         // slides.forEach((boxSection,index)=>{
 
         //   ScrollTrigger.create({
@@ -110,6 +109,8 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
         entries.forEach(entry=>{
           if(entry.isIntersecting){
+
+            console.log(entry.target);
 
              
             if(entry.target.classList[1]=== "first-slide"){
@@ -215,10 +216,10 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
         </div>
 
-        <div className="services-section-services-container">
+      <div className="services-section-services-container">
 
-        <div class={slider == 0 ? "disable-left-arrow":"left-arrow"} onClick={()=>{slide(false)}}>
-        <FontAwesomeIcon icon={faChevronLeft} color="#E6B77F" />
+        <div class={slider == 0 ? "disable-arrow":"left-arrow"} onClick={()=>{slide(false)}}>
+          <Img fluid={arrow} alt="Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
         </div>
  
         <div className="services-section-services" ref={sliderContainer}>
@@ -281,7 +282,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
         </div>
 
         <div class={slider == 3 ? "disable-arrow":"right-arrow"}  onClick={()=>{slide(true)}}>
-        <FontAwesomeIcon icon={faChevronRight} color="#E6B77F" />
+         <Img fluid={arrow} alt="Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
         </div>
 
         <div className="container-swipe-lines">

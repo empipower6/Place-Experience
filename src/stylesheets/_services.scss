@@ -80,11 +80,12 @@
    
 }
 .services-section-services-container{
-    display:flex;
     margin:2vw 5vw 10vw 10vw;
-    align-items: center;
-    justify-content: space-between;
     position:relative;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+    align-items:center;
 
     .container-swipe-lines{
         display:flex;
@@ -109,23 +110,17 @@
 
 
     .left-arrow,.right-arrow {
-        font-size:2.5vw;
+        width:3%;
         cursor: pointer;
-        display:block;
     }
-    .left-arrow{
-        padding-right:1.5vw;
+    .right-arrow{
+        transform:rotate(180deg);
     }
-
-    .disable-left-arrow{
-        opacity:0;
-        cursor:auto;
-        padding-left:2vw;
     
-    }
     .disable-arrow{
         opacity:0;
         cursor:auto;
+        width:3%;
         
     
     }
@@ -134,35 +129,45 @@
 
     .services-section-services{
 
-        display:flex;
-        flex-flow:row nowrap;
-        justify-content: space-between;
-        overflow-x:scroll;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: none; /* IE 11 */
+        
         position:relative;
-        padding-top:2vw;
+        height:23vw;
+        width:94%;
+        
+        
+        .first-slide{
+            z-index:-1;
+            display:none;
+        }
+        .second-slide{
+            z-index:-1;
+            display:none;
+        }
+        .third-slide{
+            z-index:-1;
+            display:none;
+        }
         
         .fourth-slide{
             width:100%;
             min-width:100%;
+            z-index:-1;
+            display:none;
         }
         
         
         .slide{
-            display:flex;
-            flex-flow:row nowrap;
-            justify-content: flex-start;
-           
-            
-          
-            
+            position:absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            opacity:0;
 
             .box{
                 background-color: #E6B77F;
                 height:23vw;
-                width:24vw;
+                width:25vw;
                 
                 font-family:$montserrat;
                 text-align:center;
@@ -170,7 +175,7 @@
                 display:flex;
                 justify-content: center;
                 cursor:pointer;
-                margin-right:3.5vw;
+                margin:0vw 1vw;
 
                 &:hover {
                     background-color:white;

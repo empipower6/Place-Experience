@@ -87,35 +87,42 @@
             position:absolute;
             left:-4vw;
             top:49%;
-            font-size:2vw;
-            font-weight:100;
+            width:1.8vw;
+            height:auto;
             cursor:pointer;
         }
+        .up-arrow{
+            transform:rotate(90deg);
+        }
+        .down-arrow{
+            transform:rotate(-90deg);
+
+        }
         .stories-section-container{
-            display:flex;
-            flex-flow:column nowrap;
-            overflow-y:scroll;
             scrollbar-width: none;
             -webkit-overflow-scrolling: touch;
             -ms-overflow-style: none; /* IE 11 */
-            min-height:140vh;
-            max-height:140vh;
-
+            position:relative;
+            height:75vw;
             &::-webkit-scrollbar {
                 display: none;
             }
 
             .section{
-                min-height:140vh; 
-                max-height:140vh;
-               
-                padding-bottom:5vw;
+                
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                display:none;
+                opacity:0;
 
 
             
 
             .stories-section-box{
                 position:relative;
+                height:25vw;
                 width:100%;
                 transition:all 0.5s;
                 z-index:0;
@@ -160,9 +167,8 @@
 
                 }
                 .stories-section-story-image{
-
                     transition:all 0.5s;
-
+                    overflow:hidden;
                     
                     
                 }

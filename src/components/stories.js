@@ -9,10 +9,7 @@ import Img from 'gatsby-image'
 import { Link } from 'gatsby'
 
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronUp,faChevronDown } from '@fortawesome/free-solid-svg-icons'
-
-const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
+const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) => {
 
     const squareRef =useRef(null);
     const rshapeRef =useRef(null);
@@ -40,13 +37,10 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
        
       let inc = direction? 1 :-1;
       let timeline = new gsap.timeline({repeat:0,paused:true});
-      timeline.to(storyBlocks.current[whichSection],{opacity:0,ease:"power2",duration:0.1})
-      .to(storiesContainer.current,{duration:0.01,scrollTo:storyBlocks.current[whichSection+inc], ease: "power2"})
-      .fromTo(storyBlocks.current[whichSection+inc],{opacity:0},{opacity:1,ease: "power2",duration:0.1},"-=0.5")
-      .to(storyBlocks.current[whichSection],{opacity:1,ease:"power2",duration:0.01});
+      timeline.to(storyBlocks.current[whichSection],{autoAlpha:0,display:'none',duration:0.5})
+      .to(storyBlocks.current[whichSection+inc],{autoAlpha:1,display:'block',duration:0.5},"-=0.5")
 
-
-        if(direction && whichSection+1<4){
+        if(direction && whichSection+1<storyBlocks.current.length){
             
             timeline.play();
         }
@@ -130,7 +124,9 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
             }, 
           });  
 
+          gsap.to(storyBlocks.current[whichSection],{autoAlpha:1,display:'block',duration:1});
 
+         console.log(storyBlocks.current.length);
 
 
           const options={
@@ -159,12 +155,6 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
 
       })
 
-    
-
-
-
-
-
 
     },[])
 
@@ -183,16 +173,16 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
               <hr className="stories-section-separator"></hr>
               <div className="stories-section-images">
                     <div className="stories-section-icon square" ref={squareRef} >
-                        <Img fluid={square} alt="Square Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }}/>
+                        <Img fluid={square} alt="Square Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain"}}/>
                     </div>
                     <div className="stories-section-icon rshape" ref={rshapeRef}>
-                        <Img fluid={rshape} alt="R Shape Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
+                        <Img fluid={rshape} alt="R Shape Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain"}} />
                     </div>
                     <div className="stories-section-icon triangle" ref={triRef}>
-                        <Img fluid={triangle} alt="Triangle Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
+                        <Img fluid={triangle} alt="Triangle Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain"}} />
                     </div>
                     <div className="stories-section-icon rectangle" ref={rectRef}>
-                        <Img fluid={rect} alt="Rectangle Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
+                        <Img fluid={rect} alt="Rectangle Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain"}} />
                     </div>
               </div>
 
@@ -200,11 +190,11 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
             <div className="stories-section-right">
                 <div className="arrows">
                     <div class="up-arrow" onClick={()=>{slideToStories(false)}}>
-                        <FontAwesomeIcon icon={faChevronUp} color="#E6B77F" />
+                       <Img fluid={arrow} alt="Up Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
 
                     </div>
                     <div class="down-arrow" onClick={()=>{slideToStories(true)}}>
-                        <FontAwesomeIcon icon={faChevronDown} color="#E6B77F" />
+                      <Img fluid={arrow} alt="Down Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
                     </div>
                  </div>
                 <div className="stories-section-container" ref={storiesContainer}>
@@ -218,7 +208,7 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover}) => {
                       <div className="stories-section-box" key={(index+1)*(boxIndex+1)}>
                         <h1 className="stories-section-box-title"> {box.node.title} </h1>
                         <div className="stories-section-story-image">
-                            <Img fluid={box.node.storyImage.fluid} alt={`${box.node.title} Image`} style={{ height:'45vh'}}  imgStyle={{ objectFit: "cover"}} />
+                            <Img fluid={box.node.storyImage.fluid} alt={`${box.node.title} Image`} style={{ height:'25vw'}}  imgStyle={{ objectFit: "cover",objectPosition:'50% 50%' }} />
                         </div>
                       </div>
                     </Link>
