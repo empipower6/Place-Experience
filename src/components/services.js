@@ -48,7 +48,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
       let number = direction ? 1 : -1;
       let timeline = new gsap.timeline({repeat:0,paused:true});
       timeline.to(slides[slider].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.5})
-      .to(slides[slider+number].current,{autoAlpha:1,display:'flex',zIndex:1,duration:0.5},'-=0.5');
+      .to(slides[slider+number].current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5},'-=0.5');
     
       if(direction && slider < 3){
 
@@ -84,7 +84,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
             },
         });
 
-        gsap.to(slides[slider].current,{autoAlpha:1,display:'flex',zIndex:1,duration:0.5});
+        gsap.to(slides[slider].current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5});
 
 
         // slides.forEach((boxSection,index)=>{

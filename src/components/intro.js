@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft,faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
-const Intro = ({logo,customer,experience,growth,orangeRef,left,right})=>{
+const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,linkedin,phoneIcon})=>{
       
     const introRef = useRef();
 
@@ -171,7 +171,6 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right})=>{
 
       <div class="intro-flex"  ref={introRef}> 
         <div class="left-arrow" onClick={()=>{introSwipe(false);setTimeState(true);setClicker(true);}}>
-          {/* <FontAwesomeIcon icon={faChevronLeft} color="white" /> */}
           <Img fluid={left} alt="Left Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
       
         </div>
@@ -194,18 +193,23 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right})=>{
 
         <div class="right-arrow" onClick={()=>{introSwipe(true);setTimeState(true);setClicker(true);}}>
        
-       {/* <FontAwesomeIcon icon={faChevronRight} color="white" /> */}
        <Img fluid={right} alt="Right Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
 
 
           </div>
+
+          <div className="container-swipe-lines">
+            <div className={cover=== 0?"swipe active-swipe":"swipe"}></div>
+            <div className={cover=== 1?"swipe active-swipe":"swipe"}></div>
+            <div className={cover=== 2?"swipe active-swipe":"swipe"}></div>
+          </div> 
       </div>  
 
       <div className="container">
         
         <div className="fixed-header">
          <div className="fixed-header-logo">
-            <Logo image={logo}  menuChecker={setMenu} />
+            <Logo image={logo}  menuChecker={setMenu} logoText={logoText} linkedin={linkedin} phoneIcon={phoneIcon} />
          </div>
          
          <h1 className="fixed-header-title"> PLACE EXPERIENCE </h1>
@@ -213,13 +217,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right})=>{
  
        </div> 
       
-       <div className="container-swipe-lines">
-
-          <div className={cover=== 0?"swipe active-swipe":"swipe"}></div>
-          <div className={cover=== 1?"swipe active-swipe":"swipe"}></div>
-          <div className={cover=== 2?"swipe active-swipe":"swipe"}></div>
-
-        </div> 
+      
 
       
        

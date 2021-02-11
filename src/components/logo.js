@@ -14,6 +14,10 @@ const Logo =(props)=>{
         const menuItems =useRef([]);
         const secondMenuItems =useRef([]);
 
+        const leftSide = useRef(null);
+        const rightSide = useRef(null);
+
+
         menuItems.current=[];
         secondMenuItems.current=[];
       
@@ -32,25 +36,17 @@ const Logo =(props)=>{
 
      const openMenu = ()=>{
 
-       
+        console.log(menuItems.current);       
+
         // let children = mobileMenu.current.children[0].childNodes[0].childNodes;
         console.log(secondMenuItems.current);
         timeline.current = gsap.timeline({repeat: 0});
     
         timeline.current.fromTo(mobileMenu.current,{display:'none'},{display:'block',duration:0.1})
         .to(mobileMenu.current,{width:'100%',height:'100%',duration:0.5})
-        // .to(mobileMenu.current,{height:'100%',duration:0.5})
         .fromTo(menuItems.current,{autoAlpha:0,y:100},{autoAlpha:1,ease:"power3.out",y:0,duration:0.4,stagger: 0.1})
         .fromTo(secondMenuItems.current,{autoAlpha:0,y:100},{autoAlpha:1,y:0,ease:"power3.out",duration:0.3,stagger: 0.2},"-=1")
 
-
-        // children.forEach((element,key) => {
-        //     .to(element,{opacity:1,ease: Power4.easeOut,duration:0.5},"-=0.5");
-        // });  
-        
-
-       
-        // gsap.fromTo(mobileMenu.current,{display:'none',y:100+'vh'},{display:'block',y:0,duration:1,ease:"power3.out"});
 
 
         //For the Intro Section's logo not overlapping with the normal logo menu
@@ -63,20 +59,9 @@ const Logo =(props)=>{
 
    const closeMenu=()=>{
 
-    // if(!timeline.current){
-
-    //     let children = mobileMenu.current.children[0].childNodes;
-
-    //     timeline.current = gsap.timeline({repeat: 0});
-    
-    //     timeline.current.fromTo(mobileMenu.current,{display:'none',opacity:0},{display:'block',opacity:1,duration:0.5},"first");
-    //     children.forEach((element,key) => {
-    //         timeline.current.to(element,{opacity:1,ease: Power4.easeOut,duration:1},"-=0.8");
-    //     });  
-    // }
+   
     timeline.current.reverse();
 
-    // gsap.fromTo(this.mobileMenu.current,{display:'block',y:0},{display:'block',y:100+'vh',duration:1,ease:"power3.out"});
     
     //For the Intro Section's logo not overlapping with the normal logo menu
     if(props.menuChecker){
@@ -88,8 +73,8 @@ const Logo =(props)=>{
    }
 
    useEffect(() => {
-    console.log(props);       
-   }, [])
+    console.log(leftSide.current);       
+   }, [leftSide])
    
 
 
@@ -99,7 +84,8 @@ const Logo =(props)=>{
                     <Img ref={imageRef} fluid={props.image} alt="Main Logo" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
             </div>
             <div className="logo-menu" ref={mobileMenu}>
-                <div className="left">
+                <div className="inner-menu">
+                <div className="left" ref={leftSide}>
                     <ul>
                         <li  className="cancel-mobile" onClick={()=>{closeMenu()}} ref={addToRefs}> X </li>
                         <li className="mobile-title" ref={addToRefs}> CANCEL </li>
@@ -112,7 +98,7 @@ const Logo =(props)=>{
                         
                     </ul>
                 </div>
-                <div className="right">
+                <div className="right" ref={rightSide}>
                     
                     <div className="menu-socials">
                         <a href="https://calendly.com/ismail-ozenc/30min" target="_blank">
@@ -139,6 +125,7 @@ const Logo =(props)=>{
 
                    
 
+                </div>
                 </div>
             </div>
             </>

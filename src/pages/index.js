@@ -176,7 +176,8 @@ useEffect(()=>{
       <Intro logo={imageFinder(data.media,"Logo")} customer={imageFinder(data.media,"First Cover")} 
         experience={imageFinder(data.media,"Second Cover")} growth={imageFinder(data.media,"Third Cover")}
         orangeRef={orangeMenuRef} left={imageFinder(data.media,"left-arrow")} 
-        right={imageFinder(data.media,"right-arrow")} /> 
+        right={imageFinder(data.media,"right-arrow")} logoText={imageFinder(data.media,"LogoFooter")}
+        phoneIcon ={imageFinder(data.media,"phone-icon")} linkedin={imageFinder(data.media,"linkedinWhite")}/> 
        
       <div className="orange-logo" ref={orangeMenuRef}>     
 

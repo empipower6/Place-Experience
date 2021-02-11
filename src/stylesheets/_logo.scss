@@ -4,27 +4,26 @@
     
     width:0%;
     display:none;
-    display:flex;
-    flex-flow:row nowrap;
-    justify-content: space-between;
     position:fixed;
-    top:0vw;
-    left:0vw;
+    top:0;
+    left:0;
     display:none;
-    height:6vw;
+    bottom:0;
     z-index:10;
-   
-    
-
     background-color:#EABB7F;
+    
+    .inner-menu{
+        display:flex;
+        justify-content: space-between;
+        flex-flow:row nowrap;
+        padding:5vw 0vw 10vw 0vw;
 
-  .left{
-    position:absolute;
-    top:10%;
-    bottom:20%;
 
-
-    ul{
+    .left{
+        width:30%;
+        
+        
+        ul{
         color:white;
         font-family:$bodoni;
         font-weight:200;
@@ -50,8 +49,6 @@
             height:50%;
             transition:0.1s;
             color:white;
-            position:relative;
-            top:0vw;
             opacity:0;
             &:hover{
                 opacity:0.5;
@@ -62,8 +59,6 @@
             font-weight:100;
             font-size:1.5vw;
             padding-bottom:3vw;
-            position:relative;
-            top:0vw;
             opacity:0;
         }
         .logo-menu-item{
@@ -85,21 +80,20 @@
     }
 }
     .right{
+        width:30%;
+        position:relative;
         display:flex;
         flex-flow:column nowrap;
         align-items:flex-end;
-        position:absolute;
-        right:0;
-        padding:1vw 5vw 0vw 0vw;
-        top:12%;
-        bottom:20%;
+        right:5%;
+        padding-top:1vw;
 
         
         .logo-text{
             width:10vw;
             height:auto;
-            bottom:0;
             position:absolute;
+            bottom:0;
             opacity:0;
            
         }
@@ -150,6 +144,7 @@
             }
         }
     }
+  }
 }
 
 
