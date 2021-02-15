@@ -227,7 +227,7 @@ useEffect(()=>{
       </div>
       <div className="go-top">     
      
-        <Top arrow={imageFinder(data.media,"arrowUp")}  />
+        <Top arrow={imageFinder(data.media,"arrowUpTop")}  />
        
       </div>
 
@@ -245,12 +245,12 @@ useEffect(()=>{
                storiesData={data.storiesData.edges} storiesCover ={imageFinder(data.media,"Stories Cover")}
                arrow={imageFinder(data.media,"orangeArrow")} />
 
-      {/* <Insights articles = {data.insightsData.edges} designIcon={imageFinder(data.media,"icon-services-design")}
+      <Insights articles = {data.insightsData.edges} designIcon={imageFinder(data.media,"icon-services-design")}
                 implementIcon={imageFinder(data.media,"icon-implement")} manageIcon={imageFinder(data.media,"icon-manage")}
                 transformIcon={imageFinder(data.media,"icon-transform")} whiteDesign={imageFinder(data.media,"whiteDesign")} 
                 whiteImplement={imageFinder(data.media,"whiteImplement")} whiteTransform={imageFinder(data.media,"whiteTransform")}
                 whiteManage={imageFinder(data.media,"whiteManage")} left={imageFinder(data.media,"orangeArrow")} 
-                right={imageFinder(data.media,"orangeArrowRight")}/> */}
+                right={imageFinder(data.media,"orangeArrowRight")}/>
 
      <Team ismail={imageFinder(data.media,"Ismail")} gunter={imageFinder(data.media,"gunter")}
             alper={imageFinder(data.media,"alper")} linkedin={imageFinder(data.media,"linkedinBlue")} 
