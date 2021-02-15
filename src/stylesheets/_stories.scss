@@ -98,6 +98,12 @@
             transform:rotate(-90deg);
 
         }
+
+        .disable-arrow{
+            width:1.8vw;
+            height:auto;
+            visibility:hidden;
+        }
         .stories-section-container{
             scrollbar-width: none;
             -webkit-overflow-scrolling: touch;

@@ -152,25 +152,19 @@
         display:flex;
         flex-flow:column nowrap;
        
-        padding:0vw 10vw 0vw 15vw;
-        padding-top:10vw;
+        padding:0vw 5vw 0vw 15vw;
+        margin-top:-12vw;
     
     
         .about-section-left{
             padding-right:0vw;
+            width:100%;
     
             .about-section-title{
                 font-size:5vw;
             }
-            .about-section-intro{
-                padding:5vw 0vw 5vw 0vw;
-                font-size:3vw;
-            }
-            .about-section-separator{
-                  width:40%;
-                  height:1vw;
-                 
-              }
+            
+            
             .about-section-subQuestion{
                
                 padding:5vw 0vw 0vw 0vw;
@@ -188,22 +182,43 @@
                 font-size:3vw;
     
             }
-            .about-section-subQuote{
-                
-                padding:0vw 0vw 3vw 0vw;
-                font-size:4vw;
-    
+            .about-section-pies-group{
+                display:none;
             }
+            
         }
         .about-section-right{
     
             padding-left:0vw;
+            width:100%;
+            .about-section-intro{
+                padding:5vw 0vw 5vw 0vw;
+                font-size:3vw;
+            }
+
+            .about-section-separator{
+                width:40%;
+                height:1vw;
+               
+            }
+
+            .about-section-subQuote{
+                
+                padding:3vw 0vw 3vw 0vw;
+                font-size:4vw;
+    
+            }
+            .about-section-subQuoteAnswer{
+                font-size:4vw;
+                padding-bottom:5vw;
+
+            }
     
             .about-section-squares{
                 position:absolute;
                 width:35vw;
                 height:auto;
-                top:40rem;
+                top:0rem;
                 right:5vw;
                 z-index:-1;
     
@@ -227,9 +242,9 @@
     
                 }
                 p{
-                    text-align:justify;
+                    text-align:left;
                     font-size:3vw;
-                    padding-right:0vw;
+                    padding-right:7vw;
                     padding-bottom:10vw;
                 }
             }
@@ -247,25 +262,23 @@
         display:flex;
         flex-flow:column nowrap;
        
-        padding:0vw 10vw 0vw 15vw;
-        padding-top:10vw;
+        padding:0vw 5vw 0vw 18vw;
+        padding-top:0vw;
+        margin-top:-10vw;
     
     
         .about-section-left{
             padding-right:0vw;
+            width:100%;
     
             .about-section-title{
-                font-size:7vw;
+                font-size:8vw;
             }
             .about-section-intro{
                 padding:5vw 0vw 5vw 0vw;
                 font-size:4.5vw;
             }
-            .about-section-separator{
-                  width:40%;
-                  height:1.5vw;
-                 
-              }
+            
             .about-section-subQuestion{
                
                 padding:5vw 0vw 0vw 0vw;
@@ -283,16 +296,39 @@
                 font-size:4.5vw;
     
             }
-            .about-section-subQuote{
-                
-                padding:0vw 0vw 3vw 0vw;
-                font-size:5vw;
-    
+            .about-section-pies-group{
+                display:none;
             }
+            
         }
         .about-section-right{
     
             padding-left:0vw;
+            width:100%;
+
+
+            .about-section-intro{
+                padding:5vw 0vw 5vw 0vw;
+                font-size:4.5vw;
+            }
+
+            .about-section-separator{
+                width:40%;
+                height:1.5vw;
+               
+            }
+
+            .about-section-subQuote{
+                
+                padding:3vw 0vw 3vw 0vw;
+                font-size:5vw;
+    
+            }
+            .about-section-subQuoteAnswer{
+                font-size:5vw;
+                padding-bottom:5vw;
+
+            }
     
             .about-section-squares{
                 position:absolute;

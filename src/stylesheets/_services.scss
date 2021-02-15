@@ -92,6 +92,9 @@
         position:absolute;
         top:110%;
         left:43.2%;
+        height:1vw;
+        cursor:pointer;
+
     
         .swipe{
             width:2vw;
@@ -235,23 +238,7 @@
         
     }
 }
-.services-swipe-lines{
-    display:flex;
-    justify-content: center;
-    padding-right:2.5vw;
-    padding-bottom:5vw;
 
-    .swipe{
-        width:2vw;
-        border-bottom:0.3vw solid #E6B77F;
-        opacity:0.5;
-        margin-right:1vw;
-    }
-
-    .active-swipe{
-        opacity:1;
-    }
-}
 
 .services-section-services::-webkit-scrollbar{
     display: none;

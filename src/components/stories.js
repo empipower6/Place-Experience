@@ -34,7 +34,7 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
     const newStories = chunk(storiesData, 3);
 
     const slideToStories = (direction)=>{
-       
+      
       let inc = direction? 1 :-1;
       let timeline = new gsap.timeline({repeat:0,paused:true});
       timeline.to(storyBlocks.current[whichSection],{autoAlpha:0,display:'none',duration:0.5})
@@ -55,6 +55,9 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
 
 
     useEffect(()=>{
+        
+     
+
 
         gsap.to(squareRef.current, {
             left:18+'vw',
@@ -126,7 +129,6 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
 
           gsap.to(storyBlocks.current[whichSection],{autoAlpha:1,display:'block',duration:1});
 
-         console.log(storyBlocks.current.length);
 
 
           const options={
@@ -189,11 +191,11 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
             </div>
             <div className="stories-section-right">
                 <div className="arrows">
-                    <div class="up-arrow" onClick={()=>{slideToStories(false)}}>
+                    <div class={whichSection == 0 ? "disable-arrow":"up-arrow"} onClick={()=>{slideToStories(false)}}>
                        <Img fluid={arrow} alt="Up Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
 
                     </div>
-                    <div class="down-arrow" onClick={()=>{slideToStories(true)}}>
+                    <div class={whichSection == newStories.length-1 ? "disable-arrow":"down-arrow"}  onClick={()=>{slideToStories(true)}}>
                       <Img fluid={arrow} alt="Down Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
                     </div>
                  </div>

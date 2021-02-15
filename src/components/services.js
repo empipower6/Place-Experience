@@ -16,6 +16,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
     const parallaxServiceCover = useRef(null);
     const parallaxCubes = useRef(null);
     const sliderContainer = useRef(null);
+    const servicesContainerRef =useRef(null);
 
    
     const slides = [];
@@ -25,12 +26,11 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
     const thirdSlide = useRef(null);
     const fourthSlide = useRef(null);
 
-    
-
     slides.push(firstSlide,secondSlide,thirdSlide,fourthSlide);
     
 
     const [slider , setSlider] =useState(0);
+    const [out, setOut] = useState(false);
     
 
     gsap.registerPlugin(ScrollTrigger);
@@ -43,12 +43,14 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
         text])
        }
   
-    const slide = (direction)=>{
+    const slide = (direction,goTo)=>{
+
 
       let number = direction ? 1 : -1;
+      const slideDestination = goTo ? slides[goTo-1] : slides[slider+number];
       let timeline = new gsap.timeline({repeat:0,paused:true});
       timeline.to(slides[slider].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.5})
-      .to(slides[slider+number].current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5},'-=0.5');
+      .to(slideDestination.current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5},'-=0.5');
     
       if(direction && slider < 3){
 
@@ -56,6 +58,9 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
         timeline.play();
       }
       else if(!direction && slider > 0){
+        timeline.play();
+      }
+      else if(goTo){
         timeline.play();
       }
 
@@ -87,20 +92,11 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
         gsap.to(slides[slider].current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5});
 
 
-        // slides.forEach((boxSection,index)=>{
-
-        //   ScrollTrigger.create({
-        //     trigger: boxSection.current,
-        //     horizontal:true,
-        //     onEnter: (self) => slide(self.direction)
-        //   });
-        // })
-        
 
           const options={
             root:null,
             rootMargin:'0px',
-            threshold:0.9
+            threshold:0.3
           };
 
       // Intersection Observer basically kills the main scroll while we're snapping. Once it reaches the third cover,
@@ -108,9 +104,9 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
       const slideObserver = new IntersectionObserver((entries,observer)=>{
 
         entries.forEach(entry=>{
-          if(entry.isIntersecting){
 
-            console.log(entry.target);
+
+          if(entry.isIntersecting){
 
              
             if(entry.target.classList[1]=== "first-slide"){
@@ -136,9 +132,25 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
               setSlider(3);
 
-             
              }
+             
+        
           }
+          else if(!entry.isIntersecting){
+
+            if(entry.target.classList[0]=== "services-section-services-container"){
+
+              // setSlider(0);
+              // gsap.to(slides[0].current,{display:'flex',zIndex:1,opacity:1,duration:1});
+              // gsap.to(slides[1].current,{display:'none',zIndex:-1,opacity:0,duration:1});
+              
+
+             }
+
+
+          }
+         
+        
         })
 
       },options);
@@ -147,11 +159,14 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
       slideObserver.observe(secondSlide.current);
       slideObserver.observe(thirdSlide.current);
       slideObserver.observe(fourthSlide.current);
+      slideObserver.observe(servicesContainerRef.current);
 
 
       
 
-    },[])
+    },[]);
+
+   
 
 
 
@@ -216,7 +231,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
         </div>
 
-      <div className="services-section-services-container">
+      <div className="services-section-services-container" ref={servicesContainerRef}>
 
         <div class={slider == 0 ? "disable-arrow":"left-arrow"} onClick={()=>{slide(false)}}>
           <Img fluid={arrow} alt="Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
@@ -287,10 +302,10 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
         <div className="container-swipe-lines">
 
-          <div className={slider=== 0?"swipe active-swipe":"swipe"}></div>
-          <div className={slider=== 1?"swipe active-swipe":"swipe"}></div>
-          <div className={slider=== 2?"swipe active-swipe":"swipe"}></div>
-          <div className={slider=== 3?"swipe active-swipe":"swipe"}></div>
+          <div className={slider=== 0?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,1)}}></div>
+          <div className={slider=== 1?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,2)}}></div>
+          <div className={slider=== 2?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,3)}}></div>
+          <div className={slider=== 3?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,4)}}></div>
 
 
         </div> 

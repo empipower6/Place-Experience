@@ -73,49 +73,49 @@ exports.createPages = async function({actions,graphql}){
       })
 }
 
-// exports.createPages = async function({actions,graphql}){
+exports.createPages = async function({actions,graphql}){
 
-//   const {data} = await graphql(`
+  const {data} = await graphql(`
 
-//    query {
-//     allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Place Experience Article"}}}}}) {
-//       edges {
-//         node {
-//           slug
-//           title
-//           content
-//           date
-//           featuredImage {
-//             node {
-//               localFile {
-//                 childImageSharp {
-//                   fluid {
-//                     aspectRatio
-//                     base64
-//                     sizes
-//                     src
-//                     srcSet
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     }
+   query {
+    allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Place Experience Article"}}}}}) {
+      edges {
+        node {
+          slug
+          title
+          content
+          date
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  fluid {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    }
     
-//   `)
+  `)
 
-//   data.allWpPost.edges.forEach(({ node }) => {
-//       actions.createPage({
-//         path: node.slug,
-//         component: path.resolve(`./src/components/templates/article.js`),
-//         context: {
-//           // Data passed to context is available
-//           // in page queries as GraphQL variables.
-//           content:node,
-//         },
-//       })
-//     })
-// }
+  data.allWpPost.edges.forEach(({ node }) => {
+      actions.createPage({
+        path: node.slug,
+        component: path.resolve(`./src/components/templates/article.js`),
+        context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
+          content:node,
+        },
+      })
+    })
+}

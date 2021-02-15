@@ -14,8 +14,17 @@ import Team from '../components/team'
 
 import Logo from '../components/logo'
 
+import Img from 'gatsby-image'
 
 import '../stylesheets/style.scss'
+
+import Top from '../components/utils/top'
+
+import Footer from '../components/footer'
+
+import Insights from '../components/insights'
+
+
 
 
 import { useStaticQuery, graphql } from 'gatsby'
@@ -25,6 +34,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 const IndexPage = () => {
 
   const orangeMenuRef = useRef(null);
+
 
   let data = useStaticQuery(graphql`
   query{
@@ -150,7 +160,35 @@ const IndexPage = () => {
           raw
         }
       }
-    }       
+    }     
+    
+    insightsData :allWpPost(sort: {fields: date},filter: {categories: {nodes: {elemMatch: {name: {eq: "Place Experience Article"}}}}}) {
+      edges {
+        node {
+          slug
+          title
+          categories {
+            nodes {
+              name
+            }
+          }
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  fluid {
+                    aspectRatio
+                    base64
+                    src
+                    srcSet
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
    
 
 
@@ -163,7 +201,9 @@ useEffect(()=>{
 
 
 
+
 },[]);
+
 
 
  
@@ -185,6 +225,11 @@ useEffect(()=>{
                   phoneIcon ={imageFinder(data.media,"phone-icon")} linkedin={imageFinder(data.media,"linkedinWhite")}/>
       
       </div>
+      <div className="go-top">     
+     
+        <Top arrow={imageFinder(data.media,"arrowUp")}  />
+       
+      </div>
 
       <About squares={imageFinder(data.media,"Squares")} designIcon={imageFinder(data.media,"icon-design")} 
                analyticsIcon={imageFinder(data.media,"icon-analytics")} allIcon={imageFinder(data.media,"icon-allinone")} 
@@ -200,10 +245,19 @@ useEffect(()=>{
                storiesData={data.storiesData.edges} storiesCover ={imageFinder(data.media,"Stories Cover")}
                arrow={imageFinder(data.media,"orangeArrow")} />
 
+      {/* <Insights articles = {data.insightsData.edges} designIcon={imageFinder(data.media,"icon-services-design")}
+                implementIcon={imageFinder(data.media,"icon-implement")} manageIcon={imageFinder(data.media,"icon-manage")}
+                transformIcon={imageFinder(data.media,"icon-transform")} whiteDesign={imageFinder(data.media,"whiteDesign")} 
+                whiteImplement={imageFinder(data.media,"whiteImplement")} whiteTransform={imageFinder(data.media,"whiteTransform")}
+                whiteManage={imageFinder(data.media,"whiteManage")} left={imageFinder(data.media,"orangeArrow")} 
+                right={imageFinder(data.media,"orangeArrowRight")}/> */}
+
      <Team ismail={imageFinder(data.media,"Ismail")} gunter={imageFinder(data.media,"gunter")}
             alper={imageFinder(data.media,"alper")} linkedin={imageFinder(data.media,"linkedinBlue")} 
             summaries={data.teamSummaries.nodes[0]} linkedinWhite={imageFinder(data.media,"linkedinWhite")}/>
-    
+     
+     <Footer mapIcon={imageFinder(data.media,"mapIcon")} phoneIcon={imageFinder(data.media,"phone-icon")}
+             logoText={imageFinder(data.media,"LogoFooter")} linkedin={imageFinder(data.media,"linkedinWhite")} />
     
     </>
   )

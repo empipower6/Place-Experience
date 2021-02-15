@@ -6,9 +6,6 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft,faChevronRight } from '@fortawesome/free-solid-svg-icons'
-
 
 const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,linkedin,phoneIcon})=>{
       
@@ -67,8 +64,8 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
     const timeline = (cur,to)=>{
 
       let tl= gsap.timeline({repeat:0});
-      tl.to(cur.current,{display:'none',autoAlpha:0,duration:0.5})
-      .to(to.current,{display:'block',autoAlpha:1,duration:0.5},"-=0.5");
+      tl.to(to.current,{display:'block',autoAlpha:1,duration:1})
+      .to(cur.current,{display:'none',autoAlpha:0,duration:1},"-=0.5");
 
       
 
@@ -80,7 +77,6 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
         delay=0;
         setTimeState(false);
       }
-      console.log("entered with delay"+delay);
       // Remember the latest callback.
       useEffect(() => {
         savedCallback.current = callback;
@@ -124,7 +120,6 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
 
           if(entry.isIntersecting){
 
-            console.log(entry.target);
 
              if(entry.target.classList[1]=== "first-child"){
 
@@ -169,7 +164,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
        
        
 
-      <div class="intro-flex"  ref={introRef}> 
+      <div class="intro-flex" id="section-intro"  ref={introRef}> 
         <div class="left-arrow" onClick={()=>{introSwipe(false);setTimeState(true);setClicker(true);}}>
           <Img fluid={left} alt="Left Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
       

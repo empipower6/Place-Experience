@@ -36,10 +36,8 @@ const Logo =(props)=>{
 
      const openMenu = ()=>{
 
-        console.log(menuItems.current);       
 
         // let children = mobileMenu.current.children[0].childNodes[0].childNodes;
-        console.log(secondMenuItems.current);
         timeline.current = gsap.timeline({repeat: 0});
     
         timeline.current.fromTo(mobileMenu.current,{display:'none'},{display:'block',duration:0.1})
@@ -73,7 +71,6 @@ const Logo =(props)=>{
    }
 
    useEffect(() => {
-    console.log(leftSide.current);       
    }, [leftSide])
    
 
@@ -112,16 +109,20 @@ const Logo =(props)=>{
                             <hr ref={addToSecondRefs} />
                          </a>
                         </div>
-                        <a href="https://www.linkedin.com/in/ismailozenc/" target="_blank">
+                        <a href="https://www.linkedin.com/company/maven-insights-and-solutions/" target="_blank">
                             <div className="linkedin" ref={addToSecondRefs}>
                             <Img fluid={props.linkedin} alt="LinkedIn Icon" style={{maxHeight:'100%'}} />
                             </div>
                         </a>
                        
                     </div>
-                    <div className="logo-text" ref={addToSecondRefs}>
-                        <Img fluid={props.logoText} alt="Logo with Text" imgStyle={{objectFit:'cover'}} />
-                    </div>
+                        <div className="logo-text" ref={addToSecondRefs} onClick={()=>{closeMenu()}}>
+                          <AnchorLink to="/#section-intro">
+
+                            <Img fluid={props.logoText} alt="Logo with Text" imgStyle={{objectFit:'cover'}} />
+
+                          </AnchorLink>
+                        </div>
 
                    
 

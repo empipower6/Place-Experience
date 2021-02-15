@@ -1,0 +1,119 @@
+@import './variables';
+
+
+.footer-section{
+
+    background-color:#9CD1E2;
+    position:relative;
+    padding:3vw 3vw;
+    
+
+    .footer-flex{
+        display:flex;
+        flex-flow:row nowrap;
+        justify-content: space-between;
+
+        .column{
+            
+            width:30%;
+
+            .logo{
+                width:10vw;
+                height:auto;
+    
+            }
+            .addressIcon{
+                width:4vw;
+                height:auto;
+                padding-bottom:1vw;
+            }
+            .callIcon{
+                width:4vw;
+                height:auto;
+                padding-right:1vw;
+            }
+
+            hr{
+                width:50%;
+                height:0.2vw;
+                background-color:white;
+                border:none;
+                cursor:pointer;
+            }
+
+        }
+
+        .column-1{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .column-2{
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:center;
+            align-items:left;
+            font-family:$montserrat;
+            font-size:1.4vw;
+            font-weight:200;
+        }
+        .column-3{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content:flex-start;
+            align-items:center;
+            font-family:$bodoni;
+            font-size:1.2vw;
+            line-height: 2.5vw;
+            position:relative;
+
+            h1{
+                padding-bottom:0.5vw;
+            }
+            .linkedinIcon{
+                position:absolute;
+                bottom:3vw;
+                right:3vw;
+                width:4vw;
+                height:auto;
+            }
+            .coder-credits{
+                position:absolute;
+                bottom:0vw;
+                left:5vw;
+                font-family:$bodoni;
+                font-size:0.9vw;
+                font-weight:100;
+
+            }
+            
+        }
+        
+    }
+
+    
+}
+
+  
+
+
+@media only screen and (min-width: $big-screen) {
+
+    
+}
+
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+
+   
+  
+
+
+
+}
+
+
+@media only screen and (max-width:$phone){
+
+
+
+}

@@ -1,0 +1,172 @@
+@import './variables';
+
+.insights-section{
+
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content: space-between;
+    font-family:$montserrat;
+    padding:0vw 5vw 0vw 10vw;
+    margin-top:-2vw;
+
+    h1{
+        font-family:$bodoni;
+        font-size:3vw;
+
+    }
+
+    .filter-box{
+        display:flex;
+        flex-flow:row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        p{
+            font-size:2.5vw;
+            font-weight:200;
+
+        }
+       
+        .filter-icons{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            h1{
+                font-weight:100;
+                font-size:2vw;
+            }
+            .icon{
+                width:4vw;
+                height:auto;
+                padding-right:2vw;
+            }
+        }
+    }
+
+    .filter-field{
+        padding-top:2vw;
+        display:flex;
+        align-items:center;
+        justify-content: space-between;
+        position:relative;
+        height:110vh;
+
+        .right-arrow,.left-arrow{
+
+            width:2.5%;
+            height:auto;
+            cursor:pointer;
+            visibility:visible;
+        }
+        .disable-arrow{
+            visibility:hidden;
+            width:2.5%;
+        }
+
+        .section{
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:space-between;
+            width:94%;
+            display:none;
+            opacity:0;
+            z-index:-1;
+            position:absolute;
+            top:5vh;
+            left:3%;
+            
+
+
+        }
+
+        .section-0{
+            display:flex;
+            opacity:1;
+            z-index:1;
+        }
+        .first-box{
+            width:100%;
+            height:40vw;
+            cursor: pointer;
+            position:relative;
+            margin-bottom:1vw;
+
+            h1{
+                position:absolute;
+                top:5vw;
+                left:2vw;
+                color:white;
+                font-weight:800;
+                font-family:$montserrat;
+                font-size:2.5vw;
+                padding-right:60vw;
+            }
+            .box-icon{
+                position:absolute;
+                top:1vw;
+                left:1vw;
+                width:2.5vw;
+                height:auto;
+             }
+
+
+        }
+        .others{  
+            width:33%;        
+            background-color:black;
+            height:40vh;
+            position:relative;
+            
+            
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            cursor: pointer;
+            h1{
+                color:white;
+                font-weight:800;
+                font-family:$montserrat;
+                font-size:2vw;
+                padding:2vw 1vw 1vw 5vw;
+
+
+            }
+            .box-icon{
+                position:absolute;
+                top:1vw;
+                left:1vw;
+                width:2.5vw;
+                height:auto;
+            }
+        }
+
+    }
+}
+
+
+
+  
+
+
+@media only screen and (min-width: $big-screen) {
+
+    
+}
+
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+
+   
+  
+
+
+
+}
+
+
+@media only screen and (max-width:$phone){
+
+
+
+}

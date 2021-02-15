@@ -84,7 +84,7 @@ const Team =({alper,ismail,gunter,linkedin,summaries,linkedinWhite})=>{
             
                <div className="member">
                    <div className="member-pic alper" onClick={()=>{openPerson(tlAlper)}}>
-                       <Img fluid={alper} alt="Alper Kulak's Picture"  style={{width:'20vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
+                       <Img fluid={alper} alt="Alper Kulak's Picture" style={{width:'100%'}}   imgStyle={{objectFit:'cover',objectPosition:'top'}} />
                    </div>
                    <h1 className="member-name">ALPER KULAK</h1>
                    <h2 className="member-position">SENIOR PARTNER</h2>
@@ -125,7 +125,7 @@ const Team =({alper,ismail,gunter,linkedin,summaries,linkedinWhite})=>{
 
                <div className="member">
                    <div className="member-pic gunter" onClick={()=>{openPerson(tlGunter)}}>
-                       <Img fluid={gunter} alt="Gunter Soydanbay's Picture" style={{width:'20vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
+                       <Img fluid={gunter} alt="Gunter Soydanbay's Picture" style={{width:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
                    </div>
                    <h1 className="member-name">GUNTER SOYDANBAY</h1>
                    <h2 className="member-position">BRAND STRATEGIST</h2>
@@ -166,7 +166,7 @@ const Team =({alper,ismail,gunter,linkedin,summaries,linkedinWhite})=>{
 
                <div className="member">
                    <div className="member-pic ismail" onClick={()=>{openPerson(tlIsmail)}}>
-                       <Img fluid={ismail} alt="Ismail Ozenc's Picture" style={{width:'20vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}}/>
+                       <Img fluid={ismail} alt="Ismail Ozenc's Picture" style={{width:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'top'}}/>
                    </div>
                    <h1 className="member-name">ISMAIL OZENC, CCXP</h1>
                    <h2 className="member-position">CUSTOMER EXPERIENCE LEAD</h2>
