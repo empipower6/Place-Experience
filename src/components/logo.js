@@ -45,7 +45,7 @@ const Logo =(props)=>{
         .fromTo(menuItems.current,{autoAlpha:0,y:100},{autoAlpha:1,ease:"power3.out",y:0,duration:0.4,stagger: 0.1})
         .fromTo(secondMenuItems.current,{autoAlpha:0,y:100},{autoAlpha:1,y:0,ease:"power3.out",duration:0.3,stagger: 0.2},"-=1")
 
-
+        document.body.classList.add('body-disable');
 
         //For the Intro Section's logo not overlapping with the normal logo menu
         if(props.menuChecker){
@@ -59,6 +59,8 @@ const Logo =(props)=>{
 
    
     timeline.current.reverse();
+    document.body.classList.remove('body-disable');
+
 
     
     //For the Intro Section's logo not overlapping with the normal logo menu
@@ -87,11 +89,14 @@ const Logo =(props)=>{
                         <li  className="cancel-mobile" onClick={()=>{closeMenu()}} ref={addToRefs}> X </li>
                         <li className="mobile-title" ref={addToRefs}> CANCEL </li>
                         <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-about" className="anchors"  ><li key={2} className="logo-menu-item"  onClick={()=>{closeMenu()}} > ABOUT US </li></AnchorLink></div>
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#services" className="anchors"  ref={addToRefs}><li className="logo-menu-item" onClick={()=>{closeMenu()}} > SERVICES </li></AnchorLink></div>
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#stories-section" className="anchors" ref={addToRefs}><li className="logo-menu-item" onClick={()=>{closeMenu()}}> STORIES </li></AnchorLink></div>
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#team-section" className="anchors"  ref={addToRefs}><li className="logo-menu-item" onClick={()=>{closeMenu()}} > TEAM </li></AnchorLink></div>
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-about" className="anchors"  ><li className="logo-menu-item" onClick={()=>{closeMenu()}}> INSIGHTS </li></AnchorLink></div>
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-about" className="anchors"  ><li className="logo-menu-item" onClick={()=>{closeMenu()}} > MEET US </li></AnchorLink></div>
+                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#services" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}} > SERVICES </li></AnchorLink></div>
+                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#stories-section" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}}> STORIES </li></AnchorLink></div>
+                        
+                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="#section-insights" className="anchors"  ><li className="logo-menu-item" onClick={()=>{closeMenu()}}> INSIGHTS </li></AnchorLink></div>
+
+                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#team-section" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}} > TEAM </li></AnchorLink></div>
+
+                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-footer" className="anchors" ><li className="logo-menu-item" onClick={()=>{closeMenu()}} > MEET US </li></AnchorLink></div>
                         
                     </ul>
                 </div>
@@ -103,7 +108,7 @@ const Logo =(props)=>{
                             <Img fluid={props.phoneIcon} alt="Phone Icon with Text" imgStyle={{objectFit:'cover'}} />
                         </div>
                         </a>
-                        <div class="menu-socials-inner">
+                        <div className="menu-socials-inner">
                         <a href="https://calendly.com/ismail-ozenc/30min" target="_blank" style={{textDecoration:'none'}}>
                             <h1 ref={addToSecondRefs}>SCHEDULE <br/>A CALL</h1>
                             <hr ref={addToSecondRefs} />

@@ -5,7 +5,7 @@
 
     background-color:#9CD1E2;
     position:relative;
-    padding:3vw 3vw;
+    padding:2vw 3vw;
     
 
     .footer-flex{
@@ -62,18 +62,18 @@
             flex-flow:row nowrap;
             justify-content:flex-start;
             align-items:center;
-            font-family:$bodoni;
             font-size:1.2vw;
             line-height: 2.5vw;
             position:relative;
 
             h1{
                 padding-bottom:0.5vw;
+                
             }
             .linkedinIcon{
                 position:absolute;
-                bottom:3vw;
-                right:3vw;
+                bottom:0vw;
+                right:2vw;
                 width:4vw;
                 height:auto;
             }
@@ -81,9 +81,19 @@
                 position:absolute;
                 bottom:0vw;
                 left:5vw;
-                font-family:$bodoni;
+                font-family:$montserrat;
+
+                
                 font-size:0.9vw;
-                font-weight:100;
+
+                .left{
+                    font-weight:200;
+
+                }
+                .name{
+                    font-family:$montserrat;
+                    font-weight:600;
+                }
 
             }
             

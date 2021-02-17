@@ -1,5 +1,9 @@
 @import './variables';
 
+.body-disable{
+    overflow:hidden;
+}
+
 .about-section{
     display:flex;
     flex-flow:row nowrap;

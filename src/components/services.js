@@ -7,10 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft,faChevronRight } from '@fortawesome/free-solid-svg-icons'
-
 const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,cubes,arrow})=>{
 
     const parallaxServiceCover = useRef(null);
@@ -29,8 +25,7 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
     slides.push(firstSlide,secondSlide,thirdSlide,fourthSlide);
     
 
-    const [slider , setSlider] =useState(0);
-    const [out, setOut] = useState(false);
+    const [slider , setSlider] =useState(-1);
     
 
     gsap.registerPlugin(ScrollTrigger);
@@ -65,6 +60,30 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
       }
 
     }
+
+    const slideBack =() =>{
+
+      let timeline = new gsap.timeline({repeat:0});
+      timeline.to(slides[1].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.1})
+      .to(slides[2].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.1})
+      .to(slides[3].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.1})
+      .to(slides[0].current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.1});
+
+
+    }
+
+    useEffect(()=>{
+
+      if(slider == -1){
+
+        gsap.to(slides[0].current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5});
+
+
+
+      }
+
+    },[slider])
+
     useEffect(()=>{
 
        
@@ -89,7 +108,6 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
             },
         });
 
-        gsap.to(slides[slider].current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5});
 
 
 
@@ -136,18 +154,12 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
              
         
           }
-          else if(!entry.isIntersecting){
+          else{
 
-            if(entry.target.classList[0]=== "services-section-services-container"){
+            if(entry.target.classList[0] ==='services-section-services-container' )
 
-              // setSlider(0);
-              // gsap.to(slides[0].current,{display:'flex',zIndex:1,opacity:1,duration:1});
-              // gsap.to(slides[1].current,{display:'none',zIndex:-1,opacity:0,duration:1});
-              
-
-             }
-
-
+             slideBack();
+          
           }
          
         

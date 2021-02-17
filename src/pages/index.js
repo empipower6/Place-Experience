@@ -201,7 +201,6 @@ useEffect(()=>{
 
 
 
-
 },[]);
 
 
@@ -209,7 +208,7 @@ useEffect(()=>{
  
   return (
     <>
-    <Helmet title="Place Experience">
+     <Helmet title="Place Experience">
       
     </Helmet>
     
@@ -217,20 +216,21 @@ useEffect(()=>{
         experience={imageFinder(data.media,"Second Cover")} growth={imageFinder(data.media,"Third Cover")}
         orangeRef={orangeMenuRef} left={imageFinder(data.media,"left-arrow")} 
         right={imageFinder(data.media,"right-arrow")} logoText={imageFinder(data.media,"LogoFooter")}
-        phoneIcon ={imageFinder(data.media,"phone-icon")} linkedin={imageFinder(data.media,"linkedinWhite")}/> 
-       
+        phoneIcon ={imageFinder(data.media,"phone-icon")} linkedin={imageFinder(data.media,"linkedinWhite")}
+        /> 
+    
       <div className="orange-logo" ref={orangeMenuRef}>     
 
             <Logo image={imageFinder(data.media,"Logo")} logoText={imageFinder(data.media,"LogoFooter")}
                   phoneIcon ={imageFinder(data.media,"phone-icon")} linkedin={imageFinder(data.media,"linkedinWhite")}/>
       
       </div>
+     
       <div className="go-top">     
      
-        <Top arrow={imageFinder(data.media,"arrowUpTop")}  />
+        <Top arrow={imageFinder(data.media,"arrowUpTop")}   />
        
       </div>
-
       <About squares={imageFinder(data.media,"Squares")} designIcon={imageFinder(data.media,"icon-design")} 
                analyticsIcon={imageFinder(data.media,"icon-analytics")} allIcon={imageFinder(data.media,"icon-allinone")} 
                 pies={imageFinder(data.media,("Pie"))} texts={data.aboutUsData.nodes[0]}/>
@@ -258,13 +258,13 @@ useEffect(()=>{
      
      <Footer mapIcon={imageFinder(data.media,"mapIcon")} phoneIcon={imageFinder(data.media,"phone-icon")}
              logoText={imageFinder(data.media,"LogoFooter")} linkedin={imageFinder(data.media,"linkedinWhite")} />
-    
+     
     </>
   )
 }
 
 
-export default IndexPage
+export default IndexPage;
 
 
 

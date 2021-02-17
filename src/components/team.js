@@ -102,7 +102,7 @@ const Team =({alper,ismail,gunter,linkedin,summaries,linkedinWhite})=>{
                         <p  className="cancel-mobile" onClick={()=>{closePerson(tlAlper)}} > X </p>
                         <p className="mobile-title" ref={addAlper}> CLOSE </p>
                         <div className="summary-actual">
-                            <div clasName="summary-image" ref={addAlper}>
+                            <div className="summary-image" ref={addAlper}>
                                 <Img fluid={alper} alt="Alper Kulak's Picture"  style={{width:'20vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
                             </div>
                             <div className="summary-text">
@@ -143,7 +143,7 @@ const Team =({alper,ismail,gunter,linkedin,summaries,linkedinWhite})=>{
                         <p  className="cancel-mobile" onClick={()=>{closePerson(tlGunter)}} > X </p>
                         <p className="mobile-title" ref={addGunter}> CLOSE </p>
                         <div className="summary-actual">
-                            <div clasName="summary-image" ref={addGunter}>
+                            <div className="summary-image" ref={addGunter}>
                                 <Img fluid={gunter} alt="Gunter Soydanbay's Picture"  style={{width:'20vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
                             </div>
                             <div className="summary-text">
@@ -184,7 +184,7 @@ const Team =({alper,ismail,gunter,linkedin,summaries,linkedinWhite})=>{
                             <p  className="cancel-mobile" onClick={()=>{closePerson(tlIsmail)}} > X </p>
                             <p className="mobile-title" ref={addIsmail}> CLOSE </p>
                             <div className="summary-actual">
-                                <div clasName="summary-image" ref={addIsmail}>
+                                <div className="summary-image" ref={addIsmail}>
                                     <Img fluid={ismail} alt="Ismail Ozenc's Picture"  style={{width:'20vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
                                 </div>
                                 <div className="summary-text">

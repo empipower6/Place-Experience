@@ -164,8 +164,8 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
        
        
 
-      <div class="intro-flex" id="section-intro"  ref={introRef}> 
-        <div class="left-arrow" onClick={()=>{introSwipe(false);setTimeState(true);setClicker(true);}}>
+      <div className="intro-flex" id="section-intro"  ref={introRef}> 
+        <div className="left-arrow" onClick={()=>{introSwipe(false);setTimeState(true);setClicker(true);}}>
           <Img fluid={left} alt="Left Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
       
         </div>
@@ -186,7 +186,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
             </BackgroundImage>
           </div>
 
-        <div class="right-arrow" onClick={()=>{introSwipe(true);setTimeState(true);setClicker(true);}}>
+        <div className="right-arrow" onClick={()=>{introSwipe(true);setTimeState(true);setClicker(true);}}>
        
        <Img fluid={right} alt="Right Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
 

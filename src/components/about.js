@@ -6,7 +6,7 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 
-const About = ({squares, designIcon,analyticsIcon,allIcon, texts,pies}) =>{
+const About = ({squares, designIcon,analyticsIcon,allIcon, texts,pies,top}) =>{
 
     const squaresRef = useRef(null);
     const firstPie = useRef(null);
@@ -45,7 +45,7 @@ const About = ({squares, designIcon,analyticsIcon,allIcon, texts,pies}) =>{
         <div className="about-section-left">
 
                 <h1 className="about-section-title"> ABOUT US. </h1>
-                <h1 className="about-section-subQuestion">{texts.subQuestion}</h1>
+                <h1 className="about-section-subQuestion" ref={top}>{texts.subQuestion}</h1>
                 <h1 className="about-section-subAnswer">{texts.subAnswer}</h1>
                 <div className="about-section-subIntro">{documentToReactComponents(JSON.parse(texts.subIntro.raw),options)}</div>
                 <div className="about-section-pies-group">

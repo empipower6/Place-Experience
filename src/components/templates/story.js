@@ -1,6 +1,7 @@
 import React,{useEffect} from "react"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useStaticQuery, graphql } from 'gatsby'
+import Footer from '../footer'
 import Img from 'gatsby-image'
 import Logo from '../logo'
 
@@ -13,35 +14,22 @@ const Story = (props)=>{
     text])
    }
   
-   let storyData = useStaticQuery(graphql`
+  let storyData = useStaticQuery(graphql`
     query {
 
-      cover:allContentfulAsset(filter: {title: {eq: "Stories Cover"}}) {
+      media: allContentfulAsset {
         nodes {
           title
           fluid {
-            aspectRatio
-            base64
-            src
-            srcSet
+             aspectRatio
+                base64
+                src
+                srcSet
           }
         }
       }
-      
-      logo:allContentfulAsset(filter: {title: {eq: "Logo"}}) {
-        nodes {
-          title
-          fluid {
-            aspectRatio
-            base64
-            src
-            srcSet
-          }
-        }
-      }
-
-       
-      }
+           
+    }
     `)
 
   useEffect(()=>{
@@ -58,12 +46,12 @@ const Story = (props)=>{
      <div className="story">
        <div className="story-cover">
 
-         <Img fluid={storyData.cover.nodes[0].fluid} alt="Story Cover Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+         <Img fluid={imageFinder(storyData.media,"Stories Cover")} alt="Story Cover Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
          
        </div>
        <div className="story-logo-header">
         <div className="story-logo-menu">
-          <Logo image={storyData.logo.nodes[0].fluid} />
+          <Logo image={imageFinder(storyData.media,"Logo")} />
         </div>
         <h1 className="title"> PLACE EXPERIENCE</h1>
         <h1 className="story-title"> STORIES</h1>
@@ -108,7 +96,7 @@ const Story = (props)=>{
             </div>
              ):''
 
-}
+            }
 
            
        </div>
@@ -134,8 +122,26 @@ const Story = (props)=>{
 
         </div>
       </div>
+
+      <Footer mapIcon={imageFinder(storyData.media,"mapIcon")} phoneIcon={imageFinder(storyData.media,"phone-icon")} logoText={imageFinder(storyData.media,"LogoFooter")} linkedin={imageFinder(storyData.media,"linkedinWhite")} />
+
+      
     </>
   )
 }
 
 export default Story;
+
+const imageFinder = (data,name)=>{
+
+  let image;
+  let media = data.nodes;
+  
+  for(let i=0;i<media.length;i++){
+
+   if(media[i].title === name){
+      image = i;
+   }
+  }
+  return media[image].fluid;
+}
