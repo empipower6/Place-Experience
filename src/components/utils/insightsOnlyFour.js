@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react'
 
 import Img from 'gatsby-image'
 import {Link} from 'gatsby'
@@ -37,7 +37,7 @@ const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{
             {
             show.map((box,key)=>(
 
-                    key==0? 
+                    key===0? 
 
                         <div className="first-box" style={{cursor:'pointer'}}>
 

@@ -1,6 +1,6 @@
 import React,{useEffect,useState,useRef} from 'react' 
 import Img from 'gatsby-image'
-import InsightsOnlyFour from './InsightsOnlyFour'
+import InsightsOnlyFour from './insightsOnlyFour'
 
 const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,implement,transform,manage,left,right}) =>{
 

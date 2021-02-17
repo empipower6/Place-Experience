@@ -14,8 +14,6 @@ import Team from '../components/team'
 
 import Logo from '../components/logo'
 
-import Img from 'gatsby-image'
-
 import '../stylesheets/style.scss'
 
 import Top from '../components/utils/top'
@@ -93,6 +91,8 @@ const IndexPage = () => {
           serviceTitle8
           serviceTitle9
           serviceTitle10
+          serviceTitle11
+          serviceTitle12
           service1 {
             raw
           }
@@ -124,6 +124,12 @@ const IndexPage = () => {
             raw
           }
           service10 {
+            raw
+          }
+          service11 {
+            raw
+          }
+          service12 {
             raw
           }
          

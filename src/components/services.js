@@ -301,6 +301,14 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
               <h1> {texts.serviceTitle10}</h1>
               <div> {documentToReactComponents(JSON.parse(texts.service10.raw),options)}</div>
             </div>
+            <div className="box">
+              <h1> {texts.serviceTitle11}</h1>
+              <div> {documentToReactComponents(JSON.parse(texts.service11.raw),options)}</div>
+            </div>
+            <div className="box">
+              <h1> {texts.serviceTitle12}</h1>
+              <div> {documentToReactComponents(JSON.parse(texts.service12.raw),options)}</div>
+            </div>
             
 
              

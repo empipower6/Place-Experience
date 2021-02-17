@@ -1,7 +1,6 @@
 import React,{useEffect,useRef} from 'react' 
 import { gsap } from "gsap/dist/gsap";
 import Img from 'gatsby-image'
-import { faHandMiddleFinger } from '@fortawesome/free-solid-svg-icons';
 
 const Top = ({arrow})=>{
 
