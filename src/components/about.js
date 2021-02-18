@@ -44,7 +44,7 @@ const About = ({squares, designIcon,analyticsIcon,allIcon, texts,pies,top}) =>{
 
         <div className="about-section-left">
 
-                <h1 className="about-section-title"> ABOUT US. </h1>
+                <h1 className="about-section-title"> ABOUT US </h1>
                 <h1 className="about-section-subQuestion" ref={top}>{texts.subQuestion}</h1>
                 <h1 className="about-section-subAnswer">{texts.subAnswer}</h1>
                 <div className="about-section-subIntro">{documentToReactComponents(JSON.parse(texts.subIntro.raw),options)}</div>
