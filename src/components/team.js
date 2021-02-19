@@ -77,8 +77,8 @@ const Team =({alper,ismail,gunter,linkedin,summaries,linkedinWhite})=>{
     return(
 
         <>
-        <div className="team-section" id="team-section">
-           <h1 className="team-title"> MEET THE TEAM </h1>
+        <div className="team-section" >
+           <h1 className="team-title" id="team-section"> MEET THE TEAM </h1>
            <div className="team-pictures">
                <div className="background"></div>
             

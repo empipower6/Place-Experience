@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 
-const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,linkedin,phoneIcon})=>{
+const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,linkedin,phoneIcon,top})=>{
       
     const introRef = useRef();
 
@@ -55,7 +55,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
       }
       else{
         setTimeout(()=>{
-          return setClicker(false),3000});
+          return setClicker(false),100});
       }
 
 
@@ -164,7 +164,7 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
        
        
 
-      <div className="intro-flex" id="section-intro"  ref={introRef}> 
+      <div className="intro-flex" id="section-intro"  ref={introRef}  ref={top}> 
         <div className="left-arrow" onClick={()=>{introSwipe(false);setTimeState(true);setClicker(true);}}>
           <Img fluid={left} alt="Left Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
       

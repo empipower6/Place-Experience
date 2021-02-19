@@ -9,6 +9,7 @@ import Logo from '../logo'
 const Story = (props)=>{
 
   const data = props.pageContext.content;
+
   const options = {
     renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, 
     text])
@@ -51,7 +52,7 @@ const Story = (props)=>{
        </div>
        <div className="story-logo-header">
         <div className="story-logo-menu">
-          <Logo image={imageFinder(storyData.media,"Logo")} />
+          <Logo image={imageFinder(storyData.media,"Logo")} logoText={imageFinder(storyData.media,"LogoFooter")} phoneIcon ={imageFinder(storyData.media,"phone-icon")} linkedin={imageFinder(storyData.media,"linkedinWhite")}/>
         </div>
         <h1 className="title"> PLACE EXPERIENCE</h1>
         <h1 className="story-title"> STORIES</h1>

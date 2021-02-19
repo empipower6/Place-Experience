@@ -22,6 +22,8 @@ import Footer from '../components/footer'
 
 import Insights from '../components/insights'
 
+import Favicon from '../images/gatsby-icon.png'
+
 
 
 
@@ -32,6 +34,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 const IndexPage = () => {
 
   const orangeMenuRef = useRef(null);
+
+  const toTop = useRef(null);
 
 
   let data = useStaticQuery(graphql`
@@ -195,6 +199,9 @@ const IndexPage = () => {
         }
       }
     }
+
+
+  
    
 
 
@@ -215,7 +222,7 @@ useEffect(()=>{
   return (
     <>
      <Helmet title="Place Experience">
-      
+        <link rel="icon" href={Favicon} /> 
     </Helmet>
     
       <Intro logo={imageFinder(data.media,"Logo")} customer={imageFinder(data.media,"First Cover")} 
@@ -223,6 +230,7 @@ useEffect(()=>{
         orangeRef={orangeMenuRef} left={imageFinder(data.media,"left-arrow")} 
         right={imageFinder(data.media,"right-arrow")} logoText={imageFinder(data.media,"LogoFooter")}
         phoneIcon ={imageFinder(data.media,"phone-icon")} linkedin={imageFinder(data.media,"linkedinWhite")}
+        top={toTop}
         /> 
     
       <div className="orange-logo" ref={orangeMenuRef}>     
@@ -234,7 +242,7 @@ useEffect(()=>{
      
       <div className="go-top">     
      
-        <Top arrow={imageFinder(data.media,"arrowUpTop")}   />
+        <Top arrow={imageFinder(data.media,"arrowUpTop")} disappearItem={toTop}   />
        
       </div>
       <About squares={imageFinder(data.media,"Squares")} designIcon={imageFinder(data.media,"icon-design")} 

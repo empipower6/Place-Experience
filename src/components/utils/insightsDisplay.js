@@ -16,7 +16,8 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
             setWhere(0);
         }
         else{
-        setFilterShows(filteredArticles.slice(where,where+4));
+
+         setFilterShows(filteredArticles.slice(where,where+4));
         
         }
 
@@ -25,6 +26,21 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
    
     //when arrow keys are clicked
     useEffect(()=>{
+
+      let newArticles = [];
+        
+      // if(where === filteredArticles.length-3){
+         
+      //   newArticles = filteredArticles.slice(where,filteredArticles.length);
+      //   newArticles += filteredArticles[0];
+      //   console.log(newArticles);
+
+      // }
+
+
+
+      
+       
 
         setFilterShows(filteredArticles.slice(where,where+4));
 

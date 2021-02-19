@@ -1,14 +1,401 @@
-.article-page{
+@import './variables';
 
-    padding:10vw 5vw;
-    .article-content,.article-title{
+.article-section{
+    position:relative;
+    font-family:$montserrat;
 
-        font-family:$avenir;
+    .article-cover{
+        width:100vw;
+        height:30vw;
+    }
+    .article-logo-header{
+        position:absolute;
+        top:5vw;
+        left:10vw;
         color:white;
+        .article-logo-menu{
+        z-index:10;
         
+        width:5vw;
+        height:auto;
+
+        }
+        .title{
+        
+         font-size:1.5vw;
+         font-weight:200;
+         padding-top:1vw;
+
+        }
+        .insights-title{
+
+         font-family:$bodoni;
+         font-size:2.3vw;
+         padding-top:11vw;
+
+        }
+    }
+}
+
+.article-logo{
+
+    background-color:#E6B77F;
+    width:5vw;
+    height:4vw;
+    padding:1vw;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top:0;
+    z-index:2;
+    opacity:1;
+
+
+}
+
+.top-arrow{
+
+    width:3vw;
+    height:3vw;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top:90vmin;
+    left:1vw;
+    z-index:2;
+    opacity:0;
+    transition:all 0.3s;
+    visibility: visible;
+}
+
+.article{
+    
+    padding:0vw 10vw 5vw 0vw;
+    position:relative;
+    margin-top:-3vw;
+
+  
+        .right{
+            padding-top:0vw;
+            padding-left:10vw;
+            
+
+            .article-section-title{
+
+                color:#DCB886;
+                font-family:$montserrat;
+                font-weight:800;
+                font-size:2.9vw;
+                padding-right:10vw;
+            }
+
+            // .article-section-date{
+            //     font-family:$montserrat;
+            //     font-weight: 200;
+            //     font-style: italic;
+            //     color:#474747;
+            //     font-size:1.5vw;
+            //     padding-top:1vw;
+            // }
+
+            // .article-authors{
+
+            //     display:flex;
+            //     flex-flow:row nowrap;
+
+            //     .author-name{
+
+            //     color:#DCB886;
+            //     font-family:$montserrat;
+            //     font-size:1.5vw;
+            //     font-style:italic;
+            //     text-decoration: underline;
+            //     cursor:pointer;
+            //     }
+
+            //     .comma{
+            //         color:#474747;
+            //         text-decoration: none;
+            //         padding:0vw 0.5vw;
+            //     }
+
+            //     .summary{
+
+            //         width:0%;
+            //         display:none;
+            //         display:flex;
+            //         flex-flow:row nowrap;
+            //         position:fixed;
+            //         top:0vw;
+            //         left:0vw;
+            //         background-color:#9CD1E2;
+            //         display:none;
+            //         height:20%;
+            //         z-index:10;
+            //         display:none;
+
+            //         .left{
+             
+            //             padding:5vw 0vw 0vw 5vw;
+            //             width:70%;
+           
+           
+            //            .cancel-mobile{
+            //                font-family:$montserrat;
+            //                font-weight:100;
+            //                font-size:4.5vw;
+            //                cursor:pointer;
+            //                color:white;
+            //                &:hover{
+            //                    opacity:0.5;
+            //                }
+           
+            //            }
+            //            .mobile-title{
+            //                color:white;
+           
+            //                font-family:$montserrat;
+            //                 font-weight:100;
+            //                 font-size:1.5vw;
+            //                 padding-bottom:3vw;
+           
+            //            }
+            //            .summary-actual{
+            //                display:flex;
+            //                flex-flow:row nowrap;
+           
+            //                .summary-image{
+            //                    width:20vw;
+            //                    height:auto;
+            //                    opacity:0;
+           
+            //                }
+            //                .summary-image-2{
+            //                    width:20vw;
+            //                    height:auto;
+            //                }
+            //                .summary-text{
+            //                    font-family:$montserrat;
+            //                    padding-left:2vw;
+                               
+           
+            //                    h1{
+                               
+            //                     color:white;
+            //                     font-weight:900;
+            //                     font-size:2.5vw;
+            //                     opacity:0;
+           
+            //                    }
+            //                    h2{
+            //                     color:white;
+            //                     font-weight:300;
+            //                     font-size:1.8vw;
+            //                     opacity:0;
+           
+           
+            //                    }
+            //                    div{
+            //                    font-weight:200;
+            //                    font-size:1.4vw;
+            //                    padding-top:1vw;
+            //                    opacity:0;
+           
+           
+            //                    }
+           
+            //                }
+            //            } 
+           
+                      
+           
+            //          }
+            //          .right{
+            //            padding:6vw 0vw 0vw 0vw;
+            //            position:absolute;
+            //            right:0;
+            //            top:0;
+            //            width:5%;
+           
+            //              .linkedin{
+            //                  width:3vw;
+            //                  height:auto;
+            //                  opacity:0;
+           
+            //              }
+            //          }
+                 
+               
+            // }
+
+            
+
+            
+
+            .article-content{
+
+                .glance{
+                    font-family:$montserrat;
+                    padding-bottom:3vw;
+
+                    h2{
+
+                        padding:5vw 0vw 1vw 0vw;
+                        font-weight:200;
+                        font-size:2vw;
+
+                    }
+                 
+                    ul{
+                        font-weight:200;
+                        font-size:1.3vw;
+                        text-decoration: #DCB886;
+                        list-style: none; /* Remove default bullets */
+                         
+                          
+                        li::before {
+                            content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                            color: #DCB886; /* Change the color */
+                            display: flex; /* Needed to add space between the bullet and the text */
+                            width: 1.5vw; /* Also needed for space (tweak if needed) */
+                            margin-left: -0.8em; /* Also needed for space (tweak if needed) */
+                            font-weight:1000;
+                            height:1.5vw;
+                            font-size: 2.5vw;
+                            align-items:center;
+                            position:absolute;
+
+                        }
+
+                        li{
+                            padding-top:1vw;
+                        }
+                    }
+                }
+
+                .text{
+
+                    font-family:$montserrat;
+                    font-weight:200;
+                    font-size:1.3vw;
+
+                    ol{
+                        li{
+                            padding-bottom:1vw;
+                        }
+                    }
+
+                    ul{
+                        list-style: none; /* Remove default bullets */
+                         
+                          
+                        li::before {
+                            content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                            color: #DCB886; /* Change the color */
+                            display: flex; /* Needed to add space between the bullet and the text */
+                            width: 1.5vw; /* Also needed for space (tweak if needed) */
+                            margin-left: -0.8em; /* Also needed for space (tweak if needed) */
+                            font-weight:1000;
+                            height:1.5vw;
+                            font-size: 1.5vw;
+                            align-items:center;
+                            position:absolute;
+
+                        }
+
+                        li{
+                            padding-top:1vw;
+                        }
+                    }
+
+                    p{
+                        padding-bottom:1vw;
+
+
+                        a{
+                            color:black;
+                        }
+                    }
+
+                    .article-content-text-title{
+                        font-weight:200;
+                        font-size:2vw;
+                        padding-bottom:2vw;
+                    }
+                    .article-content-text-separator{
+                        border:none;
+                        height:0.2vw;
+                        background-color:#DCB886;
+                        width:10%;
+                        margin:1vw 0vw 3vw 0vw;
+                    }
+                    .article-content-text-separator-start{
+                        border:none;
+                        height:0.1vw;
+                        background-color:#DCB886;
+                        width:10%;
+                        margin:0vw 0vw 0vw 0vw;
+
+                    }
+                    .article-content-text-separator-end{
+                        border:none;
+                        height:0.2vw;
+                        background-color:#DCB886;
+                        width:10%;
+                        margin:1vw 0vw 0vw 0vw;
+
+                    }
+
+                    .article-content-text-final-contact{
+
+                        font-style:italic;
+
+                    }
+
+                    .article-content-text-title-h3{
+                        font-style:italic;
+                        font-size:1.4vw;
+                        padding-top:1vw;
+                        padding-bottom:1vw;
+                    }
+
+                    blockquote{
+
+                        padding-bottom:2vw;
+
+                        p{
+                            color:#DCB886;
+                            font-weight:800;
+                            font-size:1.5vw;
+                            font-style:italic;
+
+                        }
+                        cite{
+                            color:#DCB886;
+                            font-weight:200;
+                            font-size:1.5vw;
+                            font-style:italic;
+
+                        }
+
+                    }
+
+
+                }
+            }
+        }
     }
 
-    .article-content{
-        
-    }
+
+
+@media only screen and (min-width: $big-screen) {
+}
+  
+@media only screen and (max-width:$tablet) and (min-width:$phone){
+
+}
+
+
+@media only screen and (max-width:$phone){
+
+
+
 }

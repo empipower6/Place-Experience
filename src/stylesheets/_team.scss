@@ -1,5 +1,5 @@
 .team-section{
-    padding:5vw 5vw 10vw 10vw;
+    padding:5vw 5vw 0vw 10vw;
     font-family:$montserrat;
     .team-title{
 
@@ -16,24 +16,20 @@
         .background{
             background-color: #E6B77F;
             position:absolute;
-            top:3vw;left:0;
+            top:2vw;left:0;
             display:flex;
             justify-content:space-between;
             height:25vw;
             width:100%;
             opacity:0.3;
         }
-        
-      
-
-
 
         .member{
 
             width:25%;
             display:flex;
             flex-flow:column nowrap;
-            padding:3vw 0vw;
+            padding:2vw 0vw;
             
 
 

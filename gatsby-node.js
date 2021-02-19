@@ -62,22 +62,8 @@ exports.createPages = async function({actions,graphql}){
               slug
               title
               content
-              date
-              featuredImage {
-                node {
-                  localFile {
-                    childImageSharp {
-                      fluid {
-                        aspectRatio
-                        base64
-                        sizes
-                        src
-                        srcSet
-                      }
-                    }
-                  }
-                }
-              }
+              date(formatString: "MMMM DD, YYYY")
+              
             }
           }
         }

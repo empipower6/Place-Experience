@@ -1,8 +1,35 @@
-import React from 'react' 
+import React ,{ useEffect }from 'react' 
 
 import Img from 'gatsby-image'
+import { useStaticQuery, graphql } from 'gatsby'
+
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+
 
 const Footer = ({logoText,mapIcon,phoneIcon, linkedin})=>{
+
+
+    const options = {
+        renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, 
+        text])
+       }
+
+    const data = useStaticQuery(graphql `
+    
+       query{
+
+        footer: allContentfulFooter {
+            nodes {
+              address {
+                raw
+              }
+            }
+          }
+       }
+    
+    `)
+
 
     return (
         <>
@@ -21,7 +48,7 @@ const Footer = ({logoText,mapIcon,phoneIcon, linkedin})=>{
                 <div className="addressIcon">
                    <Img fluid={mapIcon} alt="Map Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:"contain"}} />
                 </div>
-                <p>34 ,3402th Floor <br/> Swiss Tower <br /> Jumerirah Lakes Towers - Cluster Y <br />Dubai, United Arab Emirates</p>
+                <div className="address"> {documentToReactComponents(JSON.parse(data.footer.nodes[0].address.raw ),options) }</div>
              </div>
 
              <div className="column column-3">
