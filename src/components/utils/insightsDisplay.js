@@ -13,10 +13,14 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
     useEffect(()=>{
         
         if(where>0){
+            
+            //if you're not on the first slide, then you should first get there.
             setWhere(0);
         }
         else{
 
+        
+           //if you're on the first slide, then we can most definitely simply push the shows in
          setFilterShows(filteredArticles.slice(where,where+4));
         
         }
@@ -27,24 +31,25 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
     //when arrow keys are clicked
     useEffect(()=>{
 
-      let newArticles = [];
         
-      // if(where === filteredArticles.length-3){
-         
-      //   newArticles = filteredArticles.slice(where,filteredArticles.length);
-      //   newArticles += filteredArticles[0];
-      //   console.log(newArticles);
+      if(where +4 > filteredArticles.length){
 
-      // }
+        let newArticles = [];
+        //the amount of shows that's left before we proceed to the first one
+        filteredArticles.slice(where,filteredArticles.length).every((play) => newArticles.push(play));
+        //the amount that needs to be shown after the first play
+        let startList = filteredArticles.length> 4 ? 4-(filteredArticles.length- where): where;
+        filteredArticles.slice(0,startList).every((play) => newArticles.push(play));
+
+        setFilterShows(newArticles);
 
 
-
-      
-       
+      }
+      else{
 
         setFilterShows(filteredArticles.slice(where,where+4));
 
-
+      }
     },[where])
 
 
@@ -53,18 +58,32 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
 
         const inc = dir ? 1 :-1;
 
-       
 
-        if(where+1 < filteredArticles.length &&  dir){
+        if(dir){
+
+            if(where+1 === filteredArticles.length){
+              setWhere(0);
+            }
+            else{
 
             setWhere(where+inc);
+
+            }
         }
         
-        else if(where - 1 > -1 && !dir){
+        else if(!dir){
+
+            if(where - 1 === -1){
+
+              setWhere(filteredArticles.length-1);
+            }
+            else{
 
             setWhere(where+inc);
+            }
 
         }
+    
 
     }
     const useInterval= (callback, delay)=> {
@@ -91,9 +110,11 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
         }, [delay]);
       }
   
-
+    
 
     useInterval(()=>{move(true)},timer ? 10000 : null);
+
+    
 
 
     useEffect(()=>{
@@ -136,15 +157,15 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
     return(
         <>
         <div className="filter-field">
-         <div className={where - 1 > -1? "left-arrow":"disable-arrow"} onClick={()=>{move(false);setClicked(true);}}>
+         <div className="left-arrow" onClick={()=>{move(false);setClicked(true);}}>
              <Img fluid={left} alt="Left Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'contain'}} />
          </div>
 
 
             <InsightsOnlyFour show={filterShows} design={design} implement={implement} 
-                           transform={transform} manage ={manage} left={left} right={right} />
+                           transform={transform} manage ={manage} left={left} right={right} allShows={filteredArticles} />
         
-            <div className={where+1 < filteredArticles.length? "right-arrow":'disable-arrow'} onClick={()=>{move(true);setClicked(true);}}>
+            <div className="right-arrow" onClick={()=>{move(true);setClicked(true);}}>
              <Img fluid={right} alt="Right Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'contain'}} />
          </div>
         </div> 

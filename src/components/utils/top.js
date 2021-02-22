@@ -55,7 +55,6 @@ articleObserver.observe(disappearItem.current);
     useEffect(()=>{
         
       disappear ? gsap.to(top.current,{autoAlpha:0,duration:0.2}) : gsap.to(top.current,{autoAlpha:0.8,duration:0.2});
-      console.log(disappear);
 
 
   },[disappear]);

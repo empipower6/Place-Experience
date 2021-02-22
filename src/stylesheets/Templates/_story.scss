@@ -80,12 +80,13 @@
     .story-text{
         padding:2vw 8vw 2vw 8vw;
 
-        .solution-images,.outcome-images,.challenge-images{
+        .solution-images,.outcome-images{
             display:flex;
             flex-flow:row wrap;
             justify-content:flex-start;
             align-items:center;
             padding:1vw 0vw;
+            
             .story-image{
                 z-index:-1;
             }
@@ -97,14 +98,10 @@
                 width:100%;
             }
         }
-        .challenge-images{
-            .story-image{
-                width:33.3%;
-            }
-        }
+      
         .outcome-images{
             .story-image{
-                width:49%;
+                width:100%;
             }
         }
 

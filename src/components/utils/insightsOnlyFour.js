@@ -1,12 +1,32 @@
-import React from 'react'
+import React,{useRef,useEffect} from 'react'
 
 import Img from 'gatsby-image'
 import {Link} from 'gatsby'
+import FlipMove from 'react-flip-move';
+
+import { gsap} from "gsap/dist/gsap";
 
 
-const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{
 
-    const showIcon= (box)=>{
+const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{{
+
+   
+
+    useEffect(()=>{
+        window.requestAnimationFrame(animate)
+    },[]);
+
+    const animate = () =>{
+        // gsap.to(first.current,{autoAlpha:1,duration:0.5});
+        console.log('hello');
+    }
+   
+
+// }= ({show,design,manage,implement,transform})=>{
+
+ 
+
+   const showIcon= (box)=>{
     
         let pic;
 
@@ -30,16 +50,21 @@ const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{
                 </div>
         )
    }
+
+
+
     return(
         <>
+       
+          <div className='section'>
+            
+           {
 
-      <div className='section'>
-            {
             show.map((box,key)=>(
 
-                    key===0? 
+                      key===0 ? 
 
-                        <div className="first-box" style={{cursor:'pointer'}}>
+                        <div className="first-box" style={{cursor:'pointer'}} key={key}>
 
                             <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
                                 <Img fluid={box.node.featuredImage.node.localFile.childImageSharp.fluid} style={{maxHeight:'100%'}} />
@@ -49,12 +74,11 @@ const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{
                                 {showIcon(box)}
 
                             </Link>
-
                         </div>
 
-                        :
+                      :
 
-                        <div className={`others others-${key}`}>
+                        <div className={`others others-${key}`} key={key}>
 
                             <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
                                     <h1>{ box.node.title.toUpperCase()}</h1>
@@ -63,11 +87,9 @@ const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{
                             {showIcon(box)}
 
                         </div>
+            ))
+            }   
 
-
-
-                ))
-            }
             </div>
 
         </>
@@ -75,5 +97,5 @@ const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{
     )
 
 }
-
+}
 export default InsightsOnlyFour;

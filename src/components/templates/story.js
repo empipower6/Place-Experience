@@ -68,20 +68,7 @@ const Story = (props)=>{
 
         <div className="story-text">
 
-        <div className="challenge-images">
-           {
-             props.pageContext.content.challengeMedias ? props.pageContext.content.challengeMedias.map((image,index)=>(
-              <div className={`story-image-${index} story-image`}>
-
-              <Img fluid={image.fluid} alt={`${data.title} image ${index}`} style={{width:'100%',height:'20vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
-
-            </div>
-
-
-             )):""
-
-           }
-          </div>
+      
             
           <h1 className="story-text-title"> THE CHALLENGE</h1>
           <div className="story-text-desc"> {documentToReactComponents(JSON.parse(data.challenge.raw ),options) } </div>
@@ -105,18 +92,13 @@ const Story = (props)=>{
           <div className="story-text-desc"> {documentToReactComponents(JSON.parse(data.solution.raw ),options) } </div>
           <hr className="story-separator" />
           <div className="outcome-images">
-           {
-             props.pageContext.content.outcomeMedias  ? props.pageContext.content.outcomeMedias.map((image,index)=>(
-              <div className={`story-image-${index} story-image`}>
+         
+              <div className=" story-image">
 
-              <Img fluid={image.fluid} alt={`${data.title} image ${index}`}  style={{width:'100%',height:'30vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
+              <Img fluid={props.pageContext.content.outcomeMedias.fluid} alt={`${props.pageContext.content.outcomeMedias.title} image`}  style={{width:'100%',height:'50vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
 
             </div>
 
-
-             )):""
-
-           }
        </div>
           <h1 className="story-text-title"> OUTCOMES</h1>
           <div className="story-text-desc">{documentToReactComponents(JSON.parse(data.outcome.raw ),options) } </div>

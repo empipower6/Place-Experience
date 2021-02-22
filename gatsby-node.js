@@ -29,14 +29,6 @@ exports.createPages = async function({actions,graphql}){
                     srcSet
                 }
               }
-              challengeMedias {
-                fluid {
-                  aspectRatio
-                  base64
-                  src
-                  srcSet
-                }
-              }
               solutionMedias {
                 fluid {
                   aspectRatio
