@@ -87,6 +87,7 @@ const Insights = ({articles,designIcon,implementIcon,transformIcon,manageIcon,wh
       
         <>
         <div className="insights-section" id="section-insights"ref={insightSection}>
+              <div className="insights-section-beginning">
                 <h1> INSIGHTS </h1>
                 <div className="filter-box">
         
@@ -98,7 +99,7 @@ const Insights = ({articles,designIcon,implementIcon,transformIcon,manageIcon,wh
                                     leftRef={leftArrow} />
                 </div>
                 
-            
+            </div>
                 
 
                 <InsightsDisplay filteredArticles={filteredArticles} design= {whiteDesign}  implement={whiteImplement}

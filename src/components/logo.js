@@ -92,7 +92,7 @@ const Logo =(props)=>{
                         <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#services" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}} > SERVICES </li></AnchorLink></div>
                         <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#stories-section" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}}> STORIES </li></AnchorLink></div>
                         
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="#section-insights" className="anchors"  ><li className="logo-menu-item" onClick={()=>{closeMenu()}}> INSIGHTS </li></AnchorLink></div>
+                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-insights" className="anchors"  ><li className="logo-menu-item" onClick={()=>{closeMenu()}}> INSIGHTS </li></AnchorLink></div>
 
                         <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#team-section" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}} > TEAM </li></AnchorLink></div>
 

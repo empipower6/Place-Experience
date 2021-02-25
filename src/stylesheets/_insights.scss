@@ -9,51 +9,69 @@
     padding:5vw 5vw 5vw 10vw;
     margin-top:-2vw;
 
-    h1{
-        font-family:$bodoni;
-        font-size:3vw;
-
-    }
-
-    .filter-box{
+    .insights-section-beginning{
         display:flex;
         flex-flow:row nowrap;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
 
-        p{
-            font-size:1.5vw;
-            font-weight:200;
 
+        h1{
+            font-family:$bodoni;
+            font-size:3vw;
+    
         }
-       
-        .filter-icons{
+
+
+        .filter-box{
             display:flex;
-            flex-flow:row nowrap;
-            justify-content: space-between;
-            align-items: center;
-
-            h1{
-                font-weight:100;
-                font-size:1vw;
-            }
-            .icon{
-                width:3.5vw;
-                height:auto;
+            flex-flow:column nowrap;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding-top:1vw;
+            
+            
+    
+            p{
+                font-size:1.5vw;
+                font-weight:200;
                 padding-right:2vw;
-                opacity:0.4;
+                padding-bottom:0.5vw;
+    
             }
-            .icon-click{
-                width:3.5vw;
-                height:auto;
-                padding-right:2vw;
-                opacity:1;
-        
-            }
-
            
+            .filter-icons{
+                display:flex;
+                flex-flow:row nowrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+    
+                h1{
+                    font-weight:100;
+                    font-size:1vw;
+                }
+                .icon{
+                    width:3.5vw;
+                    height:auto;
+                    padding-right:2vw;
+                    opacity:0.4;
+                }
+                .icon-click{
+                    width:3.5vw;
+                    height:auto;
+                    padding-right:2vw;
+                    opacity:1;
+            
+                }
+    
+               
+            }
         }
+        
     }
+
+  
+
     
 
     .filter-field{
