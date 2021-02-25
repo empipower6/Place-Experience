@@ -145,11 +145,14 @@
         opacity:0.5;
         margin-right:1vw;
         z-index:0;
+        cursor:pointer;
 
     }
 
     .active-swipe{
         opacity:1;
+        cursor:pointer;
+
     }
 }
 

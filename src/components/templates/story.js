@@ -79,7 +79,7 @@ const Story = (props)=>{
              props.pageContext.content.solutionMedias ? (
             <div className={`story-image-1 story-image`}>
 
-              <Img fluid={props.pageContext.content.solutionMedias.fluid} alt={`${props.pageContext.content.solutionMedias.title} image`} style={{width:'100%',height:'50vw'}} imgStyle={{objectFit:'cover',objectPosition:'center'}} />
+              <Img fluid={props.pageContext.content.solutionMedias.fluid} alt={`${props.pageContext.content.solutionMedias.title} image`} style={{width:'100%',height:'40vw'}} imgStyle={{objectFit:'contain',objectPosition:'top'}} />
 
             </div>
              ):''
@@ -95,7 +95,7 @@ const Story = (props)=>{
          
               <div className=" story-image">
 
-              <Img fluid={props.pageContext.content.outcomeMedias.fluid} alt={`${props.pageContext.content.outcomeMedias.title} image`}  style={{width:'100%',height:'50vw'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
+              <Img fluid={props.pageContext.content.outcomeMedias.fluid} alt={`${props.pageContext.content.outcomeMedias.title} image`}  style={{width:'100%',height:'40vw'}} imgStyle={{objectFit:'contain',objectPosition:'top'}} />
 
             </div>
 

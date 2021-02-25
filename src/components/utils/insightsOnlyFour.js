@@ -1,29 +1,101 @@
-import React,{useRef,useEffect} from 'react'
+import React,{useRef,useEffect,useState} from 'react'
 
 import Img from 'gatsby-image'
 import {Link} from 'gatsby'
 import FlipMove from 'react-flip-move';
 
 import { gsap} from "gsap/dist/gsap";
+import { useStaticQuery, graphql } from 'gatsby'
 
 
 
 const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{{
 
+    let articleImage = useStaticQuery(graphql`
+    query {
+
+      media: allContentfulAsset {
+        nodes {
+          title
+          fluid {
+             aspectRatio
+                base64
+                src
+                srcSet
+          }
+        }
+      }
+           
+    }
+    `)
+    const boxFirst = useRef(null);
+    const backBox = useRef(null);
+
+
+
+    const [display, setDisplay] = useState(show);
+
+    const [newOnes, setNewOnes] = useState(false); //true is new
+
+  
+
+    let timeline = useRef(null);
+
    
+    const prev = usePrevious(display);
+
+    function usePrevious(value) {
+        const ref = useRef();
+        useEffect(() => {
+          ref.current = value;
+        });
+        return ref.current;
+      }
+
+ 
+
 
     useEffect(()=>{
-        window.requestAnimationFrame(animate)
-    },[]);
 
-    const animate = () =>{
-        // gsap.to(first.current,{autoAlpha:1,duration:0.5});
-        console.log('hello');
-    }
+     setNewOnes(!newOnes);
+
+    
+     
+
+    },[show]);
+
+
+    useEffect(()=>{
+
+      if(newOnes){
+
+      let tl = gsap.timeline({repeat:0});
+      tl.to(backBox.current,{opacity:0,duration:0.5})
+      .to(boxFirst.current,{opacity:1,duration:0.5},'-=0.5');
+     setTimeout(()=>{setDisplay(show);},500);
+      
+
+
+      }
+
+      else if(!newOnes){
+    
+
+        let tl = gsap.timeline({repeat:0});
+        tl.to(backBox.current,{opacity:1,duration:0.5})
+        .to(boxFirst.current,{opacity:0,duration:0.5},'-=0.5');
+        setTimeout(()=>{setDisplay(show);},500);
+
+
+
+
+      }
+
+     
+ 
+     },[newOnes]);
+
    
-
-// }= ({show,design,manage,implement,transform})=>{
-
  
 
    const showIcon= (box)=>{
@@ -53,49 +125,108 @@ const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{{
 
 
 
+   
+
     return(
         <>
        
-          <div className='section'>
-            
-           {
+        <div className='section'>
 
-            show.map((box,key)=>(
+          {show?
+          
+          
 
-                      key===0 ? 
+          show.map((box,key)=>(
 
-                        <div className="first-box" style={{cursor:'pointer'}} key={key}>
+             key===0 ? 
+                <div className="first-box" style={{cursor:'pointer'}} key={0}>
 
-                            <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
-                                <Img fluid={box.node.featuredImage.node.localFile.childImageSharp.fluid} style={{maxHeight:'100%'}} />
+                {newOnes?  
+                  <div className="box" ref={boxFirst}>
+                      {show ?
 
-                                <h1>{box.node.title.toUpperCase()}</h1>
+                      <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
+                          <Img fluid={imageFinder(articleImage.media,box.node.title)} 
+                          style={{maxHeight:'100%'}} />
 
-                                {showIcon(box)}
+                          <h1>{box.node.title.toUpperCase()}</h1>
 
-                            </Link>
-                        </div>
+                          {showIcon(box)}
 
-                      :
+                      </Link>
+                      :""}
 
-                        <div className={`others others-${key}`} key={key}>
+                  </div>
+                :""
 
-                            <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
-                                    <h1>{ box.node.title.toUpperCase()}</h1>
-                                
-                            </Link>
-                            {showIcon(box)}
+                }
+                {newOnes ? ""
 
-                        </div>
-            ))
-            }   
+                :
+                  <div className="boxBack" ref={backBox} style={{opacity:0}}>
+                    {show ?
+
+                    <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
+                      <Img fluid={imageFinder(articleImage.media,box.node.title)} style={{maxHeight:'100%'}} />
+
+                        <h1>{box.node.title.toUpperCase()}</h1>
+
+                        {showIcon(box)}
+
+                    </Link>
+                    :""
+                    }
+                  
+                  </div>
+                } 
 
             </div>
+                  
+            
 
-        </>
+          :
+
+            <div className={`others others-${key}`} key={key}>
+
+                <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
+                        <h1>{ box.node.title.toUpperCase()}</h1>
+                    
+                </Link>
+                {showIcon(box)}
+
+            </div>
+          ))
+          
+            
+           
+
+
+      :""}  
+            
+
+      </div>
+
+      </>
+
+     
+
 
     )
 
 }
 }
 export default InsightsOnlyFour;
+
+const imageFinder = (data,name)=>{
+
+    let image;
+    let media = data.nodes;
+    
+    for(let i=0;i<media.length;i++){
+  
+     if(media[i].title === name){
+        image = i;
+     }
+    }
+    return media[image].fluid;
+  }

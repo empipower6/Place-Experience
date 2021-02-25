@@ -61,6 +61,14 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
 
     }
 
+    const swipeClick = (num)=>{
+
+      let current= introSlides[cover];
+      timeline(current, introSlides[num]);
+
+
+    }
+
     const timeline = (cur,to)=>{
 
       let tl= gsap.timeline({repeat:0});
@@ -194,9 +202,9 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
           </div>
 
           <div className="container-swipe-lines">
-            <div className={cover=== 0?"swipe active-swipe":"swipe"}></div>
-            <div className={cover=== 1?"swipe active-swipe":"swipe"}></div>
-            <div className={cover=== 2?"swipe active-swipe":"swipe"}></div>
+            <div className={cover=== 0?"swipe active-swipe":"swipe"} onClick={()=>{swipeClick(0);setTimeState(true);setClicker(true);}}></div>
+            <div className={cover=== 1?"swipe active-swipe":"swipe"} onClick={()=>{swipeClick(1);setTimeState(true);setClicker(true);}}></div>
+            <div className={cover=== 2?"swipe active-swipe":"swipe"} onClick={()=>{swipeClick(2);setTimeState(true);setClicker(true);}}></div>
           </div> 
       </div>  
 

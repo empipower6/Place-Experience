@@ -2,35 +2,40 @@ import React,{useEffect,useState,useRef} from 'react'
 import Img from 'gatsby-image'
 import InsightsOnlyFour from './insightsOnlyFour'
 
-const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,implement,transform,manage,left,right}) =>{
+const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,implement,transform,manage,left,right, rightRef,leftRef,filterChanged}) =>{
 
     const [where,setWhere] = useState(0);
     const [filterShows, setFilterShows] = useState(filteredArticles);
     const [timer,setTimer] = useState(false);
     const [clicked,setClicked] = useState(false);
+
+
+
     
     //initial when articles come in
     useEffect(()=>{
         
-        if(where>0){
-            
-            //if you're not on the first slide, then you should first get there.
-            setWhere(0);
-        }
-        else{
-
-        
            //if you're on the first slide, then we can most definitely simply push the shows in
          setFilterShows(filteredArticles.slice(where,where+4));
         
-        }
 
 
     },[filteredArticles])
+
+    useEffect(()=>{
+
+     
+      setWhere(0);
+      setClicked(false);
+
+
+    },[filterChanged])
+
+  
    
     //when arrow keys are clicked
     useEffect(()=>{
-
+    
         
       if(where +4 > filteredArticles.length){
 
@@ -46,6 +51,7 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
 
       }
       else{
+ 
 
         setFilterShows(filteredArticles.slice(where,where+4));
 
@@ -66,7 +72,9 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
             }
             else{
 
+
             setWhere(where+inc);
+
 
             }
         }
@@ -157,15 +165,15 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
     return(
         <>
         <div className="filter-field">
-         <div className="left-arrow" onClick={()=>{move(false);setClicked(true);}}>
+         <div className="left-arrow" onClick={()=>{move(false);setClicked(true);}} ref={leftRef}>
              <Img fluid={left} alt="Left Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'contain'}} />
          </div>
 
 
             <InsightsOnlyFour show={filterShows} design={design} implement={implement} 
-                           transform={transform} manage ={manage} left={left} right={right} allShows={filteredArticles} />
+                           transform={transform} manage ={manage} left={left} right={right}/>
         
-            <div className="right-arrow" onClick={()=>{move(true);setClicked(true);}}>
+            <div className="right-arrow" onClick={()=>{move(true);setClicked(true);}} ref={rightRef}>
              <Img fluid={right} alt="Right Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'contain'}} />
          </div>
         </div> 

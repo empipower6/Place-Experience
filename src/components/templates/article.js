@@ -268,8 +268,7 @@ const Article = (props)=>{
     useEffect(()=>{
 
     createContent(stringToHTML(props.pageContext.content.content));  
-
-
+   
 
     const options={
         root:null,
@@ -321,7 +320,7 @@ const Article = (props)=>{
 
                 <div className="article-cover" ref={cover}>
 
-                    <Img fluid={imageFinder(articleData.media,"Stories Cover")} alt="Article Cover Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+                    <Img fluid={imageFinder(articleData.media,props.pageContext.content.title)} alt="Article Cover Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
                     
                 </div>
                 <div className="article-logo-header">

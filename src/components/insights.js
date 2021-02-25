@@ -9,12 +9,17 @@ const Insights = ({articles,designIcon,implementIcon,transformIcon,manageIcon,wh
 
     const [filter , changeFilter ]= useState({Design:false,Manage:false,Transform:false,Implement:false});
     const [filteredArticles, changeArticles] =useState(articles.slice(0).reverse());
+    const [filterChanged,setFilterChanged] = useState(false);
 
     const insightSection =useRef(null); 
+
+    const rightArrow = useRef (null);
+    const leftArrow = useRef (null);
 
     useEffect(()=>{
 
         handleFilterChange();
+        setFilterChanged(!filterChanged);
 
     },[filter])
 
@@ -89,14 +94,15 @@ const Insights = ({articles,designIcon,implementIcon,transformIcon,manageIcon,wh
 
                     <InsightsFilter designIcon={designIcon} implementIcon={implementIcon} 
                                     manageIcon={manageIcon} transformIcon={transformIcon}
-                                    filterChange= {changeFilter} filter={filter} />
+                                    filterChange= {changeFilter} filter={filter} rightRef= {rightArrow}
+                                    leftRef={leftArrow} />
                 </div>
                 
             
                 
 
                 <InsightsDisplay filteredArticles={filteredArticles} design= {whiteDesign}  implement={whiteImplement}
-                                transform= {whiteTransform} manage={whiteManage} left={left} right={right} filterChange ={changeFilter} insightsRef ={insightSection} />
+                                transform= {whiteTransform} manage={whiteManage} left={left} right={right} filterChange ={changeFilter}  insightsRef ={insightSection} rightRef= {rightArrow}  leftRef={leftArrow} filterChanged={filterChanged} />
                      
          </div>
 
