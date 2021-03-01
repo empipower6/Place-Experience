@@ -50,6 +50,14 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
 
         }
     }
+    const moveToStories = (block)=>{
+      
+      let timeline = new gsap.timeline({repeat:0});
+      timeline.to(storyBlocks.current[whichSection],{autoAlpha:0,display:'none',duration:0.5})
+      .to(storyBlocks.current[block],{autoAlpha:1,display:'block',duration:0.5},"-=0.5");
+
+      
+    }
 
 
 
@@ -142,6 +150,8 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
 
         entries.forEach(entry=>{
           if(entry.isIntersecting){
+            console.log(whichSection);
+
               
               let section = Number(entry.target.classList[0].split("-")[1]);
               setSection(section);
@@ -199,6 +209,8 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
                       <Img fluid={arrow} alt="Down Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
                     </div>
                  </div>
+
+                 
                 <div className="stories-section-container" ref={storiesContainer}>
                 
                {
@@ -220,6 +232,17 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
                   ))
                }
                </div>
+
+               <div className='sliders'>
+                 {
+                 newStories.map((story,index)=>(
+
+                   <div className={whichSection == index ? "active-slider":"slider"} onClick={()=>{moveToStories(index)}}></div>
+
+                 ))
+                }
+               </div>
+               
 
             </div>
 

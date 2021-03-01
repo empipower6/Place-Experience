@@ -83,6 +83,37 @@
         width:50%;
         padding-top:2vw;
         position:relative;
+
+        .sliders{
+            position:absolute;
+            right:-2vw;
+            top:48%;
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content: space-between;
+            height:9vw;
+
+            .slider{
+
+                border-left:0.3vw solid #E6B77F;
+                height:100%;
+                opacity:0.5;
+                margin-bottom:0.5vw;
+                cursor: pointer;
+                
+        
+            }
+        
+            .active-slider{
+                border-left:0.3vw solid #E6B77F;
+                height:100%;
+                opacity:1;
+                margin-bottom:0.5vw;
+                cursor: pointer;
+
+            
+            }
+        }
         .arrows{
             position:absolute;
             left:-4vw;
