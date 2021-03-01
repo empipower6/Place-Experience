@@ -11,9 +11,13 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: 'gatsby-source-wordpress',
       options: {
         url: "https://mis-resources.com/graphql",
+        schema: {
+          requestConcurrency: 5, // currently set to 15
+          previewRequestConcurrency: 2, // currently set to 5
+        }
       },
     },
     "gatsby-plugin-sass",

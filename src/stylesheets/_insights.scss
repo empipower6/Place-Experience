@@ -63,6 +63,50 @@
                     opacity:1;
             
                 }
+                .transform-hover,.design-hover,.manage-hover,.implement-hover{
+
+                    transition:all 0.5s;
+                    position:relative;
+                    opacity:0;
+
+                    p{
+                        position:absolute;
+                        font-size:1.1vw;
+                        font-weight:100;
+                        color:#474747;
+
+                    }
+
+                }
+
+                .design:hover > .design-hover {
+                    opacity:1;
+                }
+                .manage:hover > .manage-hover {
+                    opacity:1;
+                }
+                .transform:hover > .transform-hover {
+                    opacity:1;
+                }
+                .implement:hover > .implement-hover {
+                    opacity:1;
+                }
+
+                .transform-hover{
+                    left:-0.5vw;
+
+                }
+                .design-hover{
+                    left:0.5vw;
+
+                } 
+                .manage-hover{
+
+                }
+                .implement-hover{
+                    left:-0.5vw;
+
+                }
     
                
             }

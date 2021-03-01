@@ -320,7 +320,7 @@ const Article = (props)=>{
 
                 <div className="article-cover" ref={cover}>
 
-                    <Img fluid={imageFinder(articleData.media,props.pageContext.content.title)} alt="Article Cover Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
+                    <Img fluid={imageFinder(articleData.media,props.pageContext.content.title+'-ARTICLE')} alt="Article Cover Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover',objectPosition:'top'}} />
                     
                 </div>
                 <div className="article-logo-header">
@@ -390,7 +390,7 @@ let media = data.nodes;
 
 for(let i=0;i<media.length;i++){
 
- if(media[i].title === name){
+ if(media[i].title.toLowerCase() === name.toLowerCase()){
     image = i;
  }
 }
