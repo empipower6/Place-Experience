@@ -26,7 +26,7 @@ const About = ({squares, designIcon,analyticsIcon,allIcon, texts,pies}) =>{
     
     useEffect(()=>{
 
-        gsap.to(squaresRef.current,{top:-20+'vw',rotation:10,scrollTrigger:{trigger:squares.current,scrub:true}});
+        gsap.to(squaresRef.current,{top:5+'vw',rotation:10,scrollTrigger:{trigger:squares.current,scrub:true}});
         gsap.to(firstPie.current,{top:2+'vw',left:2+'vw',rotation:20,transformOrigin:'50% 50%',scrollTrigger:{trigger:firstPie.current,scrub:true}});
         gsap.to(secondPie.current,{top:12+'vw',left:18+'vw',transformOrigin:'50% 50%',scrollTrigger:{trigger:secondPie.current,scrub:true}});
         gsap.to(thirdPie.current,{top:30+'vw',left:1+'vw',rotation:10,transformOrigin:'50% 50%',scrollTrigger:{trigger:thirdPie.current,scrub:true}});

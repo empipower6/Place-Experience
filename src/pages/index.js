@@ -20,7 +20,7 @@ import Top from '../components/utils/top'
 
 import Footer from '../components/footer'
 
-import Insights from '../components/insights'
+// import Insights from '../components/insights'
 
 import Favicon from '../images/gatsby-icon.png'
 
@@ -85,58 +85,15 @@ const IndexPage = () => {
             raw
           }
           servicesQuote
-          serviceTitle1
-          serviceTitle2
-          serviceTitle3
-          serviceTitle4
-          serviceTitle5
-          serviceTitle6
-          serviceTitle7
-          serviceTitle8
-          serviceTitle9
-          serviceTitle10
-          serviceTitle11
-          serviceTitle12
-          service1 {
-            raw
-          }
-          service10 {
-            raw
-          }
-          service2 {
-            raw
-          }
-          service3 {
-            raw
-          }
-          service4 {
-            raw
-          }
-          service5 {
-            raw
-          }
-          service6 {
-            raw
-          }
-          service7 {
-            raw
-          }
-          service8 {
-            raw
-          }
-          service9 {
-            raw
-          }
-          service10 {
-            raw
-          }
-          service11 {
-            raw
-          }
-          service12 {
-            raw
-          }
-         
+        }
+      }
+    }
+
+    serviceBoxes: allContentfulServiceBox(sort: {fields: orderNumber}) {
+      nodes {
+        titleOfTheBox
+        boxDescription {
+          raw
         }
       }
     }
@@ -172,33 +129,7 @@ const IndexPage = () => {
       }
     }     
     
-    insightsData :allWpPost(sort: {fields: date},filter: {categories: {nodes: {elemMatch: {name: {eq: "Place Experience Article"}}}}}) {
-      edges {
-        node {
-          slug
-          title
-          categories {
-            nodes {
-              name
-            }
-          }
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    aspectRatio
-                    base64
-                    src
-                    srcSet
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+   
 
 
   
@@ -207,6 +138,35 @@ const IndexPage = () => {
 
   }`
 )
+
+//GRAPHQL CALL FOR WORDPRESS
+// insightsData :allWpPost(sort: {fields: date},filter: {categories: {nodes: {elemMatch: {name: {eq: "Place Experience Article"}}}}}) {
+//   edges {
+//     node {
+//       slug
+//       title
+//       categories {
+//         nodes {
+//           name
+//         }
+//       }
+//       featuredImage {
+//         node {
+//           localFile {
+//             childImageSharp {
+//               fluid {
+//                 aspectRatio
+//                 base64
+//                 src
+//                 srcSet
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 
 useEffect(()=>{
@@ -245,11 +205,8 @@ useEffect(()=>{
         <Top arrow={imageFinder(data.media,"arrowUpTop")} disappearItem={toTop}   />
        
       </div>
-      <About squares={imageFinder(data.media,"Squares")} designIcon={imageFinder(data.media,"icon-design")} 
-               analyticsIcon={imageFinder(data.media,"icon-analytics")} allIcon={imageFinder(data.media,"icon-allinone")} 
-                pies={imageFinder(data.media,("Pie"))} texts={data.aboutUsData.nodes[0]}/>
-
-      <Services texts={data.servicesData.edges[0].node} cover={imageFinder(data.media,"Services Cover")}
+    
+      <Services boxes = {data.serviceBoxes.nodes}texts={data.servicesData.edges[0].node} cover={imageFinder(data.media,"Services Cover")}
                  designIcon={imageFinder(data.media,"icon-services-design")} manageIcon={imageFinder(data.media,"icon-manage")}
                  transformIcon={imageFinder(data.media,"icon-transform")} cubes={imageFinder(data.media,"cubes")}
                  implementIcon={imageFinder(data.media,"icon-implement")} arrow={imageFinder(data.media,"orangeArrow")}/>
@@ -259,17 +216,22 @@ useEffect(()=>{
                storiesData={data.storiesData.edges} storiesCover ={imageFinder(data.media,"Stories Cover")}
                arrow={imageFinder(data.media,"orangeArrow")} />
 
-      <Insights articles = {data.insightsData.edges} designIcon={imageFinder(data.media,"icon-services-design")}
+      {/* <Insights articles = {data.insightsData.edges} designIcon={imageFinder(data.media,"icon-services-design")}
                 implementIcon={imageFinder(data.media,"icon-implement")} manageIcon={imageFinder(data.media,"icon-manage")}
                 transformIcon={imageFinder(data.media,"icon-transform")} whiteDesign={imageFinder(data.media,"whiteDesign")} 
                 whiteImplement={imageFinder(data.media,"whiteImplement")} whiteTransform={imageFinder(data.media,"whiteTransform")}
                 whiteManage={imageFinder(data.media,"whiteManage")} left={imageFinder(data.media,"orangeArrow")} 
-                right={imageFinder(data.media,"orangeArrowRight")}/>
+                right={imageFinder(data.media,"orangeArrowRight")}/> */}
 
      <Team ismail={imageFinder(data.media,"Ismail")} gunter={imageFinder(data.media,"gunter")}
             alper={imageFinder(data.media,"alper")} linkedin={imageFinder(data.media,"linkedinBlue")} 
             summaries={data.teamSummaries.nodes[0]} linkedinWhite={imageFinder(data.media,"linkedinWhite")}/>
      
+     <About squares={imageFinder(data.media,"Squares")} designIcon={imageFinder(data.media,"icon-design")} 
+               analyticsIcon={imageFinder(data.media,"icon-analytics")} allIcon={imageFinder(data.media,"icon-allinone")} 
+                pies={imageFinder(data.media,("Pie"))} texts={data.aboutUsData.nodes[0]}/>
+
+
      <Footer mapIcon={imageFinder(data.media,"mapIcon")} phoneIcon={imageFinder(data.media,"phone-icon")}
              logoText={imageFinder(data.media,"LogoFooter")} linkedin={imageFinder(data.media,"linkedinWhite")} />
      

@@ -7,23 +7,23 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 
-const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,cubes,arrow})=>{
+const Services =({boxes,texts,cover,designIcon,implementIcon,manageIcon,transformIcon,cubes,arrow})=>{
 
     const parallaxServiceCover = useRef(null);
     const parallaxCubes = useRef(null);
     const sliderContainer = useRef(null);
+
+
     const servicesContainerRef =useRef(null);
+    const slides = useRef([]);
 
-   
-    const slides = [];
-    
-    const firstSlide = useRef(null);
-    const secondSlide = useRef(null);
-    const thirdSlide = useRef(null);
-    const fourthSlide = useRef(null);
 
-    slides.push(firstSlide,secondSlide,thirdSlide,fourthSlide);
-    
+    const chunk = (array, size) =>
+    Array.from({length: Math.ceil(array.length / size)}, (value, index) => array.slice(index * size, index * size + size));
+
+
+    const servicesBlocks = chunk(boxes,3);
+        
 
     const [slider , setSlider] =useState(-1);
     
@@ -40,15 +40,15 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
   
     const slide = (direction,goTo)=>{
 
-
+      
       let number = direction ? 1 : -1;
-      const slideDestination = goTo ? slides[goTo-1] : slides[slider+number];
+      const slideDestination = typeof(goTo)=='number' ? slides.current[goTo] : slides.current[slider+number];
       let timeline = new gsap.timeline({repeat:0,paused:true});
-      timeline.to(slides[slider].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.5})
-      .to(slideDestination.current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5},'-=0.5');
+      console.log(slideDestination);
+      timeline.to(slides.current[slider],{autoAlpha:0,display:'none',zIndex:-1,duration:0.5})
+      .to(slideDestination,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5},'-=0.5');
     
-      if(direction && slider < 3){
-
+      if(direction && slider < slides.current.length-1){
         
         timeline.play();
       }
@@ -64,29 +64,27 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
     const slideBack =() =>{
 
       let timeline = new gsap.timeline({repeat:0});
-      timeline.to(slides[1].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.1})
-      .to(slides[2].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.1})
-      .to(slides[3].current,{autoAlpha:0,display:'none',zIndex:-1,duration:0.1})
-      .to(slides[0].current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.1});
 
+      slides.current.map(slide=>{
+        timeline.to(slide,{autoAlpha:0,display:'none',zIndex:-1,duration:0.1});
+      })
+
+      setSlider(-1);
+  
 
     }
 
     useEffect(()=>{
 
-      if(slider == -1){
-
-        gsap.to(slides[0].current,{autoAlpha:1,display:'flex',zIndex:0,duration:0.5});
-
-
+      if( slider == -1){
+        gsap.to(slides.current[0],{autoAlpha:1,display:'flex',zIndex:0,duration:0.5});
 
       }
 
     },[slider])
 
     useEffect(()=>{
-
-       
+               
         gsap.to(parallaxServiceCover.current, {
             y:40+'vh',
             scrollTrigger: {
@@ -127,30 +125,12 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
           if(entry.isIntersecting){
 
              
-            if(entry.target.classList[1]=== "first-slide"){
+            if(entry.target.classList[0]=== "slide"){
 
-
-              setSlider(0);
-
-             }
-
-             else if(entry.target.classList[1]=== "second-slide"){
-
-              setSlider(1);
-
+              setSlider(Number(entry.target.classList[1].split('-')[1]));
 
              }
-             else if(entry.target.classList[1]=== "third-slide"){
 
-              setSlider(2);
-
-             
-             }
-             else if(entry.target.classList[1]=== "fourth-slide"){
-
-              setSlider(3);
-
-             }
              
         
           }
@@ -167,10 +147,12 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
       },options);
 
-      slideObserver.observe(firstSlide.current);
-      slideObserver.observe(secondSlide.current);
-      slideObserver.observe(thirdSlide.current);
-      slideObserver.observe(fourthSlide.current);
+      slides.current.map((slide)=>{
+        slideObserver.observe(slide);
+      })
+
+      
+      
       slideObserver.observe(servicesContainerRef.current);
 
 
@@ -184,11 +166,11 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
     return(
         <>
-        <div className="parallax-container services-parallax">
+        {/* <div className="parallax-container services-parallax">
             <div className="parallax-cover" ref={parallaxServiceCover}>
                 <Img fluid={cover} alt="Our Services Picture" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
             </div>
-        </div>
+        </div> */}
         
 
 
@@ -243,94 +225,51 @@ const Services =({texts,cover,designIcon,implementIcon,manageIcon,transformIcon,
 
         </div>
 
-      <div className="services-section-services-container" ref={servicesContainerRef}>
 
-        <div class={slider == 0 ? "disable-arrow":"left-arrow"} onClick={()=>{slide(false)}}>
-          <Img fluid={arrow} alt="Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
-        </div>
+        <div className="services-section-services-container" ref={servicesContainerRef}>
+
+          <div class={slider == 0 ? "disable-arrow":"left-arrow"} onClick={()=>{slide(false)}}>
+            <Img fluid={arrow} alt="Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+          </div>
+
+        
  
-        <div className="services-section-services" ref={sliderContainer}>
-          <div className="slide first-slide" ref={firstSlide} >
-            <div className="box">
-              <h1> {texts.serviceTitle1}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service1.raw),options)}</div>
-            </div>
-            <div className="box">
-            <h1> {texts.serviceTitle2}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service2.raw),options)}</div>
-            </div>
-            <div className="box third">
-            <h1> {texts.serviceTitle3}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service3.raw),options)}</div>
-            </div>
-          </div>
-          
-          <div className="slide second-slide" ref={secondSlide}>
-            <div className="box">
-              <h1> {texts.serviceTitle4}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service4.raw),options)}</div>
-            </div>
-            <div className="box">
-            <h1> {texts.serviceTitle5}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service5.raw),options)}</div>
-            </div>
-            <div className="box third">
-            <h1> {texts.serviceTitle6}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service6.raw),options)}</div>
-            </div>
-          </div>
+            <div className="services-section-services" ref={sliderContainer}>
+              {
+                servicesBlocks.map((slide,slideIndex)=>(
+                  <div className={`slide slide-${slideIndex}`} ref={el => slides.current[slideIndex]=el} >
 
-          <div className="slide third-slide" ref={thirdSlide} >
-            <div className="box">
-              <h1> {texts.serviceTitle7}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service7.raw),options)}</div>
-            </div>
-            <div className="box">
-            <h1> {texts.serviceTitle8}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service8.raw),options)}</div>
-            </div>
-            <div className="box third">
-            <h1> {texts.serviceTitle9}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service9.raw),options)}</div>
+                    {
+                      slide.map((box,index)=>(
+                        <div className="box" key={index*slideIndex}>
+                          <h1> {box.titleOfTheBox}</h1>
+                          <div> {documentToReactComponents(JSON.parse(box.boxDescription.raw),options)}</div>
+                        </div>
+                      ))
+                    }
+                  </div>
+                ))
+              }
             </div>
 
-             
-          </div>  
-          <div className="slide fourth-slide" ref={fourthSlide} >
-            <div className="box">
-              <h1> {texts.serviceTitle10}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service10.raw),options)}</div>
-            </div>
-            <div className="box">
-              <h1> {texts.serviceTitle11}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service11.raw),options)}</div>
-            </div>
-            <div className="box">
-              <h1> {texts.serviceTitle12}</h1>
-              <div> {documentToReactComponents(JSON.parse(texts.service12.raw),options)}</div>
-            </div>
-            
-
-             
-          </div>        
-          
-        </div>
-
-        <div class={slider == 3 ? "disable-arrow":"right-arrow"}  onClick={()=>{slide(true)}}>
+        <div class={slider == slides.current.length-1 ? "disable-arrow":"right-arrow"}  onClick={()=>{slide(true)}}>
          <Img fluid={arrow} alt="Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
         </div>
 
         <div className="container-swipe-lines">
+          {
+          slides.current.map((el,index)=>(
+         <div className={slider=== index?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,index)}}></div>
 
-          <div className={slider=== 0?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,1)}}></div>
-          <div className={slider=== 1?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,2)}}></div>
-          <div className={slider=== 2?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,3)}}></div>
-          <div className={slider=== 3?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,4)}}></div>
-
+          ))
+         }
+      
 
         </div> 
 
-        </div>
+      </div>
+
+        
       
 
         </>

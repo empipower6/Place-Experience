@@ -48,22 +48,23 @@ exports.createPages = async function({actions,graphql}){
             }
           }
         }
-        wordpress:  allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Place Experience Article"}}}}}) {
-          edges {
-            node {
-              slug
-              title
-              content
-              date(formatString: "MMMM DD, YYYY")
-              
-            }
-          }
-        }
-
 
       }
       
     `)
+    
+    // GRAPHQL CALL FOR WORDPRESS ITEMS
+    // wordpress:  allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Place Experience Article"}}}}}) {
+    //   edges {
+    //     node {
+    //       slug
+    //       title
+    //       content
+    //       date(formatString: "MMMM DD, YYYY")
+          
+    //     }
+    //   }
+    // }
 
 
     result.data.contentful.edges.forEach(({ node }) => {
@@ -77,17 +78,17 @@ exports.createPages = async function({actions,graphql}){
           },
         })
       })
-    result.data.wordpress.edges.forEach(({ node }) => {
-        actions.createPage({
-          path: node.slug,
-          component: path.resolve(`./src/components/templates/article.js`),
-          context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            content:node,
-          },
-        })
-      })
+    // result.data.wordpress.edges.forEach(({ node }) => {
+    //     actions.createPage({
+    //       path: node.slug,
+    //       component: path.resolve(`./src/components/templates/article.js`),
+    //       context: {
+    //         // Data passed to context is available
+    //         // in page queries as GraphQL variables.
+    //         content:node,
+    //       },
+    //     })
+    //   })
   }
 
 

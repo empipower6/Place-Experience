@@ -150,8 +150,6 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
 
         entries.forEach(entry=>{
           if(entry.isIntersecting){
-            console.log(whichSection);
-
               
               let section = Number(entry.target.classList[0].split("-")[1]);
               setSection(section);

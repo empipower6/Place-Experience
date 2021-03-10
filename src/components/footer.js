@@ -63,7 +63,7 @@ const Footer = ({logoText,mapIcon,phoneIcon, linkedin})=>{
                 <div className="linkedinIcon">
                   <a href="https://www.linkedin.com/company/maven-insights-and-solutions/" target="_blank"><Img fluid={linkedin} alt="Phone Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:"contain"}} /></a> 
                 </div>
-                <p className="coder-credits"> <span className="first"></span>Site by <a href="https://www.linkedin.com/in/emre-kelleci/" style={{textDecoration:"none", color:'black'}} className="name"> Emre Kelleci</a></p>
+                {/* <p className="coder-credits"> <span className="first"></span>Site by <a href="https://www.linkedin.com/in/emre-kelleci/" style={{textDecoration:"none", color:'black'}} className="name"> Emre Kelleci</a></p> */}
 
 
              </div>
