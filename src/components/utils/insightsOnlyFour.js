@@ -1,6 +1,6 @@
 import React,{useRef,useEffect,useState} from 'react'
 
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import {Link} from 'gatsby'
 import FlipMove from 'react-flip-move';
 
@@ -115,103 +115,103 @@ const InsightsOnlyFour = ({show,design,manage,implement,transform})=>{{
             pic= transform;
         }
 
-        return(
-    
-                <div className="box-icon">
-                    <Img fluid={pic} alt="Box Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'contain'}} />
-                </div>
-        )
+        return (
+          <div className="box-icon">
+              <GatsbyImage
+                image={pic}
+                alt="Box Icon"
+                style={{maxHeight:'100%'}}
+                imgStyle={{objectFit:'contain'}} />
+          </div>
+        );
    }
 
 
 
    
 
-    return(
-        <>
-       
-        <div className='section'>
+    return <>
+   
+    <div className='section'>
 
-          {show?
-          
-          
+      {show?
+      
+      
 
-          show.map((box,key)=>(
+      show.map((box,key)=>(
 
-             key===0 ? 
-                <div className="first-box" style={{cursor:'pointer'}} key={0}>
+         key===0 ? 
+            <div className="first-box" style={{cursor:'pointer'}} key={0}>
 
-                {newOnes?  
-                  <div className="box" ref={boxFirst}>
-                      {show ?
+            {newOnes?  
+              <div className="box" ref={boxFirst}>
+                  {show ?
 
-                      <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
-                          <Img fluid={imageFinder(articleImage.media,box.node.title)} 
-                          style={{maxHeight:'100%'}} />
+                  <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
+                      <GatsbyImage
+                        image={imageFinder(articleImage.media,box.node.title)}
+                        style={{maxHeight:'100%'}} />
 
-                          <h1>{box.node.title.toUpperCase()}</h1>
+                      <h1>{box.node.title.toUpperCase()}</h1>
 
-                          {showIcon(box)}
+                      {showIcon(box)}
 
-                      </Link>
-                      :""}
+                  </Link>
+                  :""}
 
-                  </div>
-                :""
+              </div>
+            :""
 
-                }
-                {newOnes ? ""
+            }
+            {newOnes ? ""
 
-                :
-                  <div className="boxBack" ref={backBox} style={{opacity:0}}>
-                    {show ?
-
-                    <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
-                      <Img fluid={imageFinder(articleImage.media,box.node.title)} style={{maxHeight:'100%'}} />
-
-                        <h1>{box.node.title.toUpperCase()}</h1>
-
-                        {showIcon(box)}
-
-                    </Link>
-                    :""
-                    }
-                  
-                  </div>
-                } 
-
-            </div>
-                  
-            
-
-          :
-
-            <div className={`others others-${key}`} key={key}>
+            :
+              <div className="boxBack" ref={backBox} style={{opacity:0}}>
+                {show ?
 
                 <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
-                        <h1>{ box.node.title.toUpperCase()}</h1>
-                    
+                  <GatsbyImage
+                    image={imageFinder(articleImage.media,box.node.title)}
+                    style={{maxHeight:'100%'}} />
+
+                    <h1>{box.node.title.toUpperCase()}</h1>
+
+                    {showIcon(box)}
+
                 </Link>
-                {showIcon(box)}
+                :""
+                }
+              
+              </div>
+            } 
 
-            </div>
-          ))
-          
-            
-           
+        </div>
+              
+        
+
+      :
+
+        <div className={`others others-${key}`} key={key}>
+
+            <Link to={`/${box.node.slug}`} style={{color:'none',textDecoration:'none'}}>
+                    <h1>{ box.node.title.toUpperCase()}</h1>
+                
+            </Link>
+            {showIcon(box)}
+
+        </div>
+      ))
+      
+        
+       
 
 
-      :""}  
-            
+  :""}  
+        
 
-      </div>
+  </div>
 
-      </>
-
-     
-
-
-    )
+  </>;
 
 }
 }

@@ -1,7 +1,7 @@
 import React,{ useEffect,useRef,useState } from 'react'
 import Logo from './logo'
 import BackgroundImage from 'gatsby-background-image'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -166,68 +166,72 @@ const Intro = ({logo,customer,experience,growth,orangeRef,left,right,logoText,li
     },[]);
 
  
-    return(
+    return <>
+   
+   
 
-        <>
-       
-       
-
-      <div className="intro-flex" id="section-intro"  ref={introRef}  ref={top}> 
-        <div className="left-arrow" onClick={()=>{introSwipe(false);setTimeState(true);setClicker(true);}}>
-          <Img fluid={left} alt="Left Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
+  <div className="intro-flex" id="section-intro"  ref={introRef}  ref={top}> 
+    <div className="left-arrow" onClick={()=>{introSwipe(false);setTimeState(true);setClicker(true);}}>
+      <GatsbyImage
+        image={left}
+        alt="Left Arrow Image"
+        style={{maxHeight:'100%'}}
+        imgStyle={{objectFit:"cover"}} />
+  
+    </div>
+      <div className="child first-child"  ref={firstRef}>
+        <BackgroundImage fluid={customer} className="cover">    
+          <p className="child-desc"> KNOW YOUR <br />CUSTOMER.</p>  
+        </BackgroundImage>
+      </div>
+      <div className="child second-child"  ref={secondRef}>
+        <BackgroundImage fluid={experience} className="cover" >      
+        <p className="child-desc"> DELIVER <br />THE DESIRED <br/> EXPERIENCE.</p>  
+        </BackgroundImage>
+      </div>
       
-        </div>
-          <div className="child first-child"  ref={firstRef}>
-            <BackgroundImage fluid={customer} className="cover">    
-              <p className="child-desc"> KNOW YOUR <br />CUSTOMER.</p>  
-            </BackgroundImage>
-          </div>
-          <div className="child second-child"  ref={secondRef}>
-            <BackgroundImage fluid={experience} className="cover" >      
-            <p className="child-desc"> DELIVER <br />THE DESIRED <br/> EXPERIENCE.</p>  
-            </BackgroundImage>
-          </div>
-          
-          <div className="child third-child"  ref={thirdRef}>
-            <BackgroundImage  fluid={growth} className="cover">      
-            <p className="child-desc"> GENERATE <br />ECONOMIC <br/> GROWTH.</p>  
-            </BackgroundImage>
-          </div>
+      <div className="child third-child"  ref={thirdRef}>
+        <BackgroundImage  fluid={growth} className="cover">      
+        <p className="child-desc"> GENERATE <br />ECONOMIC <br/> GROWTH.</p>  
+        </BackgroundImage>
+      </div>
 
-        <div className="right-arrow" onClick={()=>{introSwipe(true);setTimeState(true);setClicker(true);}}>
-       
-       <Img fluid={right} alt="Right Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:"cover"}} />
+    <div className="right-arrow" onClick={()=>{introSwipe(true);setTimeState(true);setClicker(true);}}>
+   
+   <GatsbyImage
+     image={right}
+     alt="Right Arrow Image"
+     style={{maxHeight:'100%'}}
+     imgStyle={{objectFit:"cover"}} />
 
 
-          </div>
+      </div>
 
-          <div className="container-swipe-lines">
-            <div className={cover=== 0?"swipe active-swipe":"swipe"} onClick={()=>{swipeClick(0);setTimeState(true);setClicker(true);}}></div>
-            <div className={cover=== 1?"swipe active-swipe":"swipe"} onClick={()=>{swipeClick(1);setTimeState(true);setClicker(true);}}></div>
-            <div className={cover=== 2?"swipe active-swipe":"swipe"} onClick={()=>{swipeClick(2);setTimeState(true);setClicker(true);}}></div>
-          </div> 
-      </div>  
+      <div className="container-swipe-lines">
+        <div className={cover=== 0?"swipe active-swipe":"swipe"} onClick={()=>{swipeClick(0);setTimeState(true);setClicker(true);}}></div>
+        <div className={cover=== 1?"swipe active-swipe":"swipe"} onClick={()=>{swipeClick(1);setTimeState(true);setClicker(true);}}></div>
+        <div className={cover=== 2?"swipe active-swipe":"swipe"} onClick={()=>{swipeClick(2);setTimeState(true);setClicker(true);}}></div>
+      </div> 
+  </div>  
 
-      <div className="container">
-        
-        <div className="fixed-header">
-         <div className="fixed-header-logo">
-            <Logo image={logo}  menuChecker={setMenu} logoText={logoText} linkedin={linkedin} phoneIcon={phoneIcon} />
-         </div>
-         
-         <h1 className="fixed-header-title"> PLACE EXPERIENCE </h1>
-         </div>      
- 
-       </div> 
-      
-      
+  <div className="container">
+    
+    <div className="fixed-header">
+     <div className="fixed-header-logo">
+        <Logo image={logo}  menuChecker={setMenu} logoText={logoText} linkedin={linkedin} phoneIcon={phoneIcon} />
+     </div>
+     
+     <h1 className="fixed-header-title"> PLACE EXPERIENCE </h1>
+     </div>      
 
-      
-       
-      
-        </>
+   </div> 
+  
+  
 
-    )
+  
+   
+  
+    </>;
 
 
 

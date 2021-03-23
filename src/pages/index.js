@@ -20,6 +20,8 @@ import Top from '../components/utils/top'
 
 import Footer from '../components/footer'
 
+import Video from '../components/video'
+
 // import Insights from '../components/insights'
 
 import Favicon from '../images/gatsby-icon.png'
@@ -41,15 +43,16 @@ const IndexPage = () => {
   let data = useStaticQuery(graphql`
   query{
 
-    media: allContentfulAsset {
+    media: allContentfulAsset(filter: {file: {contentType: {ne: "video/mp4"}}}) {
       nodes {
         title
-        fluid {
-           aspectRatio
-              base64
-              src
-              srcSet
-        }
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        fluid{
+          aspectRatio
+          base64
+          src
+          srcSet
+      }
       }
     }
 
@@ -104,12 +107,7 @@ const IndexPage = () => {
           slug
           title
           storyImage {
-            fluid{
-                aspectRatio
-                base64
-                src
-                srcSet
-            }
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
       }
@@ -127,7 +125,18 @@ const IndexPage = () => {
           raw
         }
       }
-    }     
+    }    
+
+    video:  allContentfulAsset(filter: {title: {eq: "Intro Video"}}) {
+    edges {
+      node {
+        id
+        file {
+          url
+        }
+      }
+    }
+    } 
     
    
 
@@ -171,6 +180,8 @@ const IndexPage = () => {
 
 useEffect(()=>{
 
+  console.log(imageFinder(data.media,"Logo"));
+
 
 
 
@@ -184,16 +195,18 @@ useEffect(()=>{
      <Helmet title="Place Experience">
         <link rel="icon" href={Favicon} /> 
     </Helmet>
+
+    <Video video={data.video} playIcon={imageFinder(data.media,"Play")} pauseIcon={imageFinder(data.media,"Pause")}/>
     
-      <Intro logo={imageFinder(data.media,"Logo")} customer={imageFinder(data.media,"First Cover")} 
-        experience={imageFinder(data.media,"Second Cover")} growth={imageFinder(data.media,"Third Cover")}
+      <Intro logo={imageFinder(data.media,"Logo")} customer={imageFinder(data.media,"First Cover",true)} 
+        experience={imageFinder(data.media,"Second Cover",true)} growth={imageFinder(data.media,"Third Cover",true)}
         orangeRef={orangeMenuRef} left={imageFinder(data.media,"left-arrow")} 
         right={imageFinder(data.media,"right-arrow")} logoText={imageFinder(data.media,"LogoFooter")}
         phoneIcon ={imageFinder(data.media,"phone-icon")} linkedin={imageFinder(data.media,"linkedinWhite")}
         top={toTop}
         /> 
-    
-      <div className="orange-logo" ref={orangeMenuRef}>     
+  
+       <div className="orange-logo" ref={orangeMenuRef}>     
 
             <Logo image={imageFinder(data.media,"Logo")} logoText={imageFinder(data.media,"LogoFooter")}
                   phoneIcon ={imageFinder(data.media,"phone-icon")} linkedin={imageFinder(data.media,"linkedinWhite")}/>
@@ -205,12 +218,13 @@ useEffect(()=>{
         <Top arrow={imageFinder(data.media,"arrowUpTop")} disappearItem={toTop}   />
        
       </div>
+       
     
       <Services boxes = {data.serviceBoxes.nodes}texts={data.servicesData.edges[0].node} cover={imageFinder(data.media,"Services Cover")}
                  designIcon={imageFinder(data.media,"icon-services-design")} manageIcon={imageFinder(data.media,"icon-manage")}
                  transformIcon={imageFinder(data.media,"icon-transform")} cubes={imageFinder(data.media,"cubes")}
                  implementIcon={imageFinder(data.media,"icon-implement")} arrow={imageFinder(data.media,"orangeArrow")}/>
-
+ 
       <Stories rect={imageFinder(data.media,"rectangle")} rshape={imageFinder(data.media,"rShape")} 
                triangle={imageFinder(data.media,"triangle")} square={imageFinder(data.media,"singleSquare")} 
                storiesData={data.storiesData.edges} storiesCover ={imageFinder(data.media,"Stories Cover")}
@@ -223,13 +237,13 @@ useEffect(()=>{
                 whiteManage={imageFinder(data.media,"whiteManage")} left={imageFinder(data.media,"orangeArrow")} 
                 right={imageFinder(data.media,"orangeArrowRight")}/> */}
 
-     <Team ismail={imageFinder(data.media,"Ismail")} gunter={imageFinder(data.media,"gunter")}
+     <Team ismail={imageFinder(data.media,"ismail")} gunter={imageFinder(data.media,"gunter")}
             alper={imageFinder(data.media,"alper")} linkedin={imageFinder(data.media,"linkedinBlue")} 
             summaries={data.teamSummaries.nodes[0]} linkedinWhite={imageFinder(data.media,"linkedinWhite")}/>
      
      <About squares={imageFinder(data.media,"Squares")} designIcon={imageFinder(data.media,"icon-design")} 
                analyticsIcon={imageFinder(data.media,"icon-analytics")} allIcon={imageFinder(data.media,"icon-allinone")} 
-                pies={imageFinder(data.media,("Pie"))} texts={data.aboutUsData.nodes[0]}/>
+                pies={imageFinder(data.media,("Pie"))} texts={data.aboutUsData.nodes[0]} aboutCover={imageFinder(data.media,"Services Cover")}/>
 
 
      <Footer mapIcon={imageFinder(data.media,"mapIcon")} phoneIcon={imageFinder(data.media,"phone-icon")}
@@ -244,7 +258,7 @@ export default IndexPage;
 
 
 
-const imageFinder = (data,name)=>{
+const imageFinder = (data,name,fluid)=>{
 
   let image;
   let media = data.nodes;
@@ -255,5 +269,6 @@ const imageFinder = (data,name)=>{
       image = i;
    }
   }
-  return media[image].fluid;
+
+  return fluid ? media[image].fluid : media[image].gatsbyImageData;
 }

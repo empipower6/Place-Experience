@@ -1,6 +1,6 @@
 import React,{useEffect,useRef,useState} from 'react' 
 import { gsap } from "gsap/dist/gsap";
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const Top = ({arrow,disappearItem})=>{
@@ -61,13 +61,15 @@ articleObserver.observe(disappearItem.current);
       
 
 
-    return(
-        <>
-        <div onClick={()=>{scrollTop()}} ref={top}>
-          <Img fluid={arrow} alt="Go To The Top Icon" style={{ maxHeight: "100%",cursor:'pointer' }}  imgStyle={{ objectFit: "contain" }}  />
-        </div>
-        </>
-    )
+    return <>
+    <div onClick={()=>{scrollTop()}} ref={top}>
+      <GatsbyImage
+        image={arrow}
+        alt="Go To The Top Icon"
+        style={{ maxHeight: "100%",cursor:'pointer' }}
+        imgStyle={{ objectFit: "contain" }} />
+    </div>
+    </>;
 }
 
 export default Top;

@@ -1,5 +1,5 @@
 import React,{useRef,useEffect} from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import { gsap, Power4} from "gsap/dist/gsap";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
@@ -77,68 +77,77 @@ const Logo =(props)=>{
    
 
 
-        return(
-            <>
-            <div onClick={()=>{openMenu()}} style={{cursor:"pointer"}}>
-                    <Img ref={imageRef} fluid={props.image} alt="Main Logo" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} />
-            </div>
-            <div className="logo-menu" ref={mobileMenu}>
-                <div className="inner-menu">
-                <div className="left" ref={leftSide}>
-                    <ul>
-                        <li  className="cancel-mobile" onClick={()=>{closeMenu()}} ref={addToRefs}> X </li>
-                        <li className="mobile-title" ref={addToRefs}> CANCEL </li>
+        return <>
+        <div onClick={()=>{openMenu()}} style={{cursor:"pointer"}}>
+                <GatsbyImage
+                    image={props.image}
+                    ref={imageRef}
+                    alt="Main Logo"
+                    style={{ maxHeight: "100%" }}
+                    imgStyle={{ objectFit: "contain" }} />
+        </div>
+        <div className="logo-menu" ref={mobileMenu}>
+            <div className="inner-menu">
+            <div className="left" ref={leftSide}>
+                <ul>
+                    <li  className="cancel-mobile" onClick={()=>{closeMenu()}} ref={addToRefs}> X </li>
+                    <li className="mobile-title" ref={addToRefs}> CANCEL </li>
 
-                        
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#services" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}} > SERVICES </li></AnchorLink></div>
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#stories-section" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}}> STORIES </li></AnchorLink></div>
-                        
-                        {/* <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-insights" className="anchors"  ><li className="logo-menu-item" onClick={()=>{closeMenu()}}> INSIGHTS </li></AnchorLink></div> */}
-
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#team-section" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}} > TEAM </li></AnchorLink></div>
-
-                        <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-about" className="anchors"  ><li key={2} className="logo-menu-item"  onClick={()=>{closeMenu()}} > ABOUT US </li></AnchorLink></div>
-
-                        {/* <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-footer" className="anchors" ><li className="logo-menu-item" onClick={()=>{closeMenu()}} > MEET US </li></AnchorLink></div> */}
-                        
-                    </ul>
-                </div>
-                <div className="right" ref={rightSide}>
                     
-                    <div className="menu-socials">
-                        <a href="https://calendly.com/ismail-ozenc/30min" target="_blank">
-                        <div className="call-icon" ref={addToSecondRefs}>
-                            <Img fluid={props.phoneIcon} alt="Phone Icon with Text" imgStyle={{objectFit:'cover'}} />
-                        </div>
-                        </a>
-                        <div className="menu-socials-inner">
-                        <a href="https://calendly.com/ismail-ozenc/30min" target="_blank" style={{textDecoration:'none'}}>
-                            <h1 ref={addToSecondRefs}>SCHEDULE <br/>A CALL</h1>
-                            <hr ref={addToSecondRefs} />
-                         </a>
-                        </div>
-                        <a href="https://www.linkedin.com/company/maven-insights-and-solutions/" target="_blank">
-                            <div className="linkedin" ref={addToSecondRefs}>
-                            <Img fluid={props.linkedin} alt="LinkedIn Icon" style={{maxHeight:'100%'}} />
-                            </div>
-                        </a>
-                       
-                    </div>
-                        <div className="logo-text" ref={addToSecondRefs} onClick={()=>{closeMenu()}}>
-                          <AnchorLink to="/#section-intro">
+                    <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#services" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}} > SERVICES </li></AnchorLink></div>
+                    <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#stories-section" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}}> STORIES </li></AnchorLink></div>
+                    
+                    {/* <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-insights" className="anchors"  ><li className="logo-menu-item" onClick={()=>{closeMenu()}}> INSIGHTS </li></AnchorLink></div> */}
 
-                            <Img fluid={props.logoText} alt="Logo with Text" imgStyle={{objectFit:'cover'}} />
+                    <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#team-section" className="anchors"><li className="logo-menu-item" onClick={()=>{closeMenu()}} > TEAM </li></AnchorLink></div>
 
-                          </AnchorLink>
-                        </div>
+                    <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-about" className="anchors"  ><li key={2} className="logo-menu-item"  onClick={()=>{closeMenu()}} > ABOUT US </li></AnchorLink></div>
 
-                   
-
-                </div>
-                </div>
+                    {/* <div className="animated-item" ref={addToRefs}> <AnchorLink to="/#section-footer" className="anchors" ><li className="logo-menu-item" onClick={()=>{closeMenu()}} > MEET US </li></AnchorLink></div> */}
+                    
+                </ul>
             </div>
-            </>
-        );
+            <div className="right" ref={rightSide}>
+                
+                <div className="menu-socials">
+                    <a href="https://calendly.com/ismail-ozenc/30min" target="_blank">
+                    <div className="call-icon" ref={addToSecondRefs}>
+                        <GatsbyImage
+                            image={props.phoneIcon}
+                            alt="Phone Icon with Text"
+                            imgStyle={{objectFit:'cover'}} />
+                    </div>
+                    </a>
+                    <div className="menu-socials-inner">
+                    <a href="https://calendly.com/ismail-ozenc/30min" target="_blank" style={{textDecoration:'none'}}>
+                        <h1 ref={addToSecondRefs}>SCHEDULE <br/>A CALL</h1>
+                        <hr ref={addToSecondRefs} />
+                     </a>
+                    </div>
+                    <a href="https://www.linkedin.com/company/maven-insights-and-solutions/" target="_blank">
+                        <div className="linkedin" ref={addToSecondRefs}>
+                        <GatsbyImage image={props.linkedin} alt="LinkedIn Icon" style={{maxHeight:'100%'}} />
+                        </div>
+                    </a>
+                   
+                </div>
+                    <div className="logo-text" ref={addToSecondRefs} onClick={()=>{closeMenu()}}>
+                      <AnchorLink to="/#section-intro">
+
+                        <GatsbyImage
+                            image={props.logoText}
+                            alt="Logo with Text"
+                            imgStyle={{objectFit:'cover'}} />
+
+                      </AnchorLink>
+                    </div>
+
+               
+
+            </div>
+            </div>
+        </div>
+        </>;
     }
 
    

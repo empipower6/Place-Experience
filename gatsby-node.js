@@ -22,28 +22,16 @@ exports.createPages = async function({actions,graphql}){
                 raw
               }
               storyImage {
-                fluid{
-                    aspectRatio
-                    base64
-                    src
-                    srcSet
-                }
+                gatsbyImageData(placeholder: BLURRED)
+
               }
               solutionMedias {
-                fluid {
-                  aspectRatio
-                  base64
-                  src
-                  srcSet
-                }
+                gatsbyImageData(placeholder: BLURRED)
+
               }
               outcomeMedias {
-                fluid {
-                  aspectRatio
-                  base64
-                  src
-                  srcSet
-                }
+                gatsbyImageData(placeholder: BLURRED)
+
               }
             }
           }

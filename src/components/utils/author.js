@@ -1,6 +1,6 @@
 import React ,{useEffect,useRef} from 'react'
 import { gsap} from "gsap/dist/gsap";
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 
 const Author = ({name,title,desc,pic,comma}) =>{
@@ -71,37 +71,33 @@ const Author = ({name,title,desc,pic,comma}) =>{
     }
 
 
-    return(
-        <>
-        <div className="author-name" onClick={()=>{openPerson()}}> {name.trim()}{comma? <span className="comma">,</span>:''} </div>
+    return <>
+    <div className="author-name" onClick={()=>{openPerson()}}> {name.trim()}{comma? <span className="comma">,</span>:''} </div>
 
-        <div className="summary" ref={person}>
-                   <div className="left">
-                        <p  className="cancel-mobile" onClick={()=>{closePerson()}} > X </p>
-                        <p className="mobile-title" ref={addInto}> CLOSE </p>
-                        <div className="summary-actual">
-                            <div className="summary-image" ref={addInto}>
-                              <Img fluid={pic} alt="Author Image" style={{maxHeight:'100%'}} />
-                            </div>
-                            <div className="summary-text">
-                                <h1 ref={addInto}>{name.toUpperCase()}</h1>
-                                <h2 ref={addInto}>{title.toUpperCase()}</h2>
-                                <div ref={addInto}>{desc}</div>
-                            </div>
+    <div className="summary" ref={person}>
+               <div className="left">
+                    <p  className="cancel-mobile" onClick={()=>{closePerson()}} > X </p>
+                    <p className="mobile-title" ref={addInto}> CLOSE </p>
+                    <div className="summary-actual">
+                        <div className="summary-image" ref={addInto}>
+                          <GatsbyImage image={pic} alt="Author Image" style={{maxHeight:'100%'}} />
                         </div>
-                   </div>
-                   {/* <div className="right">
-                    <a href="https://www.linkedin.com/in/akulak/" target="_blank" rel="noreferrer">
-                            <div className="linkedin"ref={addAlper} >
-                                <Img fluid={linkedinWhite} alt="Linkedin Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
-                            </div>
-                        </a>                 
-                    </div> */}
+                        <div className="summary-text">
+                            <h1 ref={addInto}>{name.toUpperCase()}</h1>
+                            <h2 ref={addInto}>{title.toUpperCase()}</h2>
+                            <div ref={addInto}>{desc}</div>
+                        </div>
+                    </div>
                </div>
-        </>
-
-       
-    )
+               {/* <div className="right">
+                <a href="https://www.linkedin.com/in/akulak/" target="_blank" rel="noreferrer">
+                        <div className="linkedin"ref={addAlper} >
+                            <Img fluid={linkedinWhite} alt="Linkedin Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+                        </div>
+                    </a>                 
+                </div> */}
+           </div>
+    </>;
 
 }
 

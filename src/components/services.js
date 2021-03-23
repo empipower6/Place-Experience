@@ -1,5 +1,5 @@
 import React, {useEffect,useRef,useState} from 'react' 
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { gsap } from "gsap/dist/gsap";
@@ -164,116 +164,147 @@ const Services =({boxes,texts,cover,designIcon,implementIcon,manageIcon,transfor
 
 
 
-    return(
-        <>
-        {/* <div className="parallax-container services-parallax">
-            <div className="parallax-cover" ref={parallaxServiceCover}>
-                <Img fluid={cover} alt="Our Services Picture" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
-            </div>
-        </div> */}
-        
+    return <>
+    {/* <div className="parallax-container services-parallax">
+        <div className="parallax-cover" ref={parallaxServiceCover}>
+            <Img fluid={cover} alt="Our Services Picture" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+        </div>
+    </div> */}
+    
 
 
 
-        <div className="services-section" id="services">
+    <div className="services-section" id="services">
 
-            <div className="services-section-left">
+        <div className="services-section-left">
 
-                <h1 className="services-section-title"> SERVICES </h1>
-                <div className="services-section-intro">{documentToReactComponents(JSON.parse(texts.introText.raw),options)}</div>
-                <hr className="services-section-separator"></hr>
-                <h1 className="services-section-quote">{texts.servicesQuote}</h1>
-                
-
-            </div>
-            <div className="services-section-right">
-
-              <div className="icon-flex">
-                <div className="services-section-design">
-                <Img fluid={designIcon} alt="Design Icon Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} cl/>
-                </div>
-
-                <h1> DESIGN </h1>
-              </div>
-              <div className="icon-flex">
-                <div className="services-section-implement">
-                <Img fluid={implementIcon} alt="Implement Icon Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} cl/>
-                </div>
-
-                <h1> IMPLEMENT </h1>
-              </div>
-              <div className="icon-flex">
-                <div className="services-section-manage">
-                <Img fluid={manageIcon} alt="Manage Icon Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} cl/>
-                </div>
-
-                <h1> MANAGE </h1>
-              </div>
-              <div className="icon-flex">
-                <div className="services-section-transform">
-                <Img fluid={transformIcon} alt="Transform Icon Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} cl/>
-                </div>
-
-                <h1> TRANSFORM </h1>
-              </div>
-              <div className="services-section-cubes" ref={parallaxCubes}>
-                <Img fluid={cubes} alt="Cubes Icon Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain" }} cl/>
-                </div>
-
-        
-            </div>
+            <h1 className="services-section-title"> SERVICES </h1>
+            <div className="services-section-intro">{documentToReactComponents(JSON.parse(texts.introText.raw),options)}</div>
+            <hr className="services-section-separator"></hr>
+            <h1 className="services-section-quote">{texts.servicesQuote}</h1>
+            
 
         </div>
+        <div className="services-section-right">
 
+          <div className="icon-flex">
+            <div className="services-section-design">
+            <GatsbyImage
+              image={designIcon}
+              alt="Design Icon Illustration"
+              style={{ maxHeight: "100%" }}
+              imgStyle={{ objectFit: "contain" }}
+              cl />
+            </div>
 
-        <div className="services-section-services-container" ref={servicesContainerRef}>
-
-          <div class={slider == 0 ? "disable-arrow":"left-arrow"} onClick={()=>{slide(false)}}>
-            <Img fluid={arrow} alt="Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+            <h1> DESIGN </h1>
           </div>
-
-        
- 
-            <div className="services-section-services" ref={sliderContainer}>
-              {
-                servicesBlocks.map((slide,slideIndex)=>(
-                  <div className={`slide slide-${slideIndex}`} ref={el => slides.current[slideIndex]=el} >
-
-                    {
-                      slide.map((box,index)=>(
-                        <div className="box" key={index*slideIndex}>
-                          <h1> {box.titleOfTheBox}</h1>
-                          <div> {documentToReactComponents(JSON.parse(box.boxDescription.raw),options)}</div>
-                        </div>
-                      ))
-                    }
-                  </div>
-                ))
-              }
+          <div className="icon-flex">
+            <div className="services-section-implement">
+            <GatsbyImage
+              image={implementIcon}
+              alt="Implement Icon Illustration"
+              style={{ maxHeight: "100%" }}
+              imgStyle={{ objectFit: "contain" }}
+              cl />
             </div>
 
-        <div class={slider == slides.current.length-1 ? "disable-arrow":"right-arrow"}  onClick={()=>{slide(true)}}>
-         <Img fluid={arrow} alt="Arrow Image" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
+            <h1> IMPLEMENT </h1>
+          </div>
+          <div className="icon-flex">
+            <div className="services-section-manage">
+            <GatsbyImage
+              image={manageIcon}
+              alt="Manage Icon Illustration"
+              style={{ maxHeight: "100%" }}
+              imgStyle={{ objectFit: "contain" }}
+              cl />
+            </div>
+
+            <h1> MANAGE </h1>
+          </div>
+          <div className="icon-flex">
+            <div className="services-section-transform">
+            <GatsbyImage
+              image={transformIcon}
+              alt="Transform Icon Illustration"
+              style={{ maxHeight: "100%" }}
+              imgStyle={{ objectFit: "contain" }}
+              cl />
+            </div>
+
+            <h1> TRANSFORM </h1>
+          </div>
+          <div className="services-section-cubes" ref={parallaxCubes}>
+            <GatsbyImage
+              image={cubes}
+              alt="Cubes Icon Illustration"
+              style={{ maxHeight: "100%" }}
+              imgStyle={{ objectFit: "contain" }}
+              cl />
+            </div>
+
+    
         </div>
 
-        <div className="container-swipe-lines">
-          {
-          slides.current.map((el,index)=>(
-         <div className={slider=== index?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,index)}}></div>
+    </div>
 
-          ))
-         }
-      
 
-        </div> 
+    <div className="services-section-services-container" ref={servicesContainerRef}>
 
+      <div class={slider == 0 ? "disable-arrow":"left-arrow"} onClick={()=>{slide(false)}}>
+        <GatsbyImage
+          image={arrow}
+          alt="Arrow Image"
+          style={{maxHeight:'100%'}}
+          imgStyle={{objectFit:'cover'}} />
       </div>
 
-        
-      
+    
 
-        </>
-    )
+        <div className="services-section-services" ref={sliderContainer}>
+          {
+            servicesBlocks.map((slide,slideIndex)=>(
+              <div className={`slide slide-${slideIndex}`} ref={el => slides.current[slideIndex]=el} >
+
+                {
+                  slide.map((box,index)=>(
+                    <div className="box" key={index*slideIndex}>
+                      <h1> {box.titleOfTheBox}</h1>
+                      <div> {documentToReactComponents(JSON.parse(box.boxDescription.raw),options)}</div>
+                    </div>
+                  ))
+                }
+              </div>
+            ))
+          }
+        </div>
+
+    <div class={slider == slides.current.length-1 ? "disable-arrow":"right-arrow"}  onClick={()=>{slide(true)}}>
+     <GatsbyImage
+       image={arrow}
+       alt="Arrow Image"
+       style={{maxHeight:'100%'}}
+       imgStyle={{objectFit:'cover'}} />
+    </div>
+
+    <div className="container-swipe-lines">
+      {
+      slides.current.map((el,index)=>(
+     <div className={slider=== index?"swipe active-swipe":"swipe"} onClick={()=>{slide(true,index)}}></div>
+
+      ))
+     }
+  
+
+    </div> 
+
+  </div>
+
+    
+  
+
+    </>;
 
 }
 

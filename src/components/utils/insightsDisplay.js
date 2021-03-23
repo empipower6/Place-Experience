@@ -1,5 +1,5 @@
 import React,{useEffect,useState,useRef} from 'react' 
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import InsightsOnlyFour from './insightsOnlyFour'
 
 const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,implement,transform,manage,left,right, rightRef,leftRef,filterChanged}) =>{
@@ -162,24 +162,30 @@ const InsightsDisplay = ({filterChange,insightsRef,filteredArticles,design,imple
     },[])
 
 
-    return(
-        <>
-        <div className="filter-field">
-         <div className="left-arrow" onClick={()=>{move(false);setClicked(true);}} ref={leftRef}>
-             <Img fluid={left} alt="Left Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'contain'}} />
-         </div>
+    return <>
+    <div className="filter-field">
+     <div className="left-arrow" onClick={()=>{move(false);setClicked(true);}} ref={leftRef}>
+         <GatsbyImage
+           image={left}
+           alt="Left Arrow Icon"
+           style={{maxHeight:'100%'}}
+           imgStyle={{objectFit:'contain'}} />
+     </div>
 
 
-            <InsightsOnlyFour show={filterShows} design={design} implement={implement} 
-                           transform={transform} manage ={manage} left={left} right={right}/>
-        
-            <div className="right-arrow" onClick={()=>{move(true);setClicked(true);}} ref={rightRef}>
-             <Img fluid={right} alt="Right Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'contain'}} />
-         </div>
-        </div> 
+        <InsightsOnlyFour show={filterShows} design={design} implement={implement} 
+                       transform={transform} manage ={manage} left={left} right={right}/>
+    
+        <div className="right-arrow" onClick={()=>{move(true);setClicked(true);}} ref={rightRef}>
+         <GatsbyImage
+           image={right}
+           alt="Right Arrow Icon"
+           style={{maxHeight:'100%'}}
+           imgStyle={{objectFit:'contain'}} />
+     </div>
+    </div> 
 
-        </>
-    )
+    </>;
 }
 
 export default InsightsDisplay

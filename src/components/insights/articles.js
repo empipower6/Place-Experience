@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby"
 
 import ReactHtmlParser from 'react-html-parser';
@@ -79,9 +79,7 @@ class Articles extends React.Component {
     }
 
     render(){
-        return(
-
-        <>
+        return <>
         
         
            <div className="filter-bar">
@@ -111,7 +109,11 @@ class Articles extends React.Component {
                 <Link to={"/"+article.node.slug} style={{ textDecoration: 'none',display:"flex",flexFlow:"column nowrap",alignItems:"center" }}>
 
                     <div className="postShort-image">
-                        <Img fluid={article.node.featuredImage.node.localFile.childImageSharp.fluid} alt="Main Image" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "cover" }}/>
+                        <GatsbyImage
+                            image={article.node.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
+                            alt="Main Image"
+                            style={{ maxHeight: "100%" }}
+                            imgStyle={{ objectFit: "cover" }} />
                     </div>
                     <div className="postShort-details">
 
@@ -130,8 +132,7 @@ class Articles extends React.Component {
             }
             </div>
 
-        </>
-    )
+        </>;
 }
 }
 

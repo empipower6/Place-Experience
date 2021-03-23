@@ -4,7 +4,7 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { Link } from 'gatsby'
 
@@ -65,7 +65,6 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
     useEffect(()=>{
         
      
-
 
         gsap.to(squareRef.current, {
             left:18+'vw',
@@ -168,85 +167,115 @@ const Stories = ({rect,rshape,triangle,square,storiesData,storiesCover,arrow}) =
 
     },[])
 
-    return(
-        <>
-        <div className="parallax-container stories-parallax">
-            <div className="parallax-cover" ref={parallaxStoryCover}>
-                <Img fluid={storiesCover} alt="Stories Section Cover" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
-            </div>
+    return <>
+    <div className="parallax-container stories-parallax">
+        <div className="parallax-cover" ref={parallaxStoryCover}>
+            <GatsbyImage
+              image={storiesCover}
+              alt="Stories Section Cover"
+              style={{maxHeight:'100%'}}
+              imgStyle={{objectFit:'cover'}} />
         </div>
+    </div>
 
-        <div className="stories-section" id="stories-section">
-            <div className="stories-section-left">
-              <h1 className="stories-section-title"> STORIES </h1>
-              <p className="stories-section-quote">WE DO NOT JUST DELIVER; WE CREATE EVERLASTING CAPABILITIES.</p>
-              <hr className="stories-section-separator"></hr>
-              <div className="stories-section-images">
-                    <div className="stories-section-icon square" ref={squareRef} >
-                        <Img fluid={square} alt="Square Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain"}}/>
-                    </div>
-                    <div className="stories-section-icon rshape" ref={rshapeRef}>
-                        <Img fluid={rshape} alt="R Shape Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain"}} />
-                    </div>
-                    <div className="stories-section-icon triangle" ref={triRef}>
-                        <Img fluid={triangle} alt="Triangle Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain"}} />
-                    </div>
-                    <div className="stories-section-icon rectangle" ref={rectRef}>
-                        <Img fluid={rect} alt="Rectangle Illustration" style={{ maxHeight: "100%" }}  imgStyle={{ objectFit: "contain"}} />
-                    </div>
-              </div>
-
-            </div>
-            <div className="stories-section-right">
-                <div className="arrows">
-                    <div class={whichSection == 0 ? "disable-arrow":"up-arrow"} onClick={()=>{slideToStories(false)}}>
-                       <Img fluid={arrow} alt="Up Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
-
-                    </div>
-                    <div class={whichSection == newStories.length-1 ? "disable-arrow":"down-arrow"}  onClick={()=>{slideToStories(true)}}>
-                      <Img fluid={arrow} alt="Down Arrow Icon" style={{maxHeight:'100%'}} imgStyle={{objectFit:'cover'}} />
-                    </div>
-                 </div>
-
-                 
-                <div className="stories-section-container" ref={storiesContainer}>
-                
-               {
-                 
-                  newStories.map((story,index)=>(
-                    <div className={`section-${index} section`} ref={el => storyBlocks.current[index]=el}>
-                     {story.map((box,boxIndex)=>(
-                     <Link to={`/${box.node.slug}`}> 
-                      <div className="stories-section-box" key={(index+1)*(boxIndex+1)}>
-                        <h1 className="stories-section-box-title"> {box.node.title} </h1>
-                        <div className="stories-section-story-image">
-                            <Img fluid={box.node.storyImage.fluid} alt={`${box.node.title} Image`} style={{ height:'25vw'}}  imgStyle={{ objectFit: "cover",objectPosition:'50% 50%' }} />
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                    </div>
-
-                  ))
-               }
-               </div>
-
-               <div className='sliders'>
-                 {
-                 newStories.map((story,index)=>(
-
-                   <div className={whichSection == index ? "active-slider":"slider"} onClick={()=>{moveToStories(index)}}></div>
-
-                 ))
-                }
-               </div>
-               
-
-            </div>
+    <div className="stories-section" id="stories-section">
+        <div className="stories-section-left">
+          <h1 className="stories-section-title"> STORIES </h1>
+          <p className="stories-section-quote">WE DO NOT JUST DELIVER; WE CREATE EVERLASTING CAPABILITIES.</p>
+          <hr className="stories-section-separator"></hr>
+          <div className="stories-section-images">
+                <div className="stories-section-icon square" ref={squareRef} >
+                    <GatsbyImage
+                      image={square}
+                      alt="Square Illustration"
+                      style={{ maxHeight: "100%" }}
+                      imgStyle={{ objectFit: "contain"}} />
+                </div>
+                <div className="stories-section-icon rshape" ref={rshapeRef}>
+                    <GatsbyImage
+                      image={rshape}
+                      alt="R Shape Illustration"
+                      style={{ maxHeight: "100%" }}
+                      imgStyle={{ objectFit: "contain"}} />
+                </div>
+                <div className="stories-section-icon triangle" ref={triRef}>
+                    <GatsbyImage
+                      image={triangle}
+                      alt="Triangle Illustration"
+                      style={{ maxHeight: "100%" }}
+                      imgStyle={{ objectFit: "contain"}} />
+                </div>
+                <div className="stories-section-icon rectangle" ref={rectRef}>
+                    <GatsbyImage
+                      image={rect}
+                      alt="Rectangle Illustration"
+                      style={{ maxHeight: "100%" }}
+                      imgStyle={{ objectFit: "contain"}} />
+                </div>
+          </div>
 
         </div>
-        </>
-    )
+        <div className="stories-section-right">
+            <div className="arrows">
+                <div class={whichSection == 0 ? "disable-arrow":"up-arrow"} onClick={()=>{slideToStories(false)}}>
+                   <GatsbyImage
+                     image={arrow}
+                     alt="Up Arrow Icon"
+                     style={{maxHeight:'100%'}}
+                     imgStyle={{objectFit:'cover'}} />
+
+                </div>
+                <div class={whichSection == newStories.length-1 ? "disable-arrow":"down-arrow"}  onClick={()=>{slideToStories(true)}}>
+                  <GatsbyImage
+                    image={arrow}
+                    alt="Down Arrow Icon"
+                    style={{maxHeight:'100%'}}
+                    imgStyle={{objectFit:'cover'}} />
+                </div>
+             </div>
+
+             
+            <div className="stories-section-container" ref={storiesContainer}>
+            
+           {
+             
+              newStories.map((story,index)=>(
+                <div className={`section-${index} section`} ref={el => storyBlocks.current[index]=el}>
+                 {story.map((box,boxIndex)=>(
+                 <Link to={`/${box.node.slug}`}> 
+                  <div className="stories-section-box" key={(index+1)*(boxIndex+1)}>
+                    <h1 className="stories-section-box-title"> {box.node.title} </h1>
+                    <div className="stories-section-story-image">
+                        <GatsbyImage
+                          image={box.node.storyImage.gatsbyImageData}
+                          alt={`${box.node.title} Image`}
+                          style={{ height:'25vw'}}
+                          imgStyle={{ objectFit: "cover",objectPosition:'50% 50%' }} />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+                </div>
+
+              ))
+           }
+           </div>
+
+           <div className='sliders'>
+             {
+             newStories.map((story,index)=>(
+
+               <div className={whichSection == index ? "active-slider":"slider"} onClick={()=>{moveToStories(index)}}></div>
+
+             ))
+            }
+           </div>
+           
+
+        </div>
+
+    </div>
+    </>;
 }
 
 export default Stories;

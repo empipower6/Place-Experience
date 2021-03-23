@@ -21,6 +21,7 @@ module.exports = {
     //   },
     // },
     "gatsby-plugin-sass",
+    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
