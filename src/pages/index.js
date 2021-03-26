@@ -196,7 +196,7 @@ useEffect(()=>{
         <link rel="icon" href={Favicon} /> 
     </Helmet>
 
-    <Video video={data.video} playIcon={imageFinder(data.media,"Play")} pauseIcon={imageFinder(data.media,"Pause")}/>
+    <Video video={data.video} playIcon={imageFinder(data.media,"Play")} pauseIcon={imageFinder(data.media,"Pause")} muteIcon={imageFinder(data.media,"Mute")} unmuteIcon={imageFinder(data.media,"Unmute")}/>
     
       <Intro logo={imageFinder(data.media,"Logo")} customer={imageFinder(data.media,"First Cover",true)} 
         experience={imageFinder(data.media,"Second Cover",true)} growth={imageFinder(data.media,"Third Cover",true)}

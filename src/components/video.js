@@ -5,7 +5,7 @@ import { gsap, Power4} from "gsap/dist/gsap";
 
 
 
-const Video = ({video,playIcon,pauseIcon}) =>{
+const Video = ({video,muteIcon,unmuteIcon,playIcon,pauseIcon}) =>{
 
     const videoRef = useRef();
     const controller = useRef();
@@ -48,16 +48,22 @@ const Video = ({video,playIcon,pauseIcon}) =>{
     
               if(entry.isIntersecting){
     
-                 
-                videoRef.current.play();
-                setPlaySwitch(!playSwitch);
+                if(!playSwitch){
 
-                 
+                    videoRef.current.play();
+
+                }
+                             
             
               }
               else{
-             videoRef.current.pause(); 
-             setPlaySwitch(!playSwitch);
+            
+                if(!playSwitch){
+
+                    videoRef.current.pause();
+
+
+                }
             }
              
             })
@@ -121,16 +127,18 @@ const Video = ({video,playIcon,pauseIcon}) =>{
 
         <div className='controllers'  onMouseMove={()=>{mouseMoved()}} >
 
-        <div className="muteControls">
+        <div className="muteControls"  onClick={()=>{muteSwitch()}} >
             <div className={mute ? "mute" :'inactive'}>
                 
-            <button onClick={()=>{muteSwitch()}}>Mute</button>
+            <GatsbyImage image={unmuteIcon} alt="Mute Button"></GatsbyImage>
+
 
             </div>
 
             <div className={mute ? "inactive" :'mute'}>
 
-            <button onClick={()=>{muteSwitch()}}>Muted</button>
+         
+            <GatsbyImage  image={muteIcon} alt="Unmute Button"></GatsbyImage>
 
             </div>
          </div>
@@ -139,13 +147,13 @@ const Video = ({video,playIcon,pauseIcon}) =>{
          <div className="playPause" ref={controller} onClick={()=>{play()}}>
             <div className={playSwitch ? "play" :'inactive'}>
                 
-            <GatsbyImage image={pauseIcon} alt="Play Button"></GatsbyImage>
+            <GatsbyImage image={playIcon} alt="Play Button"></GatsbyImage>
 
             </div>
 
             <div className={playSwitch ? "inactive" :'pause'}>
 
-            <GatsbyImage image={playIcon} alt="Pause Button"></GatsbyImage>
+            <GatsbyImage image={pauseIcon} alt="Pause Button"></GatsbyImage>
 
             </div>
          </div>
